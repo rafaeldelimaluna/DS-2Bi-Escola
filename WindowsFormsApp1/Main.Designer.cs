@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -38,16 +38,17 @@ namespace WindowsFormsApp1
             this.MainRegisterRoomBtn.Name = "MainRegisterRoomBtn";
             this.MainRegisterRoomBtn.Size = new System.Drawing.Size(164, 54);
             this.MainRegisterRoomBtn.TabIndex = 0;
-            this.MainRegisterRoomBtn.Text = "Cadastro de Salas";
+            this.MainRegisterRoomBtn.Text = "Cadastrar Salas";
             this.MainRegisterRoomBtn.UseVisualStyleBackColor = true;
+            this.MainRegisterRoomBtn.Click += new System.EventHandler(this.MainRegisterRoomBtn_Click);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.MainRegisterRoomBtn);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.ResumeLayout(false);
 

@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsApp1
 {
-    partial class salas
+    partial class Salas
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,14 @@ namespace WindowsFormsApp1
         {
             this.NameEntry = new System.Windows.Forms.TextBox();
             this.PCsNumberEntry = new System.Windows.Forms.TextBox();
-            this.EmailEntry = new System.Windows.Forms.TextBox();
+            this.ChairEntry = new System.Windows.Forms.TextBox();
             this.BuildingEntry = new System.Windows.Forms.TextBox();
             this.RegisterBtn = new System.Windows.Forms.Button();
             this.IsLabChk = new System.Windows.Forms.CheckBox();
             this.RegisterRoomHeaderLabel = new System.Windows.Forms.Label();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.RegisterRoomHeaderPanel = new System.Windows.Forms.Panel();
+            this.WarningLabel = new System.Windows.Forms.Label();
             this.RegisterRoomHeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,8 +49,8 @@ namespace WindowsFormsApp1
             this.NameEntry.Size = new System.Drawing.Size(218, 20);
             this.NameEntry.TabIndex = 0;
             this.NameEntry.Text = "Nome da Sala";
-            this.NameEntry.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.NameEntry.Enter += new System.EventHandler(this.NameEntry_Enter);
+            this.NameEntry.Leave += new System.EventHandler(this.NameEntry_Enter);
             // 
             // PCsNumberEntry
             // 
@@ -57,17 +58,19 @@ namespace WindowsFormsApp1
             this.PCsNumberEntry.Name = "PCsNumberEntry";
             this.PCsNumberEntry.Size = new System.Drawing.Size(218, 20);
             this.PCsNumberEntry.TabIndex = 1;
-            this.PCsNumberEntry.Text = "Numero de Pcs";
-            this.PCsNumberEntry.Enter += new System.EventHandler(this.NameEntry_Enter);
+            this.PCsNumberEntry.Text = "Número de PCs";
+            this.PCsNumberEntry.Enter += new System.EventHandler(this.PCsNumber_Enter);
+            this.PCsNumberEntry.Leave += new System.EventHandler(this.PCsNumber_Enter);
             // 
-            // EmailEntry
+            // ChairEntry
             // 
-            this.EmailEntry.Location = new System.Drawing.Point(60, 230);
-            this.EmailEntry.Name = "EmailEntry";
-            this.EmailEntry.Size = new System.Drawing.Size(218, 20);
-            this.EmailEntry.TabIndex = 2;
-            this.EmailEntry.Text = "Número de Cadeiras";
-            this.EmailEntry.Enter += new System.EventHandler(this.NameEntry_Enter);
+            this.ChairEntry.Location = new System.Drawing.Point(60, 230);
+            this.ChairEntry.Name = "ChairEntry";
+            this.ChairEntry.Size = new System.Drawing.Size(218, 20);
+            this.ChairEntry.TabIndex = 2;
+            this.ChairEntry.Text = "Número de Cadeiras";
+            this.ChairEntry.Enter += new System.EventHandler(this.ChairEntry_Enter);
+            this.ChairEntry.Leave += new System.EventHandler(this.ChairEntry_Enter);
             // 
             // BuildingEntry
             // 
@@ -76,7 +79,8 @@ namespace WindowsFormsApp1
             this.BuildingEntry.Size = new System.Drawing.Size(218, 20);
             this.BuildingEntry.TabIndex = 3;
             this.BuildingEntry.Text = "Prédio";
-            this.BuildingEntry.Enter += new System.EventHandler(this.NameEntry_Enter);
+            this.BuildingEntry.Enter += new System.EventHandler(this.BuildingEntry_Enter);
+            this.BuildingEntry.Leave += new System.EventHandler(this.BuildingEntry_Enter);
             // 
             // RegisterBtn
             // 
@@ -86,7 +90,7 @@ namespace WindowsFormsApp1
             this.RegisterBtn.TabIndex = 4;
             this.RegisterBtn.Text = "Cadastrar";
             this.RegisterBtn.UseVisualStyleBackColor = true;
-            this.RegisterBtn.Click += new System.EventHandler(this.button1_Click);
+            this.RegisterBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
             // 
             // IsLabChk
             // 
@@ -108,7 +112,6 @@ namespace WindowsFormsApp1
             this.RegisterRoomHeaderLabel.Size = new System.Drawing.Size(288, 41);
             this.RegisterRoomHeaderLabel.TabIndex = 6;
             this.RegisterRoomHeaderLabel.Text = "Cadastro de Salas";
-            this.RegisterRoomHeaderLabel.Click += new System.EventHandler(this.SalasCadastroHeaderLabel_Click);
             // 
             // ClearBtn
             // 
@@ -129,20 +132,31 @@ namespace WindowsFormsApp1
             this.RegisterRoomHeaderPanel.Size = new System.Drawing.Size(327, 73);
             this.RegisterRoomHeaderPanel.TabIndex = 8;
             // 
-            // salas
+            // WarningLabel
+            // 
+            this.WarningLabel.AutoSize = true;
+            this.WarningLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WarningLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.WarningLabel.Location = new System.Drawing.Point(59, 128);
+            this.WarningLabel.Name = "WarningLabel";
+            this.WarningLabel.Size = new System.Drawing.Size(0, 21);
+            this.WarningLabel.TabIndex = 9;
+            // 
+            // Salas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 450);
+            this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.RegisterRoomHeaderPanel);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.IsLabChk);
             this.Controls.Add(this.RegisterBtn);
             this.Controls.Add(this.BuildingEntry);
-            this.Controls.Add(this.EmailEntry);
+            this.Controls.Add(this.ChairEntry);
             this.Controls.Add(this.PCsNumberEntry);
             this.Controls.Add(this.NameEntry);
-            this.Name = "salas";
+            this.Name = "Salas";
             this.Text = "salas";
             this.RegisterRoomHeaderPanel.ResumeLayout(false);
             this.RegisterRoomHeaderPanel.PerformLayout();
@@ -155,12 +169,13 @@ namespace WindowsFormsApp1
 
         private System.Windows.Forms.TextBox NameEntry;
         private System.Windows.Forms.TextBox PCsNumberEntry;
-        private System.Windows.Forms.TextBox EmailEntry;
+        private System.Windows.Forms.TextBox ChairEntry;
         private System.Windows.Forms.TextBox BuildingEntry;
         private System.Windows.Forms.Button RegisterBtn;
         private System.Windows.Forms.CheckBox IsLabChk;
         private System.Windows.Forms.Label RegisterRoomHeaderLabel;
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Panel RegisterRoomHeaderPanel;
+        private System.Windows.Forms.Label WarningLabel;
     }
 }
