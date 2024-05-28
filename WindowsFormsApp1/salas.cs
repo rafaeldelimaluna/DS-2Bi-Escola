@@ -23,15 +23,16 @@ namespace WindowsFormsApp1
         private void Placeholder(TextBox textBox,String placeholder_value)
         {
             String textBox_text = textBox.Text;
+
             if (textBox_text == placeholder_value)
             {
                 textBox.Text = "";
                 textBox.ForeColor = Color.Black;
             }
-            else
+            else if(textBox_text == "")
             {
                 textBox.Text = placeholder_value;
-                textBox.ForeColor = Color.LightGray;
+                textBox.ForeColor = Color.Gray;
             }
         }
 
@@ -59,28 +60,51 @@ namespace WindowsFormsApp1
         {
             WarningLabel.Text = $"ERRO {TextWarning}";
         }
+
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             if (NameEntry.Text == NameEntry_PlaceHolder) 
             { 
-                SetWarning("Campo nome vazio"); 
+                SetWarning("Campo [nome] vazio"); 
                 return; 
             }
-            if (PCsNumberEntry.Text !=PCsNumber_PlaceHolder)
+            if (PCsNumberEntry.Text ==PCsNumber_PlaceHolder)
             {
                 //! Char.IsDigit(PCsNumberEntry.Text,0) &&  !Char.IsDigit(PCsNumberEntry.Text,1) && 
-                SetWarning("O campo número de pcs deve conter valores NUMÉRICOS");
+                SetWarning("O campo [número de pcs] deve conter valores NUMÉRICOS");
                 return; 
             }
             if (ChairEntry.Text==ChairEntry_Placeholder) 
             {
-                SetWarning("Número de cadeiras vazio"); return; 
+                SetWarning("[Número de cadeiras] vazio"); return; 
             }
             if (BuildingEntry.Text==BuildingEntry_Placeholder) 
             {
                 SetWarning("Campo Prédio vazio"); 
                 return; 
             }
+            RegistersDGVCadastroSalas.Rows.Add(NameEntry.Text, PCsNumberEntry.Text, ChairEntry.Text, BuildingEntry.Text,IsLabChk.Checked);
+            ClearForm();
+        }
+        private void ClearForm()
+        {
+            NameEntry.Text = NameEntry_PlaceHolder;
+            NameEntry.ForeColor = Color.Gray;
+            PCsNumberEntry.Text = PCsNumber_PlaceHolder;
+            PCsNumberEntry.ForeColor = Color.Gray;
+            ChairEntry.Text = ChairEntry_Placeholder;
+            ChairEntry.ForeColor = Color.Gray;
+            BuildingEntry.Text = BuildingEntry_Placeholder;
+            BuildingEntry.ForeColor = Color.Gray;
+        }
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

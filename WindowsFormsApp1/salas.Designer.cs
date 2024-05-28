@@ -39,7 +39,15 @@ namespace WindowsFormsApp1
             this.ClearBtn = new System.Windows.Forms.Button();
             this.RegisterRoomHeaderPanel = new System.Windows.Forms.Panel();
             this.WarningLabel = new System.Windows.Forms.Label();
+            this.RegistersDGVCadastroSalas = new System.Windows.Forms.DataGridView();
+            this.RegistersHeaderCadastroSalas = new System.Windows.Forms.Label();
+            this.NameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberPCsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberChairsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuildingCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsLabCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegisterRoomHeaderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RegistersDGVCadastroSalas)).BeginInit();
             this.SuspendLayout();
             // 
             // NameEntry
@@ -107,7 +115,7 @@ namespace WindowsFormsApp1
             this.RegisterRoomHeaderLabel.AutoSize = true;
             this.RegisterRoomHeaderLabel.Font = new System.Drawing.Font("Microsoft YaHei", 24F);
             this.RegisterRoomHeaderLabel.ForeColor = System.Drawing.Color.White;
-            this.RegisterRoomHeaderLabel.Location = new System.Drawing.Point(14, 18);
+            this.RegisterRoomHeaderLabel.Location = new System.Drawing.Point(275, 9);
             this.RegisterRoomHeaderLabel.Name = "RegisterRoomHeaderLabel";
             this.RegisterRoomHeaderLabel.Size = new System.Drawing.Size(288, 41);
             this.RegisterRoomHeaderLabel.TabIndex = 6;
@@ -121,6 +129,7 @@ namespace WindowsFormsApp1
             this.ClearBtn.TabIndex = 7;
             this.ClearBtn.Text = "Limpar";
             this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // RegisterRoomHeaderPanel
             // 
@@ -129,7 +138,7 @@ namespace WindowsFormsApp1
             this.RegisterRoomHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.RegisterRoomHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
             this.RegisterRoomHeaderPanel.Name = "RegisterRoomHeaderPanel";
-            this.RegisterRoomHeaderPanel.Size = new System.Drawing.Size(327, 73);
+            this.RegisterRoomHeaderPanel.Size = new System.Drawing.Size(995, 73);
             this.RegisterRoomHeaderPanel.TabIndex = 8;
             // 
             // WarningLabel
@@ -142,11 +151,68 @@ namespace WindowsFormsApp1
             this.WarningLabel.Size = new System.Drawing.Size(0, 21);
             this.WarningLabel.TabIndex = 9;
             // 
+            // RegistersDGVCadastroSalas
+            // 
+            this.RegistersDGVCadastroSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RegistersDGVCadastroSalas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameCol,
+            this.NumberPCsCol,
+            this.NumberChairsCol,
+            this.BuildingCol,
+            this.IsLabCol});
+            this.RegistersDGVCadastroSalas.Location = new System.Drawing.Point(424, 168);
+            this.RegistersDGVCadastroSalas.Name = "RegistersDGVCadastroSalas";
+            this.RegistersDGVCadastroSalas.Size = new System.Drawing.Size(548, 218);
+            this.RegistersDGVCadastroSalas.TabIndex = 10;
+            // 
+            // RegistersHeaderCadastroSalas
+            // 
+            this.RegistersHeaderCadastroSalas.AutoSize = true;
+            this.RegistersHeaderCadastroSalas.Location = new System.Drawing.Point(563, 128);
+            this.RegistersHeaderCadastroSalas.Name = "RegistersHeaderCadastroSalas";
+            this.RegistersHeaderCadastroSalas.Size = new System.Drawing.Size(54, 13);
+            this.RegistersHeaderCadastroSalas.TabIndex = 11;
+            this.RegistersHeaderCadastroSalas.Text = "Cadastros";
+            this.RegistersHeaderCadastroSalas.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // NameCol
+            // 
+            this.NameCol.HeaderText = "Nome";
+            this.NameCol.Name = "NameCol";
+            this.NameCol.ReadOnly = true;
+            // 
+            // NumberPCsCol
+            // 
+            this.NumberPCsCol.HeaderText = "Número de PCs";
+            this.NumberPCsCol.Name = "NumberPCsCol";
+            this.NumberPCsCol.ReadOnly = true;
+            // 
+            // NumberChairsCol
+            // 
+            this.NumberChairsCol.HeaderText = "Número de Cadeiras";
+            this.NumberChairsCol.Name = "NumberChairsCol";
+            this.NumberChairsCol.ReadOnly = true;
+            // 
+            // BuildingCol
+            // 
+            this.BuildingCol.HeaderText = "Prédio";
+            this.BuildingCol.Name = "BuildingCol";
+            this.BuildingCol.ReadOnly = true;
+            // 
+            // IsLabCol
+            // 
+            this.IsLabCol.HeaderText = "Laboratório";
+            this.IsLabCol.Name = "IsLabCol";
+            this.IsLabCol.ReadOnly = true;
+            // 
             // Salas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 450);
+            this.BackColor = System.Drawing.SystemColors.Menu;
+            this.ClientSize = new System.Drawing.Size(997, 450);
+            this.Controls.Add(this.RegistersHeaderCadastroSalas);
+            this.Controls.Add(this.RegistersDGVCadastroSalas);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.RegisterRoomHeaderPanel);
             this.Controls.Add(this.ClearBtn);
@@ -160,6 +226,7 @@ namespace WindowsFormsApp1
             this.Text = "salas";
             this.RegisterRoomHeaderPanel.ResumeLayout(false);
             this.RegisterRoomHeaderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RegistersDGVCadastroSalas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +244,12 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Panel RegisterRoomHeaderPanel;
         private System.Windows.Forms.Label WarningLabel;
+        private System.Windows.Forms.DataGridView RegistersDGVCadastroSalas;
+        private System.Windows.Forms.Label RegistersHeaderCadastroSalas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberPCsCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberChairsCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuildingCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsLabCol;
     }
 }
