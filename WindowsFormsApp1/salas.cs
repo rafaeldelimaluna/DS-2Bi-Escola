@@ -102,7 +102,9 @@ namespace WindowsFormsApp1
                 SetWarning("Campo Prédio vazio"); 
                 return; 
             }
-            //RegistersDGVCadastroSalas.Rows.Add(NameEntry.Text, PCsNumberEntry.Text, ChairEntry.Text, BuildingEntry.Text,IsLabChk.Checked);
+            //NameEntry.Text, PCsNumberEntry.Text, ChairEntry.Text, BuildingEntry.Text,;
+            //List<var> 
+            //RegistersDGVCadastroSalas.Rows.Add();
             ClearForm();
         }
         private void ClearForm()

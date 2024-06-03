@@ -12,14 +12,17 @@ namespace WindowsFormsApp1
 {
     public partial class Main : Form
     {
-        private bool is_salas_instancied;
+        private bool is_salas_instancied,isCursosInstancied,IsProfessoresInstancied,IsUsuariosInstancied;
         private Salas salas;
+        private Cursos cursos;
+        private Professores professores;
+        private Usuarios usuarios;
         public Main()
         {
             InitializeComponent();
         }
 
-        private void MainRegisterRoomBtn_Click(object sender, EventArgs e)
+        private void salasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (is_salas_instancied)
             {
@@ -31,7 +34,21 @@ namespace WindowsFormsApp1
                 salas.Show();
                 is_salas_instancied = true;
             }
-            
+
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (isCursosInstancied)
+            {
+                cursos.Show();
+            }
+            else
+            {
+                cursos = new Cursos();
+                cursos.Show();
+                isCursosInstancied = true;
+            }
         }
     }
 }
