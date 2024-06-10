@@ -30,12 +30,12 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.NomeCompletoTbx = new System.Windows.Forms.TextBox();
+            this.SenhaTbx = new System.Windows.Forms.TextBox();
+            this.CursoTbx = new System.Windows.Forms.TextBox();
+            this.EmailTbx = new System.Windows.Forms.TextBox();
+            this.RegisterBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,55 +49,61 @@ namespace WindowsFormsApp1
             this.label1.TabIndex = 0;
             this.label1.Text = "Cadastro Usuarios";
             // 
-            // textBox1
+            // NomeCompletoTbx
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(139, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Nome Completo";
+            this.NomeCompletoTbx.Location = new System.Drawing.Point(3, 48);
+            this.NomeCompletoTbx.Name = "NomeCompletoTbx";
+            this.NomeCompletoTbx.Size = new System.Drawing.Size(139, 20);
+            this.NomeCompletoTbx.TabIndex = 1;
+            this.NomeCompletoTbx.Text = "Nome Completo";
+            this.NomeCompletoTbx.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
-            // textBox3
+            // SenhaTbx
             // 
-            this.textBox3.Location = new System.Drawing.Point(3, 126);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(139, 20);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "Senha";
+            this.SenhaTbx.Location = new System.Drawing.Point(3, 126);
+            this.SenhaTbx.Name = "SenhaTbx";
+            this.SenhaTbx.PasswordChar = '*';
+            this.SenhaTbx.Size = new System.Drawing.Size(139, 20);
+            this.SenhaTbx.TabIndex = 3;
+            this.SenhaTbx.Text = "Senha";
+            this.SenhaTbx.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
-            // textBox4
+            // CursoTbx
             // 
-            this.textBox4.Location = new System.Drawing.Point(3, 100);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(139, 20);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "Curso";
+            this.CursoTbx.Location = new System.Drawing.Point(3, 100);
+            this.CursoTbx.Name = "CursoTbx";
+            this.CursoTbx.Size = new System.Drawing.Size(139, 20);
+            this.CursoTbx.TabIndex = 4;
+            this.CursoTbx.Text = "Curso";
+            this.CursoTbx.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
-            // textBox5
+            // EmailTbx
             // 
-            this.textBox5.Location = new System.Drawing.Point(3, 74);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(139, 20);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.Text = "Email";
+            this.EmailTbx.Location = new System.Drawing.Point(3, 74);
+            this.EmailTbx.Name = "EmailTbx";
+            this.EmailTbx.Size = new System.Drawing.Size(139, 20);
+            this.EmailTbx.TabIndex = 5;
+            this.EmailTbx.Text = "Email";
+            this.EmailTbx.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
-            // button1
+            // RegisterBtn
             // 
-            this.button1.Location = new System.Drawing.Point(3, 152);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Cadastrar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.RegisterBtn.Location = new System.Drawing.Point(3, 152);
+            this.RegisterBtn.Name = "RegisterBtn";
+            this.RegisterBtn.Size = new System.Drawing.Size(139, 23);
+            this.RegisterBtn.TabIndex = 6;
+            this.RegisterBtn.Text = "Cadastrar";
+            this.RegisterBtn.UseVisualStyleBackColor = true;
+            this.RegisterBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
             // 
-            // button2
+            // ClearBtn
             // 
-            this.button2.Location = new System.Drawing.Point(3, 181);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Limpar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ClearBtn.Location = new System.Drawing.Point(3, 181);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(139, 23);
+            this.ClearBtn.TabIndex = 7;
+            this.ClearBtn.Text = "Limpar";
+            this.ClearBtn.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -113,12 +119,12 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 289);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ClearBtn);
+            this.Controls.Add(this.RegisterBtn);
+            this.Controls.Add(this.EmailTbx);
+            this.Controls.Add(this.CursoTbx);
+            this.Controls.Add(this.SenhaTbx);
+            this.Controls.Add(this.NomeCompletoTbx);
             this.Controls.Add(this.label1);
             this.Name = "Usuarios";
             this.Text = "Usuarios";
@@ -131,12 +137,12 @@ namespace WindowsFormsApp1
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox NomeCompletoTbx;
+        private System.Windows.Forms.TextBox SenhaTbx;
+        private System.Windows.Forms.TextBox CursoTbx;
+        private System.Windows.Forms.TextBox EmailTbx;
+        private System.Windows.Forms.Button RegisterBtn;
+        private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

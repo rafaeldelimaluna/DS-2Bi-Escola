@@ -17,6 +17,21 @@ namespace WindowsFormsApp1
         private Cursos cursos;
         private Professores professores;
         private Usuarios usuarios;
+
+        private void professoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsProfessoresInstancied)
+            {
+                professores.Focus();
+            }
+            else
+            {
+                professores = new Professores();
+                professores.Show();
+                IsProfessoresInstancied = true;
+            }
+        }
+
         public Main()
         {
             InitializeComponent();

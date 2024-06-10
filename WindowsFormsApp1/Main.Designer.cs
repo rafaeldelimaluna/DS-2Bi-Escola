@@ -93,6 +93,7 @@ namespace WindowsFormsApp1
             this.professoresToolStripMenuItem.Name = "professoresToolStripMenuItem";
             this.professoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.professoresToolStripMenuItem.Text = "Professores";
+            this.professoresToolStripMenuItem.Click += new System.EventHandler(this.professoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
