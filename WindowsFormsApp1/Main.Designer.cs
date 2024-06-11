@@ -87,6 +87,7 @@ namespace WindowsFormsApp1
             this.disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
             this.disciplinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.disciplinasToolStripMenuItem.Text = "Disciplinas";
+            this.disciplinasToolStripMenuItem.Click += new System.EventHandler(this.disciplinasToolStripMenuItem_Click);
             // 
             // professoresToolStripMenuItem
             // 
@@ -100,6 +101,7 @@ namespace WindowsFormsApp1
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // Main
             // 

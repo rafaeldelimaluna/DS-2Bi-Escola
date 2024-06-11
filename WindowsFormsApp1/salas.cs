@@ -131,6 +131,7 @@ namespace WindowsFormsApp1
             sala.IsLab = IsLabChk.Checked;
             sala.NumeroCadeiras= Convert.ToInt32(ChairEntry.Text);
             sala.NumeroComputadores = Convert.ToInt32(PCsNumberEntry.Text);
+            dados.Add(sala);
         }
     }
 }

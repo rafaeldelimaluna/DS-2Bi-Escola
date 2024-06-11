@@ -12,11 +12,12 @@ namespace WindowsFormsApp1
 {
     public partial class Main : Form
     {
-        private bool is_salas_instancied,isCursosInstancied,IsProfessoresInstancied,IsUsuariosInstancied;
+        private bool is_salas_instancied,isCursosInstancied,IsProfessoresInstancied,IsUsuariosInstancied,IsDisciplinaInstancied;
         private Salas salas;
         private Cursos cursos;
         private Professores professores;
         private Usuarios usuarios;
+        private Disciplinas disciplinas;
 
         private void professoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -29,6 +30,34 @@ namespace WindowsFormsApp1
                 professores = new Professores();
                 professores.Show();
                 IsProfessoresInstancied = true;
+            }
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsUsuariosInstancied)
+            {
+                usuarios.Show();
+            }
+            else
+            {
+                usuarios = new Usuarios();
+                usuarios.Show();
+                IsUsuariosInstancied=true;
+            }
+        }
+
+        private void disciplinasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsDisciplinaInstancied)
+            {
+                disciplinas.Show();
+            }
+            else
+            {
+                disciplinas = new Disciplinas();
+                disciplinas.Show();
+                IsDisciplinaInstancied = true;
             }
         }
 

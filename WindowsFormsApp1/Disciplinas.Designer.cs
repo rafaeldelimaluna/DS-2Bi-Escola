@@ -35,9 +35,10 @@ namespace WindowsFormsApp1
             this.isAtivoChk = new System.Windows.Forms.CheckBox();
             this.RegisterBtn = new System.Windows.Forms.Button();
             this.ClearBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IdTbx = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Table = new System.Windows.Forms.DataGridView();
+            this.IdNud = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +57,6 @@ namespace WindowsFormsApp1
             this.NomeTbx.Size = new System.Drawing.Size(167, 20);
             this.NomeTbx.TabIndex = 1;
             this.NomeTbx.Text = "Nome";
-            this.NomeTbx.TextChanged += new System.EventHandler(this.NomeTbx_TextChanged);
             this.NomeTbx.Enter += new System.EventHandler(this.NomeTbx_Enter);
             // 
             // SiglaTbx
@@ -66,7 +66,6 @@ namespace WindowsFormsApp1
             this.SiglaTbx.Size = new System.Drawing.Size(167, 20);
             this.SiglaTbx.TabIndex = 2;
             this.SiglaTbx.Text = "Sigla";
-            this.SiglaTbx.TextChanged += new System.EventHandler(this.SiglaTbx_TextChanged);
             this.SiglaTbx.Enter += new System.EventHandler(this.SiglaTbx_Enter);
             // 
             // isAtivoChk
@@ -78,7 +77,6 @@ namespace WindowsFormsApp1
             this.isAtivoChk.TabIndex = 3;
             this.isAtivoChk.Text = "Ativo";
             this.isAtivoChk.UseVisualStyleBackColor = true;
-            this.isAtivoChk.CheckedChanged += new System.EventHandler(this.isAtivoChk_CheckedChanged);
             // 
             // RegisterBtn
             // 
@@ -98,30 +96,31 @@ namespace WindowsFormsApp1
             this.ClearBtn.TabIndex = 5;
             this.ClearBtn.Text = "Limpar";
             this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
-            // dataGridView1
+            // Table
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(194, 32);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(594, 240);
-            this.dataGridView1.TabIndex = 6;
+            this.Table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Table.Location = new System.Drawing.Point(194, 32);
+            this.Table.Name = "Table";
+            this.Table.Size = new System.Drawing.Size(594, 240);
+            this.Table.TabIndex = 6;
             // 
-            // IdTbx
+            // IdNud
             // 
-            this.IdTbx.Location = new System.Drawing.Point(12, 56);
-            this.IdTbx.Name = "IdTbx";
-            this.IdTbx.Size = new System.Drawing.Size(167, 20);
-            this.IdTbx.TabIndex = 7;
-            this.IdTbx.Text = "Id";
+            this.IdNud.Location = new System.Drawing.Point(12, 56);
+            this.IdNud.Name = "IdNud";
+            this.IdNud.Size = new System.Drawing.Size(167, 20);
+            this.IdNud.TabIndex = 7;
             // 
             // Disciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 284);
-            this.Controls.Add(this.IdTbx);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.IdNud);
+            this.Controls.Add(this.Table);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.RegisterBtn);
             this.Controls.Add(this.isAtivoChk);
@@ -130,7 +129,8 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.label1);
             this.Name = "Disciplinas";
             this.Text = "Disciplinas";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +144,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.CheckBox isAtivoChk;
         private System.Windows.Forms.Button RegisterBtn;
         private System.Windows.Forms.Button ClearBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox IdTbx;
+        private System.Windows.Forms.DataGridView Table;
+        private System.Windows.Forms.NumericUpDown IdNud;
     }
 }

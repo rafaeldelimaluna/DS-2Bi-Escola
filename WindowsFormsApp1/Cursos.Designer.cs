@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Table = new System.Windows.Forms.DataGridView();
             this.NomeTbx = new System.Windows.Forms.TextBox();
             this.AreaTbx = new System.Windows.Forms.TextBox();
             this.HorarioInicioTbx = new System.Windows.Forms.TextBox();
@@ -37,16 +37,17 @@ namespace WindowsFormsApp1
             this.ClearBtn = new System.Windows.Forms.Button();
             this.HorarioFimTbx = new System.Windows.Forms.TextBox();
             this.DuracaoTbx = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // Table
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(230, 8);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(402, 327);
-            this.dataGridView1.TabIndex = 0;
+            this.Table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Table.Location = new System.Drawing.Point(230, 8);
+            this.Table.Name = "Table";
+            this.Table.Size = new System.Drawing.Size(402, 327);
+            this.Table.TabIndex = 0;
             // 
             // NomeTbx
             // 
@@ -54,6 +55,7 @@ namespace WindowsFormsApp1
             this.NomeTbx.Name = "NomeTbx";
             this.NomeTbx.Size = new System.Drawing.Size(165, 20);
             this.NomeTbx.TabIndex = 1;
+            this.NomeTbx.Text = "Nome";
             // 
             // AreaTbx
             // 
@@ -61,6 +63,7 @@ namespace WindowsFormsApp1
             this.AreaTbx.Name = "AreaTbx";
             this.AreaTbx.Size = new System.Drawing.Size(165, 20);
             this.AreaTbx.TabIndex = 2;
+            this.AreaTbx.Text = "Area";
             // 
             // HorarioInicioTbx
             // 
@@ -68,6 +71,7 @@ namespace WindowsFormsApp1
             this.HorarioInicioTbx.Name = "HorarioInicioTbx";
             this.HorarioInicioTbx.Size = new System.Drawing.Size(165, 20);
             this.HorarioInicioTbx.TabIndex = 3;
+            this.HorarioInicioTbx.Text = "Horário Início";
             // 
             // RegisterBtn
             // 
@@ -87,6 +91,7 @@ namespace WindowsFormsApp1
             this.ClearBtn.TabIndex = 5;
             this.ClearBtn.Text = "Limpar";
             this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // HorarioFimTbx
             // 
@@ -94,6 +99,7 @@ namespace WindowsFormsApp1
             this.HorarioFimTbx.Name = "HorarioFimTbx";
             this.HorarioFimTbx.Size = new System.Drawing.Size(165, 20);
             this.HorarioFimTbx.TabIndex = 9;
+            this.HorarioFimTbx.Text = "Horário Fim";
             // 
             // DuracaoTbx
             // 
@@ -101,6 +107,7 @@ namespace WindowsFormsApp1
             this.DuracaoTbx.Name = "DuracaoTbx";
             this.DuracaoTbx.Size = new System.Drawing.Size(165, 20);
             this.DuracaoTbx.TabIndex = 10;
+            this.DuracaoTbx.Text = "Duracao";
             // 
             // Cursos
             // 
@@ -114,10 +121,10 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.HorarioInicioTbx);
             this.Controls.Add(this.AreaTbx);
             this.Controls.Add(this.NomeTbx);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Table);
             this.Name = "Cursos";
             this.Text = "Cursos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,7 +132,7 @@ namespace WindowsFormsApp1
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Table;
         private System.Windows.Forms.TextBox NomeTbx;
         private System.Windows.Forms.TextBox AreaTbx;
         private System.Windows.Forms.TextBox HorarioInicioTbx;

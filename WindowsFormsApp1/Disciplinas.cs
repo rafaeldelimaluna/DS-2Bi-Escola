@@ -13,11 +13,22 @@ namespace WindowsFormsApp1
 {
     public partial class Disciplinas : Form
     {
+        private DataTable data;
+        private int LinhaSelecionada;
+        private string NomePlaceholder, SiglaPlaceholder;
         public Disciplinas()
         {
             InitializeComponent();
+            data = new BindingSource();
+            Table.DataSource = data;
+            SetPlaceholders();
         }
 
+        private void SetPlaceholders()
+        {
+            NomePlaceholder = NomeTbx.Text;
+            SiglaPlaceholder = SiglaTbx.Text;
+        }
         private void NomeTbx_Enter(object sender, EventArgs e)
         {
 
@@ -28,35 +39,55 @@ namespace WindowsFormsApp1
 
         }
 
+        private void ClearFields()
+        {
+            NomeTbx.Text = "Nome";
+            SiglaTbx.Text = "Sigla";
+            IdNud.Value = 0;
+        }
+        private void Placeholder(TextBox textBox, String placeholder_value)
+        {
+            String textBox_text = textBox.Text;
+
+            if (textBox_text == placeholder_value)
+            {
+                textBox.Text = "";
+                textBox.ForeColor = Color.Black;
+            }
+            else if (textBox_text == "")
+            {
+                textBox.Text = placeholder_value;
+                textBox.ForeColor = Color.Gray;
+            }
+        }
+        private bool VerifyFields()
+        {
+            return true;
+        }
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             DisciplinaEntidade disciplina;
             disciplina = new DisciplinaEntidade();
-            string id_str = IdTbx.Text;
-            int id_value;
-            int.TryParse(id_str, out id_value);
+            int IdValue= Convert.ToInt32(IdNud.Value);
             string nome_text = NomeTbx.Text;
             string sigla_text = SiglaTbx.Text;
             bool is_ativo = isAtivoChk.Checked;
             disciplina.Nome = nome_text;
             disciplina.Sigla = sigla_text;
-            disciplina.Id = id_value;
+            disciplina.Id = IdValue;
+            disciplina.Ativo = is_ativo;
+            data.Add(disciplina);
+            ClearFields();
         }
 
-        private void NomeTbx_TextChanged(object sender, EventArgs e)
+        private object[] Linha()
         {
-
+            return new object[] { Id };
         }
-
-        private void SiglaTbx_TextChanged(object sender, EventArgs e)
+        private void ClearBtn_Click(object sender, EventArgs e)
         {
+            ClearFields();
 
         }
-
-        private void isAtivoChk_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
