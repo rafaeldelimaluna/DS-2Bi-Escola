@@ -14,12 +14,18 @@ namespace WindowsFormsApp1
 
     public partial class Salas : Form
     {
-        BindingSource dados;
+        DataTable dados;
+        int LinhaSelecionada;
+        private SalasEntidade sala1 = new SalasEntidade();
         public Salas()
         {
-            dados = new BindingSource();
+            dados = new DataTable();
             InitializeComponent();
             RegistersDGVCadastroSalas.DataSource = dados;
+            foreach (var attributes in typeof(SalasEntidade).GetProperties())
+            {
+                dados.Columns.Add(attributes.Name);
+            }
         }
         private String NameEntry_PlaceHolder = "Nome da Sala";
         private String PCsNumber_PlaceHolder= "Número de PCs";
@@ -68,7 +74,8 @@ namespace WindowsFormsApp1
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            int i;
+            int NumberPCs;
+            int NumberChairs;
 
             if (NameEntry.Text == NameEntry_PlaceHolder) 
             { 
@@ -81,8 +88,8 @@ namespace WindowsFormsApp1
                 SetWarning("O campo [número de pcs] está vazio");
                 return; 
             }
-            int.TryParse(PCsNumberEntry.Text, out i);
-            if (i == 0)
+            int.TryParse(PCsNumberEntry.Text, out NumberPCs);
+            if (NumberPCs == 0)
             {
                 SetWarning("O campo [número de pcs] deve conter valores NUMÉRICOS");
                 return;
@@ -91,8 +98,8 @@ namespace WindowsFormsApp1
             {
                 SetWarning("[Número de cadeiras] vazio"); return; 
             }
-            int.TryParse(ChairEntry.Text, out i);
-            if (i == 0)
+            int.TryParse(ChairEntry.Text, out NumberChairs);
+            if (NumberChairs == 0)
             {
                 SetWarning("[Número de cadeiras] deve conter números naturais");
                 return;
@@ -102,9 +109,13 @@ namespace WindowsFormsApp1
                 SetWarning("Campo Prédio vazio"); 
                 return; 
             }
-            //NameEntry.Text, PCsNumberEntry.Text, ChairEntry.Text, BuildingEntry.Text,;
-            //List<var> 
-            //RegistersDGVCadastroSalas.Rows.Add();
+            SalasEntidade sala = new SalasEntidade();
+            sala.Nome = NameEntry.Text;
+            sala.NumeroComputadores = NumberPCs;
+            sala.NumeroCadeiras = NumberChairs;
+            sala.Predio = BuildingEntry.Text;
+            sala.IsLab = IsLabChk.Checked;
+            dados.Rows.Add(sala);
             ClearForm();
         }
         private void ClearForm()
@@ -126,12 +137,33 @@ namespace WindowsFormsApp1
         private void SaveRegisterButton_Click(object sender, EventArgs e)
         {
             SalasEntidade sala = new SalasEntidade();
-            sala.Id = Convert.ToInt32(10);
             sala.Nome = NameEntry.Text;
             sala.IsLab = IsLabChk.Checked;
             sala.NumeroCadeiras= Convert.ToInt32(ChairEntry.Text);
             sala.NumeroComputadores = Convert.ToInt32(PCsNumberEntry.Text);
-            dados.Add(sala);
+            sala.Predio = BuildingEntry.Text;
+            dados.Rows.Add(sala);
+        }
+
+
+        private void DeleteRowBtn_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void RegistersDGVCadastroSalas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            DataGridViewCellCollection cells= RegistersDGVCadastroSalas.Rows[LinhaSelecionada].Cells;
+            SalasEntidade sala = new SalasEntidade();
+            if (cells[0].Value.ToString() == null)
+            {
+                return;
+            }
+            //sala.Nome = cells[0].Value;
+            //            sala.NumeroComputadores = Convert.ToInt32(cells[1].Value);
+            //            sala.NumeroCadeiras= Convert.ToInt32(cells[2].Value);
+            //sala.Predio= cells[3].Value;
+            //sala.IsLab= Convert.ToBoolean(cells[4].Value);
         }
     }
 }

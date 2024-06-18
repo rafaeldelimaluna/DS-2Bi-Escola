@@ -47,6 +47,8 @@ namespace WindowsFormsApp1
             this.IsLabCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegistersHeaderCadastroSalas = new System.Windows.Forms.Label();
             this.SaveRegisterButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.RegisterRoomHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RegistersDGVCadastroSalas)).BeginInit();
             this.SuspendLayout();
@@ -165,6 +167,7 @@ namespace WindowsFormsApp1
             this.RegistersDGVCadastroSalas.Name = "RegistersDGVCadastroSalas";
             this.RegistersDGVCadastroSalas.Size = new System.Drawing.Size(548, 218);
             this.RegistersDGVCadastroSalas.TabIndex = 10;
+            this.RegistersDGVCadastroSalas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RegistersDGVCadastroSalas_CellClick);
             // 
             // NameCol
             // 
@@ -207,7 +210,7 @@ namespace WindowsFormsApp1
             // 
             // SaveRegisterButton
             // 
-            this.SaveRegisterButton.Location = new System.Drawing.Point(424, 410);
+            this.SaveRegisterButton.Location = new System.Drawing.Point(424, 392);
             this.SaveRegisterButton.Name = "SaveRegisterButton";
             this.SaveRegisterButton.Size = new System.Drawing.Size(548, 23);
             this.SaveRegisterButton.TabIndex = 12;
@@ -215,12 +218,33 @@ namespace WindowsFormsApp1
             this.SaveRegisterButton.UseVisualStyleBackColor = true;
             this.SaveRegisterButton.Click += new System.EventHandler(this.SaveRegisterButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(849, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Editar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // DeleteRowBtn
+            // 
+            this.DeleteRowBtn.Location = new System.Drawing.Point(424, 415);
+            this.DeleteRowBtn.Name = "DeleteRowBtn";
+            this.DeleteRowBtn.Size = new System.Drawing.Size(419, 23);
+            this.DeleteRowBtn.TabIndex = 14;
+            this.DeleteRowBtn.Text = "Excluir linha focada";
+            this.DeleteRowBtn.UseVisualStyleBackColor = true;
+            this.DeleteRowBtn.Click += new System.EventHandler(this.DeleteRowBtn_Click);
+            // 
             // Salas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(997, 450);
+            this.Controls.Add(this.DeleteRowBtn);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.SaveRegisterButton);
             this.Controls.Add(this.RegistersHeaderCadastroSalas);
             this.Controls.Add(this.RegistersDGVCadastroSalas);
@@ -263,5 +287,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn BuildingCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsLabCol;
         private System.Windows.Forms.Button SaveRegisterButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DeleteRowBtn;
     }
 }

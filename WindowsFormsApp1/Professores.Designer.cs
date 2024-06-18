@@ -38,6 +38,8 @@ namespace WindowsFormsApp1
             this.panel1 = new System.Windows.Forms.Panel();
             this.ApelidoTbxx = new System.Windows.Forms.TextBox();
             this.IdNud = new System.Windows.Forms.NumericUpDown();
+            this.DeleteRowBtn = new System.Windows.Forms.Button();
+            this.EditBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtGridProfessores)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
@@ -74,6 +76,7 @@ namespace WindowsFormsApp1
             this.DtGridProfessores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.DtGridProfessores, "DtGridProfessores");
             this.DtGridProfessores.Name = "DtGridProfessores";
+            this.DtGridProfessores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtGridProfessores_CellClick);
             // 
             // panel1
             // 
@@ -95,10 +98,26 @@ namespace WindowsFormsApp1
             resources.ApplyResources(this.IdNud, "IdNud");
             this.IdNud.Name = "IdNud";
             // 
+            // DeleteRowBtn
+            // 
+            resources.ApplyResources(this.DeleteRowBtn, "DeleteRowBtn");
+            this.DeleteRowBtn.Name = "DeleteRowBtn";
+            this.DeleteRowBtn.UseVisualStyleBackColor = true;
+            this.DeleteRowBtn.Click += new System.EventHandler(this.DeleteRowBtn_Click);
+            // 
+            // EditBtn
+            // 
+            resources.ApplyResources(this.EditBtn, "EditBtn");
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            // 
             // Professores
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.EditBtn);
+            this.Controls.Add(this.DeleteRowBtn);
             this.Controls.Add(this.IdNud);
             this.Controls.Add(this.ApelidoTbxx);
             this.Controls.Add(this.panel1);
@@ -127,5 +146,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox ApelidoTbxx;
         private System.Windows.Forms.NumericUpDown IdNud;
+        private System.Windows.Forms.Button DeleteRowBtn;
+        private System.Windows.Forms.Button EditBtn;
     }
 }

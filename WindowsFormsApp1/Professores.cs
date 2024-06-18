@@ -12,11 +12,17 @@ namespace WindowsFormsApp1
 {
     public partial class Professores : Form
     {
-        BindingSource data;
+        DataTable data;
+        int LinhaSelecionada;
         public Professores()
         {
             InitializeComponent();
-            data = new BindingSource();
+            data = new DataTable();
+            foreach(var attributes in typeof(ProfessoresEntidade).GetProperties())
+            {
+                data.Columns.Add(attributes.Name);
+            }
+            data.Rows.Add(1, "Alexandre Galvani", "Galvani");
             DtGridProfessores.DataSource = data;
         }
         string NomePlaceholder="Nome";
@@ -69,11 +75,16 @@ namespace WindowsFormsApp1
             professor.Id = Convert.ToInt32(IdNud.Value);
             professor.Nome = NomeEbx.Text;
             professor.Apelido = ApelidoTbxx.Text;
-            data.Add(professor);
+            data.Rows.Add(professor);
             ClearFields();
 
         }
-
+        private void SetFields(ProfessoresEntidade professor)
+        {
+            IdNud.Value = professor.Id;
+            NomeEbx.Text = professor.Nome;
+            ApelidoTbxx.Text = professor.Apelido;
+        }
         private void NomeEbx_Enter(object sender, EventArgs e)
         {
             Placeholder(NomeEbx, NomePlaceholder);
@@ -110,6 +121,28 @@ namespace WindowsFormsApp1
         {
             ClearFields();
 
+        }
+
+
+        private void DeleteRowBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DtGridProfessores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            DataGridViewCellCollection cells = DtGridProfessores.Rows[LinhaSelecionada].Cells;
+            ProfessoresEntidade professor = new ProfessoresEntidade();
+            professor.Id = Convert.ToInt32(cells[0].Value);
+            professor.Nome=cells[1].Value.ToString();
+            professor.Apelido=cells[2].Value.ToString();
+            SetFields(professor);
         }
     }
 }

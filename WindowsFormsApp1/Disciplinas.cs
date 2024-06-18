@@ -19,8 +19,16 @@ namespace WindowsFormsApp1
         public Disciplinas()
         {
             InitializeComponent();
-            data = new BindingSource();
+            data = new DataTable();
             Table.DataSource = data;
+            foreach(var attributes in typeof(DisciplinaEntidade).GetProperties())
+            {
+                data.Columns.Add(attributes.Name);
+            }
+            data.Rows.Add(0, "Matemática", "Mat");
+            data.Rows.Add(1, "História", "Hist");
+            data.Rows.Add(2, "Biologia", "Bio");
+            data.Rows.Add(3, "Física", "Fis");
             SetPlaceholders();
         }
 
@@ -76,14 +84,11 @@ namespace WindowsFormsApp1
             disciplina.Sigla = sigla_text;
             disciplina.Id = IdValue;
             disciplina.Ativo = is_ativo;
-            data.Add(disciplina);
+            data.Rows.Add(disciplina);
             ClearFields();
         }
 
-        private object[] Linha()
-        {
-            return new object[] { Id };
-        }
+
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             ClearFields();

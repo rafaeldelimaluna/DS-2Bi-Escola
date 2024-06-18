@@ -36,8 +36,11 @@ namespace WindowsFormsApp1
             this.RegisterBtn = new System.Windows.Forms.Button();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.HorarioFimTbx = new System.Windows.Forms.TextBox();
-            this.DuracaoTbx = new System.Windows.Forms.TextBox();
+            this.DeleteRowBtn = new System.Windows.Forms.Button();
+            this.EditBtn = new System.Windows.Forms.Button();
+            this.DuracaoNud = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DuracaoNud)).BeginInit();
             this.SuspendLayout();
             // 
             // Table
@@ -48,6 +51,7 @@ namespace WindowsFormsApp1
             this.Table.Name = "Table";
             this.Table.Size = new System.Drawing.Size(402, 327);
             this.Table.TabIndex = 0;
+            this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_CellClick);
             // 
             // NomeTbx
             // 
@@ -101,20 +105,39 @@ namespace WindowsFormsApp1
             this.HorarioFimTbx.TabIndex = 9;
             this.HorarioFimTbx.Text = "Horário Fim";
             // 
-            // DuracaoTbx
+            // DeleteRowBtn
             // 
-            this.DuracaoTbx.Location = new System.Drawing.Point(12, 112);
-            this.DuracaoTbx.Name = "DuracaoTbx";
-            this.DuracaoTbx.Size = new System.Drawing.Size(165, 20);
-            this.DuracaoTbx.TabIndex = 10;
-            this.DuracaoTbx.Text = "Duracao";
+            this.DeleteRowBtn.Location = new System.Drawing.Point(230, 341);
+            this.DeleteRowBtn.Name = "DeleteRowBtn";
+            this.DeleteRowBtn.Size = new System.Drawing.Size(293, 23);
+            this.DeleteRowBtn.TabIndex = 11;
+            this.DeleteRowBtn.Text = "Deletar Linha {}";
+            this.DeleteRowBtn.UseVisualStyleBackColor = true;
+            // 
+            // EditBtn
+            // 
+            this.EditBtn.Location = new System.Drawing.Point(529, 341);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Size = new System.Drawing.Size(103, 23);
+            this.EditBtn.TabIndex = 12;
+            this.EditBtn.Text = "Editar";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            // 
+            // DuracaoNud
+            // 
+            this.DuracaoNud.Location = new System.Drawing.Point(12, 112);
+            this.DuracaoNud.Name = "DuracaoNud";
+            this.DuracaoNud.Size = new System.Drawing.Size(165, 20);
+            this.DuracaoNud.TabIndex = 13;
             // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 341);
-            this.Controls.Add(this.DuracaoTbx);
+            this.ClientSize = new System.Drawing.Size(651, 373);
+            this.Controls.Add(this.DuracaoNud);
+            this.Controls.Add(this.EditBtn);
+            this.Controls.Add(this.DeleteRowBtn);
             this.Controls.Add(this.HorarioFimTbx);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.RegisterBtn);
@@ -125,6 +148,7 @@ namespace WindowsFormsApp1
             this.Name = "Cursos";
             this.Text = "Cursos";
             ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DuracaoNud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +163,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button RegisterBtn;
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.TextBox HorarioFimTbx;
-        private System.Windows.Forms.TextBox DuracaoTbx;
+        private System.Windows.Forms.Button DeleteRowBtn;
+        private System.Windows.Forms.Button EditBtn;
+        private System.Windows.Forms.NumericUpDown DuracaoNud;
     }
 }
