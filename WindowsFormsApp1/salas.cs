@@ -19,8 +19,8 @@ namespace WindowsFormsApp1
         private SalasEntidade sala1 = new SalasEntidade();
         public Salas()
         {
-            dados = new DataTable();
             InitializeComponent();
+            dados = new DataTable();
             RegistersDGVCadastroSalas.DataSource = dados;
             foreach (var attributes in typeof(SalasEntidade).GetProperties())
             {

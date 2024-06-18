@@ -14,6 +14,8 @@ namespace WindowsFormsApp1
     {
         DataTable data;
         int LinhaSelecionada;
+        DataGridViewCellCollection cells;
+        DataGridViewRow SelectedRow;
         public Cursos()
         {
             InitializeComponent();
@@ -49,11 +51,18 @@ namespace WindowsFormsApp1
         {
 
         }
+        private void UpdateSelectedCellsVar()
+        {
+            DataGridViewCellCollection cells =Table.Rows[LinhaSelecionada].Cells;
+        }
+        private void UpdateSelectedRowVar(){
+            DataGridViewRow SelectedRow =Table.Rows[LinhaSelecionada].Cells;
 
+        }
         private void Table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
-            DataGridViewCellCollection cells =Table.Rows[LinhaSelecionada].Cells;
+            UpdateSelectedCellsVar();
             CursosEntidade curso = new CursosEntidade();
             curso.Nome = cells[0].Value.ToString();
             curso.Area = cells[1].Value.ToString();
@@ -61,6 +70,12 @@ namespace WindowsFormsApp1
             curso.HorarioFim = cells[3].Value.ToString();
             curso.Duracao = Convert.ToInt32(cells[4].Value);
             SetFieldsValues(curso);
+
+        }
+        private void DeleteRowBtn_Click(object sender, EventArgs e)
+        {
+            UpdateSelectedRowVar();
+            SelectedRow.RemoveAt(LinhaSelecionada);
 
         }
     }

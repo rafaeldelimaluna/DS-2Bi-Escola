@@ -18,16 +18,18 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             data = new DataTable();
+            DtGridProfessores.DataSource = data;
             foreach(var attributes in typeof(ProfessoresEntidade).GetProperties())
             {
                 data.Columns.Add(attributes.Name);
             }
             data.Rows.Add(1, "Alexandre Galvani", "Galvani");
-            DtGridProfessores.DataSource = data;
+            data.Rows.Add(2, "Lucilene", "Luci");
+            data.Rows.Add(3, "Fernando", "caneco");
+            data.Rows.Add(4, "Fabricios dos Santos Rios", "Rios Music");
         }
         string NomePlaceholder="Nome";
         string ApelidoPlaceholder = "Apelido";
-        //string ApelidoPlaceholder="Apelido";
         private void Placeholder(TextBox textBox, String placeholder_value)
         {
             String textBox_text = textBox.Text;
@@ -126,12 +128,16 @@ namespace WindowsFormsApp1
 
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
-
+            DtGridProfessores.Rows.RemoveAt(LinhaSelecionada);
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-
+            DataGridViewCellCollection cells = DtGridProfessores.Rows[LinhaSelecionada].Cells;
+            cells[0].Value =IdNud.Value;
+            cells[1].Value=NomeTbx.Text;
+            cells[2].Value = ApelidoTbx.Text;
+            return;
         }
 
         private void DtGridProfessores_CellClick(object sender, DataGridViewCellEventArgs e)
