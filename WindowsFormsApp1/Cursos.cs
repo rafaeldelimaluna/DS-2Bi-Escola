@@ -49,7 +49,11 @@ namespace WindowsFormsApp1
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-
+            NomeTbx.Text = "";
+            AreaTbx.Text = "";
+            HorarioFimTbx.Text = "";
+            HorarioInicioTbx.Text = "";
+            DuracaoNud.Value = (int)DuracaoNud.Value+1;
         }
         private void UpdateSelectedCellsVar()
         {
@@ -72,10 +76,21 @@ namespace WindowsFormsApp1
             SetFieldsValues(curso);
 
         }
+        private void EditBtn_Click(object sender,EventArgs e){
+            UpdateSelectedRowVar();
+            UpdateSelectedCellsVar();
+            EditBtn.Text = $"Editar Linha {LinhaSelecionada}";
+            Cells[0].Value= (int)Nome.Value;
+            Cells[1].Value=AreaTbx.Text;
+            Cells[2].Value= HorarioInicioTbx.Text;
+            Cells[3].Value= HorarioFimTbx.Text;
+            Cells[4].Value= (int)Duracao.Value;
+        }
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
             UpdateSelectedRowVar();
             SelectedRow.RemoveAt(LinhaSelecionada);
+
 
         }
     }

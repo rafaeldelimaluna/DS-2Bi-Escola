@@ -67,16 +67,22 @@ namespace WindowsFormsApp1
             }
             return true;
         }
+        private ProfessoresEntidade Cadastro{
+            get{
+            ProfessoresEntidade professor = new ProfessoresEntidade();
+            professor.Id = Convert.ToInt32(IdNud.Value);
+            professor.Nome = NomeEbx.Text;
+            professor.Apelido = ApelidoTbxx.Text;
+            return professor;
+            }
+        }
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            ProfessoresEntidade professor = new ProfessoresEntidade();
             if (!DataIsCorrectly()) {
                 MessageBox.Show("Dados não preenchidos");
                 return;
             }
-            professor.Id = Convert.ToInt32(IdNud.Value);
-            professor.Nome = NomeEbx.Text;
-            professor.Apelido = ApelidoTbxx.Text;
+            ProfessoresEntidade professor = Cadastro;
             data.Rows.Add(professor);
             ClearFields();
 

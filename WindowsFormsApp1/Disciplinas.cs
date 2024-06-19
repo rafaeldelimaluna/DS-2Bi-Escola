@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
     {
         private DataTable data;
         private int LinhaSelecionada;
+        private DataGridViewRows CurrentRow;
         private string NomePlaceholder, SiglaPlaceholder;
         public Disciplinas()
         {
@@ -53,6 +54,7 @@ namespace WindowsFormsApp1
             SiglaTbx.Text = "Sigla";
             IdNud.Value = 0;
         }
+
         private void Placeholder(TextBox textBox, String placeholder_value)
         {
             String textBox_text = textBox.Text;
@@ -72,14 +74,20 @@ namespace WindowsFormsApp1
         {
             return true;
         }
-        private void RegisterBtn_Click(object sender, EventArgs e)
-        {
+        private DisciplinaEntidade Cadastro{
+            get{
             DisciplinaEntidade disciplina;
             disciplina = new DisciplinaEntidade();
             int IdValue= Convert.ToInt32(IdNud.Value);
             string nome_text = NomeTbx.Text;
             string sigla_text = SiglaTbx.Text;
             bool is_ativo = isAtivoChk.Checked;
+            return disciplina;
+            }
+        }
+        private void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            DisciplinaEntidade disciplina = Cadastro;
             disciplina.Nome = nome_text;
             disciplina.Sigla = sigla_text;
             disciplina.Id = IdValue;
@@ -87,7 +95,26 @@ namespace WindowsFormsApp1
             data.Rows.Add(disciplina);
             ClearFields();
         }
-
+        private void SetFieldsValues(DisciplinaEntidade disciplina){
+            NomeTbx.Text=disciplina.Nome;
+            SiglaTbx.Text=disciplina.Sigla;
+            IdNud.Value=disciplina.Id;
+            isAtivoChk.Checked=disciplina.Ativo;
+        }
+        private DisciplinaEntidade MakeObjectDisciplinasEntidade(DataGridViewRows Rows){
+             disciplina = Cadastro;
+             Rows.SetValues(disciplina.Linha());
+        }
+        private void Table_CellClick(object sender, EventArgs e){
+            LinhaSelecionada=e.RowIndex;
+            CurrentRow = Table.Rows[LinhaSelecionada];
+            DisciplinaEntidade disciplina = MakeObjectDisciplinasEntidade(CurrentRow);
+            SetFields(disciplina);
+        }
+    private void EditBtn_Click(object sender, EventArgs e){
+            disciplina = Cadastro;
+            CurrentRow.SetValues(disciplina.Linha());
+    }
 
         private void ClearBtn_Click(object sender, EventArgs e)
         {
