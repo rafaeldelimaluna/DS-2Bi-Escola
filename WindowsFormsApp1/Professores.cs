@@ -83,7 +83,7 @@ namespace WindowsFormsApp1
                 return;
             }
             ProfessoresEntidade professor = Cadastro;
-            data.Rows.Add(professor);
+            data.Rows.Add(professor.Linha());
             ClearFields();
 
         }
@@ -141,14 +141,16 @@ namespace WindowsFormsApp1
         {
             DataGridViewCellCollection cells = DtGridProfessores.Rows[LinhaSelecionada].Cells;
             cells[0].Value =IdNud.Value;
-            cells[1].Value=NomeTbx.Text;
-            cells[2].Value = ApelidoTbx.Text;
+            cells[1].Value=NomeEbx.Text;
+            cells[2].Value = ApelidoTbxx.Text;
             return;
         }
 
         private void DtGridProfessores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
+            DeleteRowBtn.Text = $"Deletar linha {LinhaSelecionada + 1}";
+            EditBtn.Text = $"Editar linha {LinhaSelecionada + 1}";
             DataGridViewCellCollection cells = DtGridProfessores.Rows[LinhaSelecionada].Cells;
             ProfessoresEntidade professor = new ProfessoresEntidade();
             professor.Id = Convert.ToInt32(cells[0].Value);

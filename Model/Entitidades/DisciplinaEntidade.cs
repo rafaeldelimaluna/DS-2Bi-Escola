@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace Model.Entitidades
 {
-  public  class DisciplinaEntidade
+    public class DisciplinaEntidade
     {
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Sigla { get; set; }
         public bool Ativo { get; set; }
-        private object[] Linha()
+        public object[] Linha()
         {
-            return new object[] { Id,Nome,Sigla,Ativo };
+            return new object[] { Id, Nome, Sigla, Ativo };
+        }
+        public bool IsFull()
+        {
+            if (Linha().Contains(null)) { return false; }
+            else { return true; }
         }
     }
 }

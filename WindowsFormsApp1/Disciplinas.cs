@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
     {
         private DataTable data;
         private int LinhaSelecionada;
-        private DataGridViewRows CurrentRow;
+        private DataGridViewRow CurrentRow;
         private string NomePlaceholder, SiglaPlaceholder;
         public Disciplinas()
         {
@@ -26,13 +26,16 @@ namespace WindowsFormsApp1
             {
                 data.Columns.Add(attributes.Name);
             }
-            data.Rows.Add(0, "Matemática", "Mat");
-            data.Rows.Add(1, "História", "Hist");
-            data.Rows.Add(2, "Biologia", "Bio");
-            data.Rows.Add(3, "Física", "Fis");
+            InsertSampleRows();
             SetPlaceholders();
         }
-
+        private void InsertSampleRows()
+        {
+            data.Rows.Add(0, "Matemática", "Mat", true);
+            data.Rows.Add(1, "História", "Hist", false);
+            data.Rows.Add(2, "Biologia", "Bio", false);
+            data.Rows.Add(3, "Física", "Fis", true);
+        }
         private void SetPlaceholders()
         {
             NomePlaceholder = NomeTbx.Text;
@@ -70,29 +73,23 @@ namespace WindowsFormsApp1
                 textBox.ForeColor = Color.Gray;
             }
         }
-        private bool VerifyFields()
-        {
-            return true;
-        }
+
         private DisciplinaEntidade Cadastro{
             get{
             DisciplinaEntidade disciplina;
             disciplina = new DisciplinaEntidade();
-            int IdValue= Convert.ToInt32(IdNud.Value);
-            string nome_text = NomeTbx.Text;
-            string sigla_text = SiglaTbx.Text;
-            bool is_ativo = isAtivoChk.Checked;
+            disciplina.Id= Convert.ToInt32(IdNud.Value);
+            disciplina.Nome= NomeTbx.Text;
+            disciplina.Sigla= SiglaTbx.Text;
+            disciplina.Ativo= isAtivoChk.Checked;
             return disciplina;
             }
         }
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             DisciplinaEntidade disciplina = Cadastro;
-            disciplina.Nome = nome_text;
-            disciplina.Sigla = sigla_text;
-            disciplina.Id = IdValue;
-            disciplina.Ativo = is_ativo;
-            data.Rows.Add(disciplina);
+            if (!disciplina.IsFull()) { return; }
+            data.Rows.Add(disciplina.Linha());
             ClearFields();
         }
         private void SetFieldsValues(DisciplinaEntidade disciplina){
@@ -101,20 +98,41 @@ namespace WindowsFormsApp1
             IdNud.Value=disciplina.Id;
             isAtivoChk.Checked=disciplina.Ativo;
         }
-        private DisciplinaEntidade MakeObjectDisciplinasEntidade(DataGridViewRows Rows){
-             disciplina = Cadastro;
-             Rows.SetValues(disciplina.Linha());
+        private DisciplinaEntidade MakeObjectDisciplinasEntidade(DataGridViewRow Rows){
+            DataGridViewCellCollection Cells= Rows.Cells;
+             DisciplinaEntidade disciplina = new DisciplinaEntidade();
+            disciplina.Id= Convert.ToInt32(Cells[0].Value);
+            disciplina.Nome = Cells[1].Value.ToString();
+            disciplina.Sigla = Cells[2].Value.ToString();
+            disciplina.Ativo= Convert.ToBoolean(Cells[3].Value);
+
+
+            return disciplina;
         }
-        private void Table_CellClick(object sender, EventArgs e){
-            LinhaSelecionada=e.RowIndex;
+
+        private void Table_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
             CurrentRow = Table.Rows[LinhaSelecionada];
+            DeleteRowBtn.Text = $"Excluir linha {LinhaSelecionada+1}";
             DisciplinaEntidade disciplina = MakeObjectDisciplinasEntidade(CurrentRow);
-            SetFields(disciplina);
+            SetFieldsValues(disciplina);
         }
-    private void EditBtn_Click(object sender, EventArgs e){
-            disciplina = Cadastro;
+
+        private void DeleteRowBtn_Click(object sender, EventArgs e)
+        {
+            data.Rows[LinhaSelecionada].Delete();
+        }
+
+        private void EditRowBtn_Click(object sender, EventArgs e)
+        {
+            DisciplinaEntidade disciplina = Cadastro;
+            if (CurrentRow == null || !disciplina.IsFull())
+            {
+                return;
+            }
             CurrentRow.SetValues(disciplina.Linha());
-    }
+        }
 
         private void ClearBtn_Click(object sender, EventArgs e)
         {

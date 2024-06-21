@@ -39,18 +39,13 @@ namespace WindowsFormsApp1
             this.ClearBtn = new System.Windows.Forms.Button();
             this.RegisterRoomHeaderPanel = new System.Windows.Forms.Panel();
             this.WarningLabel = new System.Windows.Forms.Label();
-            this.RegistersDGVCadastroSalas = new System.Windows.Forms.DataGridView();
-            this.NameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberPCsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberChairsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuildingCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsLabCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegistersHeaderCadastroSalas = new System.Windows.Forms.Label();
             this.SaveRegisterButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.EditBtn = new System.Windows.Forms.Button();
             this.DeleteRowBtn = new System.Windows.Forms.Button();
+            this.Table = new System.Windows.Forms.DataGridView();
             this.RegisterRoomHeaderPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RegistersDGVCadastroSalas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
             // 
             // NameEntry
@@ -154,55 +149,10 @@ namespace WindowsFormsApp1
             this.WarningLabel.Size = new System.Drawing.Size(0, 21);
             this.WarningLabel.TabIndex = 9;
             // 
-            // RegistersDGVCadastroSalas
-            // 
-            this.RegistersDGVCadastroSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RegistersDGVCadastroSalas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameCol,
-            this.NumberPCsCol,
-            this.NumberChairsCol,
-            this.BuildingCol,
-            this.IsLabCol});
-            this.RegistersDGVCadastroSalas.Location = new System.Drawing.Point(424, 168);
-            this.RegistersDGVCadastroSalas.Name = "RegistersDGVCadastroSalas";
-            this.RegistersDGVCadastroSalas.Size = new System.Drawing.Size(548, 218);
-            this.RegistersDGVCadastroSalas.TabIndex = 10;
-            this.RegistersDGVCadastroSalas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RegistersDGVCadastroSalas_CellClick);
-            // 
-            // NameCol
-            // 
-            this.NameCol.HeaderText = "Nome";
-            this.NameCol.Name = "NameCol";
-            this.NameCol.ReadOnly = true;
-            // 
-            // NumberPCsCol
-            // 
-            this.NumberPCsCol.HeaderText = "Número de PCs";
-            this.NumberPCsCol.Name = "NumberPCsCol";
-            this.NumberPCsCol.ReadOnly = true;
-            // 
-            // NumberChairsCol
-            // 
-            this.NumberChairsCol.HeaderText = "Número de Cadeiras";
-            this.NumberChairsCol.Name = "NumberChairsCol";
-            this.NumberChairsCol.ReadOnly = true;
-            // 
-            // BuildingCol
-            // 
-            this.BuildingCol.HeaderText = "Prédio";
-            this.BuildingCol.Name = "BuildingCol";
-            this.BuildingCol.ReadOnly = true;
-            // 
-            // IsLabCol
-            // 
-            this.IsLabCol.HeaderText = "Laboratório";
-            this.IsLabCol.Name = "IsLabCol";
-            this.IsLabCol.ReadOnly = true;
-            // 
             // RegistersHeaderCadastroSalas
             // 
             this.RegistersHeaderCadastroSalas.AutoSize = true;
-            this.RegistersHeaderCadastroSalas.Location = new System.Drawing.Point(563, 128);
+            this.RegistersHeaderCadastroSalas.Location = new System.Drawing.Point(670, 128);
             this.RegistersHeaderCadastroSalas.Name = "RegistersHeaderCadastroSalas";
             this.RegistersHeaderCadastroSalas.Size = new System.Drawing.Size(54, 13);
             this.RegistersHeaderCadastroSalas.TabIndex = 11;
@@ -218,14 +168,15 @@ namespace WindowsFormsApp1
             this.SaveRegisterButton.UseVisualStyleBackColor = true;
             this.SaveRegisterButton.Click += new System.EventHandler(this.SaveRegisterButton_Click);
             // 
-            // button1
+            // EditBtn
             // 
-            this.button1.Location = new System.Drawing.Point(849, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Editar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.EditBtn.Location = new System.Drawing.Point(849, 415);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Size = new System.Drawing.Size(123, 23);
+            this.EditBtn.TabIndex = 13;
+            this.EditBtn.Text = "Editar";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // DeleteRowBtn
             // 
@@ -237,17 +188,26 @@ namespace WindowsFormsApp1
             this.DeleteRowBtn.UseVisualStyleBackColor = true;
             this.DeleteRowBtn.Click += new System.EventHandler(this.DeleteRowBtn_Click);
             // 
+            // Table
+            // 
+            this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Table.Location = new System.Drawing.Point(424, 149);
+            this.Table.Name = "Table";
+            this.Table.Size = new System.Drawing.Size(548, 237);
+            this.Table.TabIndex = 15;
+            this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_CellClick);
+            // 
             // Salas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(997, 450);
+            this.Controls.Add(this.Table);
             this.Controls.Add(this.DeleteRowBtn);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.SaveRegisterButton);
             this.Controls.Add(this.RegistersHeaderCadastroSalas);
-            this.Controls.Add(this.RegistersDGVCadastroSalas);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.RegisterRoomHeaderPanel);
             this.Controls.Add(this.ClearBtn);
@@ -261,7 +221,7 @@ namespace WindowsFormsApp1
             this.Text = "salas";
             this.RegisterRoomHeaderPanel.ResumeLayout(false);
             this.RegisterRoomHeaderPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RegistersDGVCadastroSalas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,15 +239,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Panel RegisterRoomHeaderPanel;
         private System.Windows.Forms.Label WarningLabel;
-        private System.Windows.Forms.DataGridView RegistersDGVCadastroSalas;
         private System.Windows.Forms.Label RegistersHeaderCadastroSalas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberPCsCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberChairsCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuildingCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsLabCol;
         private System.Windows.Forms.Button SaveRegisterButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Button DeleteRowBtn;
+        private System.Windows.Forms.DataGridView Table;
     }
 }

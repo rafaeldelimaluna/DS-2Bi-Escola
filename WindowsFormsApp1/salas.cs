@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,23 +15,42 @@ namespace WindowsFormsApp1
 
     public partial class Salas : Form
     {
-        DataTable dados;
+        DataTable data;
         int LinhaSelecionada;
-        private SalasEntidade sala1 = new SalasEntidade();
         public Salas()
         {
             InitializeComponent();
-            dados = new DataTable();
-            RegistersDGVCadastroSalas.DataSource = dados;
+            data = new DataTable();
+            Table.DataSource = data;
             foreach (var attributes in typeof(SalasEntidade).GetProperties())
             {
-                dados.Columns.Add(attributes.Name);
+                data.Columns.Add(attributes.Name);
             }
+            AddSampleRows();
         }
         private String NameEntry_PlaceHolder = "Nome da Sala";
         private String PCsNumber_PlaceHolder= "Número de PCs";
         private String ChairEntry_Placeholder= "Número de Cadeiras";
         private String BuildingEntry_Placeholder= "Prédio";
+
+        private void AddSampleRows()
+        {
+            SalasEntidade s1 = new SalasEntidade();
+            s1.Nome = "Olaf";
+            s1.NumeroComputadores = 20;
+            s1.NumeroCadeiras = 19;
+            s1.Predio = "1 andar";
+            s1.IsLab = true;
+            data.Rows.Add(s1.Linha());
+            SalasEntidade s2 = new SalasEntidade();
+            s2.Nome = "Rodlfo";
+            s2.NumeroComputadores = 45;
+            s2.NumeroCadeiras = 45;
+            s2.Predio = "Torres gemesas";
+            s2.IsLab = false;
+            data.Rows.Add(s2.Linha());
+
+        }
         private void Placeholder(TextBox textBox,String placeholder_value)
         {
             String textBox_text = textBox.Text;
@@ -115,7 +135,7 @@ namespace WindowsFormsApp1
             sala.NumeroCadeiras = NumberChairs;
             sala.Predio = BuildingEntry.Text;
             sala.IsLab = IsLabChk.Checked;
-            dados.Rows.Add(sala);
+            data.Rows.Add(sala.Linha());
             ClearForm();
         }
         private void ClearForm()
@@ -129,41 +149,90 @@ namespace WindowsFormsApp1
             BuildingEntry.Text = BuildingEntry_Placeholder;
             BuildingEntry.ForeColor = Color.Gray;
         }
+
+        private void Setfields(SalasEntidade sala)
+        {
+            NameEntry.Text = sala.Nome;
+            PCsNumberEntry.Text = sala.NumeroComputadores.ToString();
+            ChairEntry.Text = sala.NumeroCadeiras.ToString();
+            BuildingEntry.Text = sala.Predio;
+            IsLabChk.Checked = sala.IsLab;
+        }
+
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
 
+        private SalasEntidade Cadastro
+        {
+            get
+            {
+                SalasEntidade sala = new SalasEntidade();
+                sala.Nome = NameEntry.Text;
+                sala.IsLab = IsLabChk.Checked;
+                sala.NumeroCadeiras = Convert.ToInt32(ChairEntry.Text);
+                sala.NumeroComputadores = Convert.ToInt32(PCsNumberEntry.Text);
+                sala.Predio = BuildingEntry.Text;
+                return sala;
+            }
+        }
         private void SaveRegisterButton_Click(object sender, EventArgs e)
         {
-            SalasEntidade sala = new SalasEntidade();
-            sala.Nome = NameEntry.Text;
-            sala.IsLab = IsLabChk.Checked;
-            sala.NumeroCadeiras= Convert.ToInt32(ChairEntry.Text);
-            sala.NumeroComputadores = Convert.ToInt32(PCsNumberEntry.Text);
-            sala.Predio = BuildingEntry.Text;
-            dados.Rows.Add(sala);
+            SalasEntidade sala = Cadastro;
+            if (!sala.IsFull())
+            {
+                MessageBox.Show("Tem coisa vazia");
+                return;
+            }
+            data.Rows.Add(sala);
         }
 
 
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
+            data.Rows[LinhaSelecionada].Delete();
+        }
+        private SalasEntidade MakeObjLinhaSelecionada()
+        {
+            DataGridViewCellCollection Cells=Table.Rows[LinhaSelecionada].Cells;
+            SalasEntidade sala = new SalasEntidade();
+            sala.Nome = Cells[0].Value.ToString();
+            sala.NumeroComputadores = Convert.ToInt32(Cells[1].Value);
+            sala.NumeroCadeiras = Convert.ToInt32(Cells[2].Value);
+            sala.Predio = Cells[3].Value.ToString();
+            sala.IsLab = Convert.ToBoolean(Cells[4].Value);
+            return sala;
         }
 
-        private void RegistersDGVCadastroSalas_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void SetValuesInRow(SalasEntidade sala)
         {
-            LinhaSelecionada = e.RowIndex;
-            DataGridViewCellCollection cells= RegistersDGVCadastroSalas.Rows[LinhaSelecionada].Cells;
-            SalasEntidade sala = new SalasEntidade();
-            if (cells[0].Value.ToString() == null)
+            DataGridViewCellCollection Cells = Table.Rows[LinhaSelecionada].Cells;
+            Cells[0].Value= sala.Nome;
+            Cells[1].Value= sala.NumeroComputadores.ToString();
+            Cells[2].Value= sala.NumeroCadeiras;
+            Cells[3].Value= sala.Predio.ToString();
+            Cells[4].Value= sala.IsLab;
+        }
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            SalasEntidade sala = Cadastro;
+            if (!sala.IsFull())
             {
                 return;
             }
-            //sala.Nome = cells[0].Value;
-            //            sala.NumeroComputadores = Convert.ToInt32(cells[1].Value);
-            //            sala.NumeroCadeiras= Convert.ToInt32(cells[2].Value);
-            //sala.Predio= cells[3].Value;
-            //sala.IsLab= Convert.ToBoolean(cells[4].Value);
+            SetValuesInRow(sala);
+
+        }
+
+        private void Table_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            DeleteRowBtn.Text = $"Excluir linha {LinhaSelecionada + 1}";
+            EditBtn.Text = $"Editar linha {LinhaSelecionada + 1}";
+            SalasEntidade sala = MakeObjLinhaSelecionada();
+            Setfields(sala);
         }
     }
 }

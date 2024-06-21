@@ -13,9 +13,14 @@ namespace Model.Entitidades
         public int NumeroCadeiras { get; set; }
         public string Predio { get; set; }
         public bool IsLab { get; set; }
-        public object Linha()
+        public object[] Linha()
         {
-            return new object[] { Nome, NumeroComputadores, NumeroCadeiras, IsLab,Predio  };
+            return new object[] { Nome, NumeroComputadores, NumeroCadeiras, Predio,IsLab};
+        }
+        public bool IsFull()
+        {
+            if (Linha().Contains(null)) { return false; }
+            return true;
         }
     }
 }

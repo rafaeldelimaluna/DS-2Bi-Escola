@@ -113,6 +113,7 @@ namespace WindowsFormsApp1
             this.DeleteRowBtn.TabIndex = 11;
             this.DeleteRowBtn.Text = "Deletar Linha {}";
             this.DeleteRowBtn.UseVisualStyleBackColor = true;
+            this.DeleteRowBtn.Click += new System.EventHandler(this.DeleteRowBtn_Click);
             // 
             // EditBtn
             // 
@@ -122,6 +123,7 @@ namespace WindowsFormsApp1
             this.EditBtn.TabIndex = 12;
             this.EditBtn.Text = "Editar";
             this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // DuracaoNud
             // 

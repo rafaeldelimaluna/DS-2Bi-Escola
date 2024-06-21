@@ -36,8 +36,13 @@ namespace WindowsFormsApp1
             this.EmailTbx = new System.Windows.Forms.TextBox();
             this.RegisterBtn = new System.Windows.Forms.Button();
             this.ClearBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Table = new System.Windows.Forms.DataGridView();
+            this.DeleteRowBtn = new System.Windows.Forms.Button();
+            this.EditRowBtn = new System.Windows.Forms.Button();
+            this.IdNud = new System.Windows.Forms.NumericUpDown();
+            this.IsAtivoChk = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,6 +61,7 @@ namespace WindowsFormsApp1
             this.NomeCompletoTbx.Size = new System.Drawing.Size(139, 20);
             this.NomeCompletoTbx.TabIndex = 1;
             this.NomeCompletoTbx.Text = "Nome Completo";
+            this.NomeCompletoTbx.TextChanged += new System.EventHandler(this.NomeCompletoTbx_TextChanged);
             this.NomeCompletoTbx.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
             // SenhaTbx
@@ -88,7 +94,7 @@ namespace WindowsFormsApp1
             // 
             // RegisterBtn
             // 
-            this.RegisterBtn.Location = new System.Drawing.Point(3, 152);
+            this.RegisterBtn.Location = new System.Drawing.Point(3, 173);
             this.RegisterBtn.Name = "RegisterBtn";
             this.RegisterBtn.Size = new System.Drawing.Size(139, 23);
             this.RegisterBtn.TabIndex = 6;
@@ -98,27 +104,69 @@ namespace WindowsFormsApp1
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Location = new System.Drawing.Point(3, 181);
+            this.ClearBtn.Location = new System.Drawing.Point(3, 202);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(139, 23);
             this.ClearBtn.TabIndex = 7;
             this.ClearBtn.Text = "Limpar";
             this.ClearBtn.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // Table
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(169, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(619, 236);
-            this.dataGridView1.TabIndex = 8;
+            this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Table.Location = new System.Drawing.Point(169, 48);
+            this.Table.Name = "Table";
+            this.Table.Size = new System.Drawing.Size(619, 236);
+            this.Table.TabIndex = 8;
+            this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_CellClick);
+            // 
+            // DeleteRowBtn
+            // 
+            this.DeleteRowBtn.Location = new System.Drawing.Point(169, 290);
+            this.DeleteRowBtn.Name = "DeleteRowBtn";
+            this.DeleteRowBtn.Size = new System.Drawing.Size(458, 23);
+            this.DeleteRowBtn.TabIndex = 9;
+            this.DeleteRowBtn.Text = "Excluir linha {}";
+            this.DeleteRowBtn.UseVisualStyleBackColor = true;
+            this.DeleteRowBtn.Click += new System.EventHandler(this.DeleteRowBtn_Click);
+            // 
+            // EditRowBtn
+            // 
+            this.EditRowBtn.Location = new System.Drawing.Point(633, 290);
+            this.EditRowBtn.Name = "EditRowBtn";
+            this.EditRowBtn.Size = new System.Drawing.Size(155, 23);
+            this.EditRowBtn.TabIndex = 10;
+            this.EditRowBtn.Text = "Editar linha";
+            this.EditRowBtn.UseVisualStyleBackColor = true;
+            this.EditRowBtn.Click += new System.EventHandler(this.EditRowBtn_Click);
+            // 
+            // IdNud
+            // 
+            this.IdNud.Location = new System.Drawing.Point(3, 22);
+            this.IdNud.Name = "IdNud";
+            this.IdNud.Size = new System.Drawing.Size(139, 20);
+            this.IdNud.TabIndex = 11;
+            // 
+            // IsAtivoChk
+            // 
+            this.IsAtivoChk.AutoSize = true;
+            this.IsAtivoChk.Location = new System.Drawing.Point(3, 150);
+            this.IsAtivoChk.Name = "IsAtivoChk";
+            this.IsAtivoChk.Size = new System.Drawing.Size(50, 17);
+            this.IsAtivoChk.TabIndex = 12;
+            this.IsAtivoChk.Text = "Ativo";
+            this.IsAtivoChk.UseVisualStyleBackColor = true;
             // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 289);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(793, 384);
+            this.Controls.Add(this.IsAtivoChk);
+            this.Controls.Add(this.IdNud);
+            this.Controls.Add(this.EditRowBtn);
+            this.Controls.Add(this.DeleteRowBtn);
+            this.Controls.Add(this.Table);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.RegisterBtn);
             this.Controls.Add(this.EmailTbx);
@@ -128,7 +176,8 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.label1);
             this.Name = "Usuarios";
             this.Text = "Usuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +192,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox EmailTbx;
         private System.Windows.Forms.Button RegisterBtn;
         private System.Windows.Forms.Button ClearBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Table;
+        private System.Windows.Forms.Button DeleteRowBtn;
+        private System.Windows.Forms.Button EditRowBtn;
+        private System.Windows.Forms.NumericUpDown IdNud;
+        private System.Windows.Forms.CheckBox IsAtivoChk;
     }
 }

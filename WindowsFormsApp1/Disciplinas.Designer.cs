@@ -37,6 +37,8 @@ namespace WindowsFormsApp1
             this.ClearBtn = new System.Windows.Forms.Button();
             this.Table = new System.Windows.Forms.DataGridView();
             this.IdNud = new System.Windows.Forms.NumericUpDown();
+            this.DeleteRowBtn = new System.Windows.Forms.Button();
+            this.EditRowBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
             this.SuspendLayout();
@@ -106,6 +108,7 @@ namespace WindowsFormsApp1
             this.Table.Name = "Table";
             this.Table.Size = new System.Drawing.Size(594, 240);
             this.Table.TabIndex = 6;
+            this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_CellClick);
             // 
             // IdNud
             // 
@@ -114,11 +117,33 @@ namespace WindowsFormsApp1
             this.IdNud.Size = new System.Drawing.Size(167, 20);
             this.IdNud.TabIndex = 7;
             // 
+            // DeleteRowBtn
+            // 
+            this.DeleteRowBtn.Location = new System.Drawing.Point(194, 278);
+            this.DeleteRowBtn.Name = "DeleteRowBtn";
+            this.DeleteRowBtn.Size = new System.Drawing.Size(481, 23);
+            this.DeleteRowBtn.TabIndex = 8;
+            this.DeleteRowBtn.Text = "Excluir linha atual";
+            this.DeleteRowBtn.UseVisualStyleBackColor = true;
+            this.DeleteRowBtn.Click += new System.EventHandler(this.DeleteRowBtn_Click);
+            // 
+            // EditRowBtn
+            // 
+            this.EditRowBtn.Location = new System.Drawing.Point(681, 278);
+            this.EditRowBtn.Name = "EditRowBtn";
+            this.EditRowBtn.Size = new System.Drawing.Size(107, 23);
+            this.EditRowBtn.TabIndex = 9;
+            this.EditRowBtn.Text = "Editar linha";
+            this.EditRowBtn.UseVisualStyleBackColor = true;
+            this.EditRowBtn.Click += new System.EventHandler(this.EditRowBtn_Click);
+            // 
             // Disciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 284);
+            this.ClientSize = new System.Drawing.Size(800, 344);
+            this.Controls.Add(this.EditRowBtn);
+            this.Controls.Add(this.DeleteRowBtn);
             this.Controls.Add(this.IdNud);
             this.Controls.Add(this.Table);
             this.Controls.Add(this.ClearBtn);
@@ -146,5 +171,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.DataGridView Table;
         private System.Windows.Forms.NumericUpDown IdNud;
+        private System.Windows.Forms.Button DeleteRowBtn;
+        private System.Windows.Forms.Button EditRowBtn;
     }
 }

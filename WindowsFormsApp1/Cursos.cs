@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     {
         DataTable data;
         int LinhaSelecionada;
-        DataGridViewCellCollection cells;
+        DataGridViewCellCollection Cells;
         DataGridViewRow SelectedRow;
         public Cursos()
         {
@@ -27,16 +27,29 @@ namespace WindowsFormsApp1
             }
             data.Rows.Add("24", "Superior", "18:00", "18:50", 50);
         }
+        private CursosEntidade Cadastro
+        {
+            get
+            {
+                CursosEntidade curso = new CursosEntidade();
+
+                curso.Nome = NomeTbx.Text;
+                curso.Area = AreaTbx.Text;
+                curso.HorarioFim = HorarioFimTbx.Text;
+                curso.HorarioInicio = HorarioInicioTbx.Text;
+                curso.Duracao = ((int)DuracaoNud.Value);
+                return curso;
+            }
+        }
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            CursosEntidade curso = new CursosEntidade();
-            curso.Nome = NomeTbx.Text;
-            curso.Area = AreaTbx.Text;
-            curso.HorarioFim = HorarioFimTbx.Text;
-            curso.HorarioInicio = HorarioInicioTbx.Text;
-            curso.Duracao = ((int)DuracaoNud.Value);
-            data.Rows.Add(curso);
+            CursosEntidade curso = Cadastro;
+            if (!curso.IsFull())
+            {
+                MessageBox.Show("Tem campo vazio aí!");
+            }
+            data.Rows.Add(curso.Linha());
                 }
 
         private void SetFieldsValues(CursosEntidade curso)
@@ -57,41 +70,43 @@ namespace WindowsFormsApp1
         }
         private void UpdateSelectedCellsVar()
         {
-            DataGridViewCellCollection cells =Table.Rows[LinhaSelecionada].Cells;
+            Cells= Table.Rows[LinhaSelecionada].Cells;
         }
         private void UpdateSelectedRowVar(){
-            DataGridViewRow SelectedRow =Table.Rows[LinhaSelecionada].Cells;
+            
+            SelectedRow = Table.Rows[LinhaSelecionada];
 
         }
         private void Table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
             UpdateSelectedCellsVar();
+            DeleteRowBtn.Text = $"Excluir linha {LinhaSelecionada + 1}";
             CursosEntidade curso = new CursosEntidade();
-            curso.Nome = cells[0].Value.ToString();
-            curso.Area = cells[1].Value.ToString();
-            curso.HorarioInicio = cells[2].Value.ToString();
-            curso.HorarioFim = cells[3].Value.ToString();
-            curso.Duracao = Convert.ToInt32(cells[4].Value);
+            curso.Nome = Cells[0].Value.ToString();
+            curso.Area = Cells[1].Value.ToString();
+            curso.HorarioInicio = Cells[2].Value.ToString();
+            curso.HorarioFim = Cells[3].Value.ToString();
+            curso.Duracao = Convert.ToInt32(Cells[4].Value);
             SetFieldsValues(curso);
 
-        }
-        private void EditBtn_Click(object sender,EventArgs e){
-            UpdateSelectedRowVar();
-            UpdateSelectedCellsVar();
-            EditBtn.Text = $"Editar Linha {LinhaSelecionada}";
-            Cells[0].Value= (int)Nome.Value;
-            Cells[1].Value=AreaTbx.Text;
-            Cells[2].Value= HorarioInicioTbx.Text;
-            Cells[3].Value= HorarioFimTbx.Text;
-            Cells[4].Value= (int)Duracao.Value;
         }
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
             UpdateSelectedRowVar();
-            SelectedRow.RemoveAt(LinhaSelecionada);
+            data.Rows[LinhaSelecionada].Delete();
+        }
 
-
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            UpdateSelectedRowVar();
+            UpdateSelectedCellsVar();
+            EditBtn.Text = $"Editar Linha {LinhaSelecionada+1}";
+            Cells[0].Value = NomeTbx.Text;
+            Cells[1].Value = AreaTbx.Text;
+            Cells[2].Value = HorarioInicioTbx.Text;
+            Cells[3].Value = HorarioFimTbx.Text;
+            Cells[4].Value = (int)DuracaoNud.Value;
         }
     }
 }

@@ -16,5 +16,10 @@ namespace Model.Entitidades
         {
             return new object[] { Id, Nome, Apelido };
         }
+        public bool IsFull()
+        {
+            if (Linha().Contains(null)) { return false; }
+            return true;
+        }
     }
 }
