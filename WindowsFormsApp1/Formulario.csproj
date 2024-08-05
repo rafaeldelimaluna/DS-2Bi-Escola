@@ -46,54 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cursos.cs">
+    <Compile Include="DAO\ProfessorDAO.cs" />
+    <Compile Include="Formularios\Cursos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cursos.Designer.cs">
+    <Compile Include="Formularios\Cursos.Designer.cs">
       <DependentUpon>Cursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Disciplinas.cs">
+    <Compile Include="Formularios\Disciplinas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Disciplinas.Designer.cs">
+    <Compile Include="Formularios\Disciplinas.Designer.cs">
       <DependentUpon>Disciplinas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Professores.cs">
+    <Compile Include="Formularios\Professores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Professores.Designer.cs">
+    <Compile Include="Formularios\Professores.Designer.cs">
       <DependentUpon>Professores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Formularios\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="Formularios\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Salas.cs">
+    <Compile Include="Formularios\Salas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Salas.Designer.cs">
+    <Compile Include="Formularios\Salas.Designer.cs">
       <DependentUpon>Salas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios.cs">
+    <Compile Include="Formularios\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuarios.Designer.cs">
+    <Compile Include="Formularios\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Cursos.resx">
+    <EmbeddedResource Include="Formularios\Cursos.resx">
       <DependentUpon>Cursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Disciplinas.resx">
+    <EmbeddedResource Include="Formularios\Disciplinas.resx">
       <DependentUpon>Disciplinas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Formularios\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Professores.resx">
+    <EmbeddedResource Include="Formularios\Professores.resx">
       <DependentUpon>Professores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -105,10 +106,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Salas.resx">
+    <EmbeddedResource Include="Formularios\Salas.resx">
       <DependentUpon>Salas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuarios.resx">
+    <EmbeddedResource Include="Formularios\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -125,9 +126,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
+    <ProjectReference Include="..\Model\Models.csproj">
       <Project>{d4b0642f-a79d-4819-8812-3c2faeed9c41}</Project>
-      <Name>Model</Name>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
