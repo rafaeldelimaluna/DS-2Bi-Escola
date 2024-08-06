@@ -18,9 +18,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             conn = new ProfessorDAO();
-            data = conn.Get();
-            DtGridProfessores.DataSource = data;
-
+            DtGridProfessores.DataSource = conn.Get();
         }
         string NomePlaceholder="Nome ";
         string ApelidoPlaceholder = "Apelido";
@@ -76,6 +74,7 @@ namespace WindowsFormsApp1
             }
             ProfessoresEntidade professor = Cadastro;
             conn.Inserir(professor);
+            DtGridProfessores.DataSource = conn.Get();
             ClearFields();
 
         }
