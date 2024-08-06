@@ -37,12 +37,10 @@ namespace WindowsFormsApp1
             this.DtGridProfessores = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ApelidoTbxx = new System.Windows.Forms.TextBox();
-            this.IdNud = new System.Windows.Forms.NumericUpDown();
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtGridProfessores)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -93,11 +91,6 @@ namespace WindowsFormsApp1
             this.ApelidoTbxx.Enter += new System.EventHandler(this.ApelidoTbxx_Enter);
             this.ApelidoTbxx.Leave += new System.EventHandler(this.ApelidoTbxx_Leave);
             // 
-            // IdNud
-            // 
-            resources.ApplyResources(this.IdNud, "IdNud");
-            this.IdNud.Name = "IdNud";
-            // 
             // DeleteRowBtn
             // 
             resources.ApplyResources(this.DeleteRowBtn, "DeleteRowBtn");
@@ -118,7 +111,6 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.DeleteRowBtn);
-            this.Controls.Add(this.IdNud);
             this.Controls.Add(this.ApelidoTbxx);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.DtGridProfessores);
@@ -126,10 +118,10 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.NomeEbx);
             this.Name = "Professores";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.DtGridProfessores)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IdNud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,7 +137,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridView DtGridProfessores;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox ApelidoTbxx;
-        private System.Windows.Forms.NumericUpDown IdNud;
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.Button EditBtn;
     }

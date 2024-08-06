@@ -1,34 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model.Entitidades;
+using WindowsFormsApp1.DAO;
+
+
 namespace WindowsFormsApp1
 {
     public partial class Professores : Form
     {
         DataTable data;
+        private ProfessorDAO conn;
         int LinhaSelecionada;
+
         public Professores()
         {
             InitializeComponent();
-            data = new DataTable();
+            conn = new ProfessorDAO();
+            data = conn.Get();
             DtGridProfessores.DataSource = data;
-            foreach(var attributes in typeof(ProfessoresEntidade).GetProperties())
-            {
-                data.Columns.Add(attributes.Name);
-            }
-            data.Rows.Add(1, "Alexandre Galvani", "Galvani");
-            data.Rows.Add(2, "Lucilene", "Luci");
-            data.Rows.Add(3, "Fernando", "caneco");
-            data.Rows.Add(4, "Fabricios dos Santos Rios", "Rios Music");
+
         }
-        string NomePlaceholder="Nome";
+        string NomePlaceholder="Nome ";
         string ApelidoPlaceholder = "Apelido";
         private void Placeholder(TextBox textBox, String placeholder_value)
         {
@@ -47,7 +41,6 @@ namespace WindowsFormsApp1
         }
         private void ClearFields()
         {
-            IdNud.Value = 0;
             NomeEbx.Text = NomePlaceholder;
             NomeEbx.ForeColor = Color.Gray;
             ApelidoTbxx.Text = ApelidoPlaceholder;
@@ -70,7 +63,6 @@ namespace WindowsFormsApp1
         private ProfessoresEntidade Cadastro{
             get{
             ProfessoresEntidade professor = new ProfessoresEntidade();
-            professor.Id = Convert.ToInt32(IdNud.Value);
             professor.Nome = NomeEbx.Text;
             professor.Apelido = ApelidoTbxx.Text;
             return professor;
@@ -83,13 +75,12 @@ namespace WindowsFormsApp1
                 return;
             }
             ProfessoresEntidade professor = Cadastro;
-            data.Rows.Add(professor.Linha());
+            conn.Inserir(professor);
             ClearFields();
 
         }
         private void SetFields(ProfessoresEntidade professor)
         {
-            IdNud.Value = professor.Id;
             NomeEbx.Text = professor.Nome;
             ApelidoTbxx.Text = professor.Apelido;
         }
@@ -140,7 +131,6 @@ namespace WindowsFormsApp1
         private void EditBtn_Click(object sender, EventArgs e)
         {
             DataGridViewCellCollection cells = DtGridProfessores.Rows[LinhaSelecionada].Cells;
-            cells[0].Value =IdNud.Value;
             cells[1].Value=NomeEbx.Text;
             cells[2].Value = ApelidoTbxx.Text;
             return;

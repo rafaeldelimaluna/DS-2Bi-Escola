@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entitidades\CursosEntidade.cs" />
-    <Compile Include="Entitidades\DisciplinaEntidade.cs" />
-    <Compile Include="Entitidades\ProfessoresEntidade.cs" />
-    <Compile Include="Entitidades\SalasEntidade.cs" />
-    <Compile Include="Entitidades\UsuariosEntidade.cs" />
+    <Compile Include="Entidades\CursosEntidade.cs" />
+    <Compile Include="Entidades\DisciplinaEntidade.cs" />
+    <Compile Include="Entidades\ProfessoresEntidade.cs" />
+    <Compile Include="Entidades\SalasEntidade.cs" />
+    <Compile Include="Entidades\UsuariosEntidade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
