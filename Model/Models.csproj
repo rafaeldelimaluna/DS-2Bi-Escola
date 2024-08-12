@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Entidades\CursosEntidade.cs" />
     <Compile Include="Entidades\DisciplinaEntidade.cs" />
+    <Compile Include="Entidades\EntidadeAbstract.cs" />
     <Compile Include="Entidades\ProfessoresEntidade.cs" />
     <Compile Include="Entidades\SalasEntidade.cs" />
     <Compile Include="Entidades\UsuariosEntidade.cs" />
