@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Model.Entitidades;
-namespace WindowsFormsApp1
+using Model.Entidades;
+namespace Formulario
 {
     public partial class Usuarios : Form
     {

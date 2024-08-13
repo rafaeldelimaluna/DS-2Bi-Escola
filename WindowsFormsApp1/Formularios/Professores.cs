@@ -2,11 +2,11 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using Model.Entitidades;
-using WindowsFormsApp1.DAO;
+using Model.Entidades;
+using Formulario.DAO;
 
 
-namespace WindowsFormsApp1
+namespace Formulario
 {
     public partial class Professores : Form
     {

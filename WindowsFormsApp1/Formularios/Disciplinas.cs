@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Model.Entitidades;
+using Model.Entidades;
 
-namespace WindowsFormsApp1
+namespace Formulario
 {
     public partial class Disciplinas : Form
     {

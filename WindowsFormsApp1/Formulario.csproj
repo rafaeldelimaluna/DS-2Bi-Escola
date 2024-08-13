@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CursosDAO.cs" />
     <Compile Include="DAO\DAOAbstract.cs" />
+    <Compile Include="DAO\DisciplinasDAO.cs" />
     <Compile Include="DAO\ProfessorDAO.cs" />
+    <Compile Include="DAO\SalasDAO.cs" />
+    <Compile Include="DAO\UsuariosDAO.cs" />
     <Compile Include="Formularios\Cursos.cs">
       <SubType>Form</SubType>
     </Compile>

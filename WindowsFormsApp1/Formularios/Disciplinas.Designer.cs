@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsFormsApp1
+namespace Formulario
 {
     partial class Disciplinas
     {

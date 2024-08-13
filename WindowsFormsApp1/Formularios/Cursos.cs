@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using Model.Entidades;
-namespace WindowsFormsApp1
+namespace Formulario
 {
     public partial class Cursos : Form
     {

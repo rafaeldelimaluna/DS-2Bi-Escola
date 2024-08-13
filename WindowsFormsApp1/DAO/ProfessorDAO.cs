@@ -1,9 +1,9 @@
 ﻿using System.Data.SqlClient;
-using Model.Entitidades;
+using Model.Entidades;
 using System.Data;
 
 
-namespace WindowsFormsApp1.DAO
+namespace Formulario.DAO
 {
 
 
