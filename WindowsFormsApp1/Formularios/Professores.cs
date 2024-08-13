@@ -68,12 +68,12 @@ namespace Formulario
         }
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
-            if (!DataIsCorrectly()) {
+                if (!DataIsCorrectly()) 
+                {
                 MessageBox.Show("Dados não preenchidos");
                 return;
-            }
+                }
             ProfessoresEntidade professor = Cadastro;
-            conn.Inserir(professor);
             DtGridProfessores.DataSource = conn.Get();
             ClearFields();
 

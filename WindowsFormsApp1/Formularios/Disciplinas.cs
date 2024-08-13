@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Formulario.DAO;
 using Model.Entidades;
 
 namespace Formulario
 {
-    public partial class Disciplinas : Form
+    public partial class DisciplinasEntidade : Form
     {
         private DataTable data;
         private int LinhaSelecionada;
         private DataGridViewRow CurrentRow;
         private string NomePlaceholder, SiglaPlaceholder;
-        public Disciplinas()
+        private DAOAbstract conn;
+        public DisciplinasEntidade()
         {
             InitializeComponent();
+            conn = new DisciplinasDAO();
             data = new DataTable();
             Table.DataSource = data;
             foreach(var attributes in typeof(DisciplinaEntidade).GetProperties())
@@ -89,7 +92,8 @@ namespace Formulario
         {
             DisciplinaEntidade disciplina = Cadastro;
             if (!disciplina.IsFull()) { return; }
-            data.Rows.Add(disciplina.Linha());
+            conn.InsertAndUpdateDataTable(disciplina, ref Table);
+            //data.Rows.Add(disciplina.Linha());
             ClearFields();
         }
         private void SetFieldsValues(DisciplinaEntidade disciplina){

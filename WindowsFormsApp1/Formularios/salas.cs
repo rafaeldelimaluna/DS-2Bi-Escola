@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Formulario.DAO;
 using Model.Entidades;
 
 namespace Formulario
@@ -17,10 +18,12 @@ namespace Formulario
     {
         DataTable data;
         int LinhaSelecionada;
+        private SalasDAO conn;
         public Salas()
         {
             InitializeComponent();
             data = new DataTable();
+            conn = new SalasDAO();
             Table.DataSource = data;
             foreach (var attributes in typeof(SalasEntidade).GetProperties())
             {
@@ -135,7 +138,8 @@ namespace Formulario
             sala.NumeroCadeiras = NumberChairs;
             sala.Predio = BuildingEntry.Text;
             sala.IsLab = IsLabChk.Checked;
-            data.Rows.Add(sala.Linha());
+            conn.InsertAndUpdateDataTable(sala, ref Table);
+            //data.Rows.Add(sala.Linha());
             ClearForm();
         }
         private void ClearForm()

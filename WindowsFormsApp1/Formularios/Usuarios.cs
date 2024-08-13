@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Formulario.DAO;
 using Model.Entidades;
 namespace Formulario
 {
@@ -14,10 +15,12 @@ namespace Formulario
     {
         DataTable data;
         int LinhaSelecionada;
+        private UsuariosDAO conn;
         public Usuarios()
         {
             InitializeComponent();
             data = new DataTable();
+            conn = new UsuariosDAO();
             foreach(var attributes in typeof(UsuariosEntidade).GetProperties())
             {
                 data.Columns.Add(attributes.Name);
@@ -59,7 +62,7 @@ namespace Formulario
         {
             UsuariosEntidade usuario = Cadastro;
             ClearForm();
-            data.Rows.Add(usuario.Linha());
+            //data.Rows.Add(usuario.Linha());
 
         }
 

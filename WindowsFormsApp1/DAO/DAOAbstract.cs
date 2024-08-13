@@ -2,6 +2,7 @@
 using Model.Entidades;
 using System.Data;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Formulario.DAO
 {
@@ -11,9 +12,11 @@ namespace Formulario.DAO
         static private string LinhaConexao = "SERVER=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql";
         static private SqlConnection Conexao;
         private string insertQuery, selectQuery;
+        private bool connected=false;
         public DAOAbstract(string insertQuery,string selectQuery)
         {
-            Conexao = new SqlConnection(LinhaConexao);
+            if (!connected){ Conexao = new SqlConnection(LinhaConexao); }
+            
             this.insertQuery = insertQuery;
             this.selectQuery = selectQuery;
         }
@@ -31,6 +34,11 @@ namespace Formulario.DAO
 
         public abstract void Insert(T entidade);
 
+        public void InsertAndUpdateDataTable(T entidade,ref DataGridView dt)
+        {
+            Insert(entidade);
+            dt.DataSource = Get();
+        }
         public DataTable Get()
         {
             DataTable dt = new DataTable();

@@ -1,7 +1,7 @@
 ﻿
 namespace Formulario
 {
-    partial class Disciplinas
+    partial class DisciplinasEntidade
     {
         /// <summary>
         /// Required designer variable.

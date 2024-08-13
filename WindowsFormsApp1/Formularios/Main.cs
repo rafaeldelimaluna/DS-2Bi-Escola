@@ -17,7 +17,7 @@ namespace Formulario
         private Cursos cursos;
         private Professores professores;
         private Usuarios usuarios;
-        private Disciplinas disciplinas;
+        private DisciplinasEntidade disciplinas;
 
         private void professoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace Formulario
             }
             else
             {
-                disciplinas = new Disciplinas();
+                disciplinas = new DisciplinasEntidade();
                 disciplinas.Show();
                 IsDisciplinaInstancied = true;
             }

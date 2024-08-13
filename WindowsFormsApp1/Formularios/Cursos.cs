@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using Formulario.DAO;
 using Model.Entidades;
 namespace Formulario
 {
@@ -10,11 +11,13 @@ namespace Formulario
         int LinhaSelecionada;
         DataGridViewCellCollection Cells;
         DataGridViewRow SelectedRow;
+        CursosDAO conn;
         public Cursos()
         {
             InitializeComponent();
             data = new DataTable();
-            Table.DataSource = data;
+            conn = new CursosDAO();
+            Table.DataSource = conn.Get();
             foreach(var attributes in typeof(CursosEntidade).GetProperties())
             {
                 data.Columns.Add(attributes.Name);
@@ -43,8 +46,9 @@ namespace Formulario
             {
                 MessageBox.Show("Tem campo vazio aí!");
             }
-            data.Rows.Add(curso.Linha());
-                }
+            conn.InsertAndUpdateDataTable(Cadastro, ref Table);
+            //data.Rows.Add(curso.Linha());
+        }
 
         private void SetFieldsValues(CursosEntidade curso)
         {
