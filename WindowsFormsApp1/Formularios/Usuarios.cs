@@ -62,6 +62,7 @@ namespace Formulario
         {
             UsuariosEntidade usuario = Cadastro;
             ClearForm();
+            conn.InsertAndUpdateDataTable(usuario,ref Table);
             //data.Rows.Add(usuario.Linha());
 
         }
