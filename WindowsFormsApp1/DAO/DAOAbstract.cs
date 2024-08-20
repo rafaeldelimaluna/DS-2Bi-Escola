@@ -11,14 +11,15 @@ namespace Formulario.DAO
 
         static private string LinhaConexao = "SERVER=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql";
         static private SqlConnection Conexao;
-        private string insertQuery, selectQuery;
+        private string insertQuery, selectQuery,searchQuery;
         private bool connected=false;
-        public DAOAbstract(string insertQuery,string selectQuery)
+        public DAOAbstract(string insertQuery,string selectQuery,string searchQuery)
         {
             if (!connected){ Conexao = new SqlConnection(LinhaConexao); }
             
             this.insertQuery = insertQuery;
             this.selectQuery = selectQuery;
+            this.searchQuery = searchQuery;
         }
         protected void executeInsertion(SqlParameter[] parameters)
         {
@@ -33,12 +34,34 @@ namespace Formulario.DAO
         }
 
         public abstract void Insert(T entidade);
+        public abstract DataTable Search(string valueToSearch);
 
         public void InsertAndUpdateDataTable(T entidade,ref DataGridView dt)
         {
             Insert(entidade);
             dt.DataSource = Get();
         }
+
+        public void SearchAndUpdateDataTable(string ValueToSearch,ref DataGridView dt)
+        {
+            dt.DataSource = Search(ValueToSearch);
+            
+        }
+
+
+        protected DataTable executeSearch(SqlParameter parameter)
+        {
+            SqlCommand comando = new SqlCommand(searchQuery, Conexao);
+            comando.Parameters.Add(parameter);
+            SqlDataReader reader = comando.ExecuteReader();
+
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            reader.Close();
+            Conexao.Close();
+            return dt;
+        }
+
         public DataTable Get()
         {
             DataTable dt = new DataTable();

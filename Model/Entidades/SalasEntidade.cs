@@ -12,7 +12,7 @@ namespace Model.Entidades
         public int NumeroComputadores { get; set; }
         public int NumeroCadeiras { get; set; }
         public string Predio { get; set; }
-        public bool IsLab { get; set; }
+        public bool IsLab { get; set; } = false;
         public object[] Linha()
         {
             return new object[] { Nome, NumeroComputadores, NumeroCadeiras, Predio,IsLab};

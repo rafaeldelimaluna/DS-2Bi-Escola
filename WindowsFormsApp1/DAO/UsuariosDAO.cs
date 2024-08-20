@@ -5,16 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Model.Entidades;
+using System.Data;
 
 namespace Formulario.DAO
 {
     class UsuariosDAO:DAOAbstract<UsuariosEntidade>
     {
-        public UsuariosDAO():base("INSERT INTO USUARIOS (Email,Senha,Nome,Ativo) VALUES (@Email,@Senha,@Nome,@Ativo)","SELECT * FROM USUARIOS ORDER BY ID DESC")
+        public UsuariosDAO():base(insertQuery:"INSERT INTO USUARIOS (Email,Senha,Nome,Ativo) VALUES (@Email,@Senha,@Nome,@Ativo)",
+            selectQuery:"SELECT * FROM USUARIOS ORDER BY ID DESC",
+            searchQuery:"SELECT * FROM USUARIOS ORDER BY ID DESC WHERE @Nome LIKE '%@Nome%'")
         {
 
         }
 
+        public override DataTable Search(string valueToSearch)
+        {
+            SqlParameter sp = new SqlParameter("@Nome", valueToSearch);
+            return executeSearch(sp);
+        }
         public override void Insert(UsuariosEntidade entidade)
         {
             SqlParameter[] parameters = new SqlParameter[4];

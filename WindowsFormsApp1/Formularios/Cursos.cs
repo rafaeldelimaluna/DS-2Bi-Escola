@@ -106,5 +106,9 @@ namespace Formulario
             Cells[3].Value = HorarioFimTbx.Text;
             Cells[4].Value = (int)DuracaoNud.Value;
         }
+
+        private void SearchTbx_TextChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

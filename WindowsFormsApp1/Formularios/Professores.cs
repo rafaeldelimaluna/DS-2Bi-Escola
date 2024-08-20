@@ -74,7 +74,7 @@ namespace Formulario
                 return;
                 }
             ProfessoresEntidade professor = Cadastro;
-            DtGridProfessores.DataSource = conn.Get();
+            conn.InsertAndUpdateDataTable(professor,ref DtGridProfessores);
             ClearFields();
 
         }

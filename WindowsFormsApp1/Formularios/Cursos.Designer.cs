@@ -29,6 +29,7 @@ namespace Formulario
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Table = new System.Windows.Forms.DataGridView();
             this.NomeTbx = new System.Windows.Forms.TextBox();
             this.AreaTbx = new System.Windows.Forms.TextBox();
@@ -39,6 +40,8 @@ namespace Formulario
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.DuracaoNud = new System.Windows.Forms.NumericUpDown();
+            this.SearchTbx = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DuracaoNud)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +50,7 @@ namespace Formulario
             // 
             this.Table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Table.Location = new System.Drawing.Point(230, 8);
+            this.Table.Location = new System.Drawing.Point(230, 41);
             this.Table.Name = "Table";
             this.Table.Size = new System.Drawing.Size(402, 327);
             this.Table.TabIndex = 0;
@@ -107,7 +110,7 @@ namespace Formulario
             // 
             // DeleteRowBtn
             // 
-            this.DeleteRowBtn.Location = new System.Drawing.Point(230, 341);
+            this.DeleteRowBtn.Location = new System.Drawing.Point(230, 374);
             this.DeleteRowBtn.Name = "DeleteRowBtn";
             this.DeleteRowBtn.Size = new System.Drawing.Size(293, 23);
             this.DeleteRowBtn.TabIndex = 11;
@@ -117,7 +120,7 @@ namespace Formulario
             // 
             // EditBtn
             // 
-            this.EditBtn.Location = new System.Drawing.Point(529, 341);
+            this.EditBtn.Location = new System.Drawing.Point(529, 374);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.Size = new System.Drawing.Size(103, 23);
             this.EditBtn.TabIndex = 12;
@@ -132,11 +135,26 @@ namespace Formulario
             this.DuracaoNud.Size = new System.Drawing.Size(165, 20);
             this.DuracaoNud.TabIndex = 13;
             // 
+            // SearchTbx
+            // 
+            this.SearchTbx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.SearchTbx.Location = new System.Drawing.Point(230, 15);
+            this.SearchTbx.Name = "SearchTbx";
+            this.SearchTbx.Size = new System.Drawing.Size(402, 20);
+            this.SearchTbx.TabIndex = 14;
+            this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 373);
+            this.ClientSize = new System.Drawing.Size(1023, 513);
+            this.Controls.Add(this.SearchTbx);
             this.Controls.Add(this.DuracaoNud);
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.DeleteRowBtn);
@@ -168,5 +186,7 @@ namespace Formulario
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.NumericUpDown DuracaoNud;
+        private System.Windows.Forms.TextBox SearchTbx;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

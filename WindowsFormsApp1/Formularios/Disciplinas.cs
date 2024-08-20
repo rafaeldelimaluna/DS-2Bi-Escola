@@ -18,7 +18,7 @@ namespace Formulario
         private int LinhaSelecionada;
         private DataGridViewRow CurrentRow;
         private string NomePlaceholder, SiglaPlaceholder;
-        private DAOAbstract conn;
+        private DAOAbstract<DisciplinaEntidade> conn;
         public DisciplinasEntidade()
         {
             InitializeComponent();

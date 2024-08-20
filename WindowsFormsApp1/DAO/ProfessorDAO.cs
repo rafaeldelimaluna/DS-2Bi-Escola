@@ -7,26 +7,29 @@ namespace Formulario.DAO
 {
 
 
-    public class ProfessorDAO
+    public class ProfessorDAO:DAOAbstract<ProfessoresEntidade>
     {
 
         private string LinhaConexao = "SErver=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql";
-        private SqlConnection Conexao;
-        public ProfessorDAO()
+        public ProfessorDAO():base(
+            insertQuery:"Insert into professores (Nome,Apelido) VALUES (@nome, @apelido)",
+            selectQuery: "SELECT * FROM PROFESSORES ORDER BY ID DESC",
+            searchQuery:"SELECT * FROM PROFESSORES ORDER BY ID DESC WHERE NOME LIKE '%@nome%'")
         {
         }
-        public void Inserir(ProfessoresEntidade professor)
+
+        public override DataTable Search(string valueToSearch)
         {
-            Conexao.Open();
-            string query = "Insert into professores (Nome,Apelido) VALUES (@nome, @apelido)";
+            SqlParameter sp = new SqlParameter("@nome", valueToSearch);
+            return executeSearch(sp);
+        }
 
-            SqlCommand comando = new SqlCommand(query, Conexao);
-
-
-            SqlParameter parametro1 = new SqlParameter("@nome", professor.Nome);
-            SqlParameter parametro2 = new SqlParameter("@apelido", professor.Apelido);
-            comando.Parameters.Add(parametro1);
-            comando.Parameters.Add(parametro2);
+        public override void Insert(ProfessoresEntidade professor)
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@nome", professor.Nome);
+            parameters[1] = new SqlParameter("@apelido", professor.Apelido);
+            executeInsertion(parameters);
 
         }
     }
