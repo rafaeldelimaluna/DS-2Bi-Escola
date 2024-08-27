@@ -39,6 +39,7 @@ namespace Formulario
             this.IdNud = new System.Windows.Forms.NumericUpDown();
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.EditRowBtn = new System.Windows.Forms.Button();
+            this.SearchTbx = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
             this.SuspendLayout();
@@ -137,11 +138,21 @@ namespace Formulario
             this.EditRowBtn.UseVisualStyleBackColor = true;
             this.EditRowBtn.Click += new System.EventHandler(this.EditRowBtn_Click);
             // 
-            // Disciplinas
+            // SearchTbx
+            // 
+            this.SearchTbx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.SearchTbx.Location = new System.Drawing.Point(194, 12);
+            this.SearchTbx.Name = "SearchTbx";
+            this.SearchTbx.Size = new System.Drawing.Size(594, 20);
+            this.SearchTbx.TabIndex = 10;
+            this.SearchTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTbx_KeyPress);
+            // 
+            // DisciplinasEntidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 344);
+            this.Controls.Add(this.SearchTbx);
             this.Controls.Add(this.EditRowBtn);
             this.Controls.Add(this.DeleteRowBtn);
             this.Controls.Add(this.IdNud);
@@ -152,7 +163,7 @@ namespace Formulario
             this.Controls.Add(this.SiglaTbx);
             this.Controls.Add(this.NomeTbx);
             this.Controls.Add(this.label1);
-            this.Name = "Disciplinas";
+            this.Name = "DisciplinasEntidade";
             this.Text = "Disciplinas";
             ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNud)).EndInit();
@@ -173,5 +184,6 @@ namespace Formulario
         private System.Windows.Forms.NumericUpDown IdNud;
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.Button EditRowBtn;
+        private System.Windows.Forms.TextBox SearchTbx;
     }
 }

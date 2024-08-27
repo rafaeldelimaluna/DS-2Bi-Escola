@@ -138,6 +138,11 @@ namespace Formulario
             CurrentRow.SetValues(disciplina.Linha());
         }
 
+        private void SearchTbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            conn.SearchAndUpdateDataTable(SearchTbx.Text, ref Table);
+        }
+
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             ClearFields();

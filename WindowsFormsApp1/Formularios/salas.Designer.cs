@@ -39,11 +39,11 @@ namespace Formulario
             this.ClearBtn = new System.Windows.Forms.Button();
             this.RegisterRoomHeaderPanel = new System.Windows.Forms.Panel();
             this.WarningLabel = new System.Windows.Forms.Label();
-            this.RegistersHeaderCadastroSalas = new System.Windows.Forms.Label();
             this.SaveRegisterButton = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.Table = new System.Windows.Forms.DataGridView();
+            this.SearchTbx = new System.Windows.Forms.TextBox();
             this.RegisterRoomHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
@@ -149,15 +149,6 @@ namespace Formulario
             this.WarningLabel.Size = new System.Drawing.Size(0, 21);
             this.WarningLabel.TabIndex = 9;
             // 
-            // RegistersHeaderCadastroSalas
-            // 
-            this.RegistersHeaderCadastroSalas.AutoSize = true;
-            this.RegistersHeaderCadastroSalas.Location = new System.Drawing.Point(670, 128);
-            this.RegistersHeaderCadastroSalas.Name = "RegistersHeaderCadastroSalas";
-            this.RegistersHeaderCadastroSalas.Size = new System.Drawing.Size(54, 13);
-            this.RegistersHeaderCadastroSalas.TabIndex = 11;
-            this.RegistersHeaderCadastroSalas.Text = "Cadastros";
-            // 
             // SaveRegisterButton
             // 
             this.SaveRegisterButton.Location = new System.Drawing.Point(424, 392);
@@ -197,17 +188,25 @@ namespace Formulario
             this.Table.TabIndex = 15;
             this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_CellClick);
             // 
+            // SearchTbx
+            // 
+            this.SearchTbx.Location = new System.Drawing.Point(424, 128);
+            this.SearchTbx.Name = "SearchTbx";
+            this.SearchTbx.Size = new System.Drawing.Size(548, 20);
+            this.SearchTbx.TabIndex = 16;
+            this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
+            // 
             // Salas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(997, 450);
+            this.Controls.Add(this.SearchTbx);
             this.Controls.Add(this.Table);
             this.Controls.Add(this.DeleteRowBtn);
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.SaveRegisterButton);
-            this.Controls.Add(this.RegistersHeaderCadastroSalas);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.RegisterRoomHeaderPanel);
             this.Controls.Add(this.ClearBtn);
@@ -239,10 +238,10 @@ namespace Formulario
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Panel RegisterRoomHeaderPanel;
         private System.Windows.Forms.Label WarningLabel;
-        private System.Windows.Forms.Label RegistersHeaderCadastroSalas;
         private System.Windows.Forms.Button SaveRegisterButton;
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.DataGridView Table;
+        private System.Windows.Forms.TextBox SearchTbx;
     }
 }

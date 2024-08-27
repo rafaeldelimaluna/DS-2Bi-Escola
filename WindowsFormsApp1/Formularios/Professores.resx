@@ -171,7 +171,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NomeEbx.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="ClearBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 220</value>
@@ -195,7 +195,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ClearBtn.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="RegisterBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 191</value>
@@ -219,10 +219,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;RegisterBtn.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="DtGridProfessores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 88</value>
+    <value>272, 111</value>
   </data>
   <data name="DtGridProfessores.Size" type="System.Drawing.Size, System.Drawing">
     <value>470, 228</value>
@@ -240,7 +240,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;DtGridProfessores.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="panel1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 16pt</value>
@@ -264,7 +264,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="ApelidoTbxx.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 165</value>
@@ -288,10 +288,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ApelidoTbxx.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="DeleteRowBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 322</value>
+    <value>272, 345</value>
   </data>
   <data name="DeleteRowBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>375, 23</value>
@@ -312,10 +312,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;DeleteRowBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="EditBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>653, 322</value>
+    <value>653, 345</value>
   </data>
   <data name="EditBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 23</value>
@@ -336,6 +336,27 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;EditBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SearchTbx.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 88</value>
+  </data>
+  <data name="SearchTbx.Size" type="System.Drawing.Size, System.Drawing">
+    <value>470, 20</value>
+  </data>
+  <data name="SearchTbx.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;SearchTbx.Name" xml:space="preserve">
+    <value>SearchTbx</value>
+  </data>
+  <data name="&gt;&gt;SearchTbx.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchTbx.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SearchTbx.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

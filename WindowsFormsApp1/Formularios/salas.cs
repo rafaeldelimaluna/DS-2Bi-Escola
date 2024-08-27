@@ -238,5 +238,10 @@ namespace Formulario
             SalasEntidade sala = MakeObjLinhaSelecionada();
             Setfields(sala);
         }
+
+        private void SearchTbx_TextChanged(object sender, EventArgs e)
+        {
+            conn.SearchAndUpdateDataTable(SearchTbx.Text, ref Table);
+        }
     }
 }

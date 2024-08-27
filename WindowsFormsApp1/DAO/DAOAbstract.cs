@@ -36,6 +36,7 @@ namespace Formulario.DAO
         public abstract void Insert(T entidade);
         public abstract DataTable Search(string valueToSearch);
 
+
         public void InsertAndUpdateDataTable(T entidade,ref DataGridView dt)
         {
             Insert(entidade);

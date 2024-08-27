@@ -41,6 +41,7 @@ namespace Formulario
             this.EditRowBtn = new System.Windows.Forms.Button();
             this.IdNud = new System.Windows.Forms.NumericUpDown();
             this.IsAtivoChk = new System.Windows.Forms.CheckBox();
+            this.SearchTbx = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
             this.SuspendLayout();
@@ -157,11 +158,20 @@ namespace Formulario
             this.IsAtivoChk.Text = "Ativo";
             this.IsAtivoChk.UseVisualStyleBackColor = true;
             // 
+            // SearchTbx
+            // 
+            this.SearchTbx.Location = new System.Drawing.Point(169, 22);
+            this.SearchTbx.Name = "SearchTbx";
+            this.SearchTbx.Size = new System.Drawing.Size(619, 20);
+            this.SearchTbx.TabIndex = 13;
+            this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
+            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 384);
+            this.Controls.Add(this.SearchTbx);
             this.Controls.Add(this.IsAtivoChk);
             this.Controls.Add(this.IdNud);
             this.Controls.Add(this.EditRowBtn);
@@ -197,5 +207,6 @@ namespace Formulario
         private System.Windows.Forms.Button EditRowBtn;
         private System.Windows.Forms.NumericUpDown IdNud;
         private System.Windows.Forms.CheckBox IsAtivoChk;
+        private System.Windows.Forms.TextBox SearchTbx;
     }
 }

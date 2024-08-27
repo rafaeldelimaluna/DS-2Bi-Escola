@@ -34,12 +34,13 @@ namespace Formulario
             this.NomeEbx = new System.Windows.Forms.TextBox();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.RegisterBtn = new System.Windows.Forms.Button();
-            this.DtGridProfessores = new System.Windows.Forms.DataGridView();
+            this.Table = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ApelidoTbxx = new System.Windows.Forms.TextBox();
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DtGridProfessores)).BeginInit();
+            this.SearchTbx = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,10 +72,10 @@ namespace Formulario
             // 
             // DtGridProfessores
             // 
-            this.DtGridProfessores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.DtGridProfessores, "DtGridProfessores");
-            this.DtGridProfessores.Name = "DtGridProfessores";
-            this.DtGridProfessores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtGridProfessores_CellClick);
+            this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.Table, "DtGridProfessores");
+            this.Table.Name = "DtGridProfessores";
+            this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtGridProfessores_CellClick);
             // 
             // panel1
             // 
@@ -105,21 +106,28 @@ namespace Formulario
             this.EditBtn.UseVisualStyleBackColor = true;
             this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
+            // SearchTbx
+            // 
+            resources.ApplyResources(this.SearchTbx, "SearchTbx");
+            this.SearchTbx.Name = "SearchTbx";
+            this.SearchTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTbx_KeyPress);
+            // 
             // Professores
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.SearchTbx);
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.DeleteRowBtn);
             this.Controls.Add(this.ApelidoTbxx);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.DtGridProfessores);
+            this.Controls.Add(this.Table);
             this.Controls.Add(this.RegisterBtn);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.NomeEbx);
             this.Name = "Professores";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.DtGridProfessores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -134,10 +142,11 @@ namespace Formulario
         
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Button RegisterBtn;
-        private System.Windows.Forms.DataGridView DtGridProfessores;
+        private System.Windows.Forms.DataGridView Table;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox ApelidoTbxx;
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.Button EditBtn;
+        private System.Windows.Forms.TextBox SearchTbx;
     }
 }

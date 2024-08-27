@@ -143,6 +143,7 @@ namespace Formulario
             this.SearchTbx.Size = new System.Drawing.Size(402, 20);
             this.SearchTbx.TabIndex = 14;
             this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
+            this.SearchTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTbx_KeyPress);
             // 
             // contextMenuStrip1
             // 

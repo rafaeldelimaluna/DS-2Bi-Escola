@@ -110,5 +110,10 @@ namespace Formulario
         private void SearchTbx_TextChanged(object sender, EventArgs e)
         {
         }
+
+        private void SearchTbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            conn.SearchAndUpdateDataTable(SearchTbx.Text, ref Table);
+        }
     }
 }

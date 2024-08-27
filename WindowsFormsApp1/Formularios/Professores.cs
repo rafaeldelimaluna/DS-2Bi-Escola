@@ -18,7 +18,7 @@ namespace Formulario
         {
             InitializeComponent();
             conn = new ProfessorDAO();
-            DtGridProfessores.DataSource = conn.Get();
+            Table.DataSource = conn.Get();
         }
         string NomePlaceholder="Nome ";
         string ApelidoPlaceholder = "Apelido";
@@ -74,7 +74,7 @@ namespace Formulario
                 return;
                 }
             ProfessoresEntidade professor = Cadastro;
-            conn.InsertAndUpdateDataTable(professor,ref DtGridProfessores);
+            conn.InsertAndUpdateDataTable(professor,ref Table);
             ClearFields();
 
         }
@@ -124,12 +124,12 @@ namespace Formulario
 
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
-            DtGridProfessores.Rows.RemoveAt(LinhaSelecionada);
+            Table.Rows.RemoveAt(LinhaSelecionada);
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            DataGridViewCellCollection cells = DtGridProfessores.Rows[LinhaSelecionada].Cells;
+            DataGridViewCellCollection cells = Table.Rows[LinhaSelecionada].Cells;
             cells[1].Value=NomeEbx.Text;
             cells[2].Value = ApelidoTbxx.Text;
             return;
@@ -140,12 +140,17 @@ namespace Formulario
             LinhaSelecionada = e.RowIndex;
             DeleteRowBtn.Text = $"Deletar linha {LinhaSelecionada + 1}";
             EditBtn.Text = $"Editar linha {LinhaSelecionada + 1}";
-            DataGridViewCellCollection cells = DtGridProfessores.Rows[LinhaSelecionada].Cells;
+            DataGridViewCellCollection cells = Table.Rows[LinhaSelecionada].Cells;
             ProfessoresEntidade professor = new ProfessoresEntidade();
             professor.Id = Convert.ToInt32(cells[0].Value);
             professor.Nome=cells[1].Value.ToString();
             professor.Apelido=cells[2].Value.ToString();
             SetFields(professor);
+        }
+
+        private void SearchTbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            conn.SearchAndUpdateDataTable(SearchTbx.Text, ref Table);
         }
     }
 }
