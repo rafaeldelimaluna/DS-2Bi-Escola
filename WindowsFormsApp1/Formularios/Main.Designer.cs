@@ -38,6 +38,8 @@ namespace Formulario
             this.disciplinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.professoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relacionamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disciplinaEntidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +65,8 @@ namespace Formulario
             this.cursosToolStripMenuItem,
             this.disciplinasToolStripMenuItem,
             this.professoresToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.relacionamentosToolStripMenuItem});
             this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
             this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.cadastrarToolStripMenuItem.Text = "Cadastrar";
@@ -103,6 +106,21 @@ namespace Formulario
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
+            // relacionamentosToolStripMenuItem
+            // 
+            this.relacionamentosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.disciplinaEntidadeToolStripMenuItem});
+            this.relacionamentosToolStripMenuItem.Name = "relacionamentosToolStripMenuItem";
+            this.relacionamentosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.relacionamentosToolStripMenuItem.Text = "Relacionamentos";
+            // 
+            // disciplinaEntidadeToolStripMenuItem
+            // 
+            this.disciplinaEntidadeToolStripMenuItem.Name = "disciplinaEntidadeToolStripMenuItem";
+            this.disciplinaEntidadeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.disciplinaEntidadeToolStripMenuItem.Text = "Disciplina Entidade";
+            this.disciplinaEntidadeToolStripMenuItem.Click += new System.EventHandler(this.disciplinaEntidadeToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +146,8 @@ namespace Formulario
         private System.Windows.Forms.ToolStripMenuItem disciplinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem professoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem relacionamentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem disciplinaEntidadeToolStripMenuItem;
     }
 }
 

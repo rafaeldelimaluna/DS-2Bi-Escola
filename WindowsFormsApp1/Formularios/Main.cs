@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Formularios;
 
 namespace Formulario
 {
     public partial class Main : Form
     {
-        private bool is_salas_instancied,isCursosInstancied,IsProfessoresInstancied,IsUsuariosInstancied,IsDisciplinaInstancied;
+        private bool is_salas_instancied,isCursosInstancied,IsProfessoresInstancied,IsUsuariosInstancied,IsDisciplinaInstancied,IsCursoDisciplinaInstancied;
         private Salas salas;
         private Cursos cursos;
         private Professores professores;
         private Usuarios usuarios;
         private DisciplinasEntidade disciplinas;
+        private CursoDisciplina cursoDisciplina;
 
         private void professoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -44,6 +46,20 @@ namespace Formulario
                 usuarios = new Usuarios();
                 usuarios.Show();
                 IsUsuariosInstancied=true;
+            }
+        }
+
+        private void disciplinaEntidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsUsuariosInstancied)
+            {
+                cursoDisciplina.Show();
+            }
+            else
+            {
+                cursoDisciplina= new CursoDisciplina();
+                cursoDisciplina.Show();
+                IsCursoDisciplinaInstancied= true;
             }
         }
 

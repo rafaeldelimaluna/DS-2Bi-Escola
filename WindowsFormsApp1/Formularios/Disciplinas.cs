@@ -29,7 +29,7 @@ namespace Formulario
             {
                 data.Columns.Add(attributes.Name);
             }
-            InsertSampleRows();
+            //InsertSampleRows();
             SetPlaceholders();
         }
         private void InsertSampleRows()
@@ -138,9 +138,11 @@ namespace Formulario
             CurrentRow.SetValues(disciplina.Linha());
         }
 
-        private void SearchTbx_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void SearchTbx_TextChanged(object sender, EventArgs e)
         {
             conn.SearchAndUpdateDataTable(SearchTbx.Text, ref Table);
+
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)

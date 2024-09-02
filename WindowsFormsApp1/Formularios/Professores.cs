@@ -148,9 +148,11 @@ namespace Formulario
             SetFields(professor);
         }
 
-        private void SearchTbx_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void SearchTbx_TextChanged(object sender, EventArgs e)
         {
             conn.SearchAndUpdateDataTable(SearchTbx.Text, ref Table);
+
         }
     }
 }

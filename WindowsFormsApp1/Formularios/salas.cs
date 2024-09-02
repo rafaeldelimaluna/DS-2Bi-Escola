@@ -29,7 +29,7 @@ namespace Formulario
             {
                 data.Columns.Add(attributes.Name);
             }
-            AddSampleRows();
+            //AddSampleRows();
         }
         private String NameEntry_PlaceHolder = "Nome da Sala";
         private String PCsNumber_PlaceHolder= "Número de PCs";

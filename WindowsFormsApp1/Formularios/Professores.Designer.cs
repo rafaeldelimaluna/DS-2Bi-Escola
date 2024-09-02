@@ -70,11 +70,11 @@ namespace Formulario
             this.RegisterBtn.UseVisualStyleBackColor = true;
             this.RegisterBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
             // 
-            // DtGridProfessores
+            // Table
             // 
             this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.Table, "DtGridProfessores");
-            this.Table.Name = "DtGridProfessores";
+            resources.ApplyResources(this.Table, "Table");
+            this.Table.Name = "Table";
             this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtGridProfessores_CellClick);
             // 
             // panel1
@@ -110,7 +110,7 @@ namespace Formulario
             // 
             resources.ApplyResources(this.SearchTbx, "SearchTbx");
             this.SearchTbx.Name = "SearchTbx";
-            this.SearchTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTbx_KeyPress);
+            this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
             // 
             // Professores
             // 

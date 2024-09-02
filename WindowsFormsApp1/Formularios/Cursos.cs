@@ -3,6 +3,8 @@ using System.Data;
 using System.Windows.Forms;
 using Formulario.DAO;
 using Model.Entidades;
+
+
 namespace Formulario
 {
     public partial class Cursos : Form
@@ -22,7 +24,6 @@ namespace Formulario
             {
                 data.Columns.Add(attributes.Name);
             }
-            data.Rows.Add("24", "Superior", "18:00", "18:50", 50);
         }
         private CursosEntidade Cadastro
         {
@@ -109,11 +110,8 @@ namespace Formulario
 
         private void SearchTbx_TextChanged(object sender, EventArgs e)
         {
-        }
-
-        private void SearchTbx_KeyPress(object sender, KeyPressEventArgs e)
-        {
             conn.SearchAndUpdateDataTable(SearchTbx.Text, ref Table);
         }
+
     }
 }

@@ -10,7 +10,6 @@ namespace Formulario.DAO
     public class ProfessorDAO:DAOAbstract<ProfessoresEntidade>
     {
 
-        private string LinhaConexao = "SErver=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql";
         public ProfessorDAO():base(
             insertQuery:"Insert into professores (Nome,Apelido) VALUES (@nome, @apelido)",
             selectQuery: "SELECT * FROM PROFESSORES ORDER BY ID DESC",

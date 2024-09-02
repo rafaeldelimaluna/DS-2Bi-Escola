@@ -145,7 +145,7 @@ namespace Formulario
             this.SearchTbx.Name = "SearchTbx";
             this.SearchTbx.Size = new System.Drawing.Size(594, 20);
             this.SearchTbx.TabIndex = 10;
-            this.SearchTbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTbx_KeyPress);
+            this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
             // 
             // DisciplinasEntidade
             // 

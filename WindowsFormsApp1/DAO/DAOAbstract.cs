@@ -52,6 +52,7 @@ namespace Formulario.DAO
 
         protected DataTable executeSearch(SqlParameter parameter)
         {
+            Conexao.Open();
             SqlCommand comando = new SqlCommand(searchQuery, Conexao);
             comando.Parameters.Add(parameter);
             SqlDataReader reader = comando.ExecuteReader();

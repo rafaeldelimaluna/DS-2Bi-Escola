@@ -221,25 +221,25 @@
   <data name="&gt;&gt;RegisterBtn.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="DtGridProfessores.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Table.Location" type="System.Drawing.Point, System.Drawing">
     <value>272, 111</value>
   </data>
-  <data name="DtGridProfessores.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Table.Size" type="System.Drawing.Size, System.Drawing">
     <value>470, 228</value>
   </data>
-  <data name="DtGridProfessores.TabIndex" type="System.Int32, mscorlib">
+  <data name="Table.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;DtGridProfessores.Name" xml:space="preserve">
-    <value>DtGridProfessores</value>
+  <data name="&gt;&gt;Table.Name" xml:space="preserve">
+    <value>Table</value>
   </data>
-  <data name="&gt;&gt;DtGridProfessores.Type" xml:space="preserve">
+  <data name="&gt;&gt;Table.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;DtGridProfessores.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Table.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;DtGridProfessores.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Table.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="panel1.Font" type="System.Drawing.Font, System.Drawing">
