@@ -11,10 +11,9 @@ namespace Model.Entidades
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Sigla { get; set; }
-        public bool Ativo { get; set; }
         public object[] Linha()
         {
-            return new object[] { Id, Nome, Sigla, Ativo };
+            return new object[] { Id, Nome, Sigla };
         }
         public bool IsFull()
         {

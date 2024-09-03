@@ -8,14 +8,15 @@ namespace Model.Entidades
 {
     public class SalasEntidade
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
         public int NumeroComputadores { get; set; }
         public int NumeroCadeiras { get; set; }
-        public string Predio { get; set; }
-        public bool IsLab { get; set; } = false;
+        public bool IsLab { get; set; }
+        public bool Disponivel { get; set; }
         public object[] Linha()
         {
-            return new object[] { Nome, NumeroComputadores, NumeroCadeiras, Predio,IsLab};
+            return new object[] { Id,Nome,NumeroComputadores,NumeroCadeiras,IsLab,Disponivel};
         }
         public bool IsFull()
         {

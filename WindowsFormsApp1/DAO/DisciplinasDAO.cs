@@ -11,7 +11,7 @@ namespace Formulario.DAO
 {
     class DisciplinasDAO : DAOAbstract<DisciplinaEntidade>
     {
-        public DisciplinasDAO():base(insertQuery:"INSERT INTO DISCIPLINAS (Nome,Sigla,Ativo) VALUES (@Nome,@Sigla,@Ativo)",
+        public DisciplinasDAO():base(insertQuery:"INSERT INTO DISCIPLINAS (Nome,Sigla) VALUES (@Nome,@Sigla)",
             selectQuery:"SELECT * FROM DISCIPLINAS ORDER BY ID DESC",
             searchQuery:"SELECT * FROM DISCIPLINAS ORDER BY ID DESC WHERE nome LIKE '%@Nome%'") { }
         public override DataTable Search(string valueToSearch)
@@ -24,7 +24,6 @@ namespace Formulario.DAO
             SqlParameter[] parameters = new SqlParameter[3];
             parameters[0] = new SqlParameter("@Nome", entidade.Nome);
             parameters[1] = new SqlParameter("@Sigla", entidade.Sigla);
-            parameters[2] = new SqlParameter("@Ativo", entidade.Ativo);
             executeInsertion(parameters);
         }
     }

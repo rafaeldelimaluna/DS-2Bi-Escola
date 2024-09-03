@@ -4,11 +4,11 @@ namespace Model.Entidades
 {
     public class CursosEntidade
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
-        public string Area { get; set; }
-        public string HorarioInicio { get; set; }
-        public string HorarioFim { get; set; }
-        public int Duracao { get; set; }
+        public string Turno { get; set; }
+        public string Sigla { get; set; }
+        public bool Ativo { get; set; }
         public bool IsFull()
         {
             if (Linha().Contains(null)) { return false; }
@@ -17,7 +17,7 @@ namespace Model.Entidades
 
         public object[] Linha()
         {
-            return new object[] { Nome, Area, HorarioInicio, HorarioFim, Duracao };
+            return new object[] { Id,Nome,Turno,Sigla,Ativo };
         }
     }
 }

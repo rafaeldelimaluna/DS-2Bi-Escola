@@ -11,7 +11,7 @@ namespace Formulario.DAO
 {
     class SalasDAO : DAOAbstract<SalasEntidade>
     {
-        public SalasDAO() : base(insertQuery: "INSERT INTO SALAS (NOME,NUMERO_COMPUTADORES,NUMERO_CADEIRAS,PREDIO,ISLAB) VALUES(@Nome,@NumeroComputadores,@NumeroCadeiras,@Predio,@IsLab)",
+        public SalasDAO() : base(insertQuery: "INSERT INTO SALAS (NOME,NUMERO_COMPUTADORES,NUMERO_CADEIRAS,PREDIO,ISLAB,DISPONIVEL) VALUES(@Nome,@NumeroComputadores,@NumeroCadeiras,@Predio,@IsLab,@Disponivel)",
             selectQuery:"SELECT * FROM SALAS ORDER BY ID DESC",
             searchQuery:"SELECT * FROM AULAS ORDER BY ID DESC WHERE @Nome LIKE '%Nome%'")
         {
@@ -30,8 +30,8 @@ namespace Formulario.DAO
             new SqlParameter("@Nome", sala.Nome),
             new SqlParameter("@NumeroComputadores", sala.NumeroComputadores),
             new SqlParameter("@NumeroCadeiras", sala.NumeroCadeiras),
-            new SqlParameter("@Predio", sala.Predio),
-            new SqlParameter("@IsLab", sala.IsLab)
+            new SqlParameter("@IsLab", sala.IsLab),
+            new SqlParameter("@Disponivel", sala.Disponivel)
         };
         executeInsertion(parameters);
         }

@@ -12,7 +12,7 @@ namespace Formulario.DAO
 {
     class CursosDAO:DAOAbstract<CursosEntidade>
     {
-        public CursosDAO() : base(insertQuery:"INSERT INTO CURSOS (Nome,Area,HorarioInicio,HorarioFim,Duracao) VALUES (@Nome,@Area,@HorarioInicio,@HorarioFim,@Duracao)",
+        public CursosDAO() : base(insertQuery: "INSERT INTO CURSOS (Nome,Turno,Sigla,Ativo) VALUES (@Nome,@Turno,@Sigla,@Ativo)",
             selectQuery:"SELECT * FROM CURSOS ORDER BY ID DESC",
             searchQuery:"SELECT * FROM CURSOS ORDER BY ID DESC WHERE LIKE @Nome"
             )
@@ -28,10 +28,9 @@ namespace Formulario.DAO
         {
             SqlParameter[] parameters = new SqlParameter[] {
             new SqlParameter("@Nome", entidade.Nome),
-            new SqlParameter("@Area", entidade.Area),
-            new SqlParameter("@HorarioInicio", entidade.HorarioInicio),
-            new SqlParameter("@HorarioFim", entidade.HorarioFim),
-            new SqlParameter("@Duracao", entidade.Duracao)
+            new SqlParameter("@Turno", entidade.Turno),
+            new SqlParameter("@Sigla", entidade.Sigla),
+            new SqlParameter("@Ativo", entidade.Ativo),
             };
             executeInsertion(parameters);
         }

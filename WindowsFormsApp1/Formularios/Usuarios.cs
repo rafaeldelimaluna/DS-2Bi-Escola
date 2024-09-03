@@ -38,7 +38,7 @@ namespace Formulario
                 usuario.Ativo = IsAtivoChk.Checked;
                 usuario.Nome = NomeCompletoTbx.Text;
                 usuario.Senha = SenhaTbx.Text;
-                usuario.Email = EmailTbx.Text;
+                usuario.Login = EmailTbx.Text;
 
                 return usuario;
             }
@@ -88,7 +88,7 @@ namespace Formulario
             DataGridViewCellCollection Cells =Table.Rows[LinhaSelecionada].Cells;
             UsuariosEntidade usuario = new UsuariosEntidade();
             usuario.Id=Convert.ToInt32(Cells[0].Value);
-            usuario.Email= Cells[1].Value.ToString();
+            usuario.Login= Cells[1].Value.ToString();
             usuario.Senha = Cells[2].Value.ToString();
             usuario.Nome = Cells[3].Value.ToString();
             usuario.Ativo = Convert.ToBoolean(Cells[4].Value);
@@ -98,7 +98,7 @@ namespace Formulario
         private void SetFields(UsuariosEntidade usuario)
         {
             IdNud.Value= usuario.Id;
-            EmailTbx.Text = usuario.Email;
+            EmailTbx.Text = usuario.Login;
             SenhaTbx.Text = usuario.Senha;
             NomeCompletoTbx.Text = usuario.Nome;
             IsAtivoChk.Checked=usuario.Ativo;
@@ -107,7 +107,7 @@ namespace Formulario
         {
             DataGridViewCellCollection Cells= Table.Rows[LinhaSelecionada].Cells;
             Cells[0].Value= usuario.Id;
-            Cells[1].Value= usuario.Email;
+            Cells[1].Value= usuario.Login;
             Cells[2].Value= usuario.Senha;
             Cells[3].Value= usuario.Nome;
             Cells[4].Value= usuario.Ativo;
