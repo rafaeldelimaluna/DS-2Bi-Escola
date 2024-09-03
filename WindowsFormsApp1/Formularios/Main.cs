@@ -51,7 +51,7 @@ namespace Formulario
 
         private void disciplinaEntidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (IsUsuariosInstancied)
+            if (IsCursoDisciplinaInstancied)
             {
                 cursoDisciplina.Show();
             }

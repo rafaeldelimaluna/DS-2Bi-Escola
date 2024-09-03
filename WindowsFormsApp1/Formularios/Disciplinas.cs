@@ -84,7 +84,6 @@ namespace Formulario
             disciplina.Id= Convert.ToInt32(IdNud.Value);
             disciplina.Nome= NomeTbx.Text;
             disciplina.Sigla= SiglaTbx.Text;
-            disciplina.Ativo= isAtivoChk.Checked;
             return disciplina;
             }
         }
@@ -100,7 +99,6 @@ namespace Formulario
             NomeTbx.Text=disciplina.Nome;
             SiglaTbx.Text=disciplina.Sigla;
             IdNud.Value=disciplina.Id;
-            isAtivoChk.Checked=disciplina.Ativo;
         }
         private DisciplinaEntidade MakeObjectDisciplinasEntidade(DataGridViewRow Rows){
             DataGridViewCellCollection Cells= Rows.Cells;
@@ -108,7 +106,6 @@ namespace Formulario
             disciplina.Id= Convert.ToInt32(Cells[0].Value);
             disciplina.Nome = Cells[1].Value.ToString();
             disciplina.Sigla = Cells[2].Value.ToString();
-            disciplina.Ativo= Convert.ToBoolean(Cells[3].Value);
 
 
             return disciplina;

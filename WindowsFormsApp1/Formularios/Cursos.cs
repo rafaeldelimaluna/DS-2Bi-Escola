@@ -32,10 +32,9 @@ namespace Formulario
                 CursosEntidade curso = new CursosEntidade();
 
                 curso.Nome = NomeTbx.Text;
-                curso.Area = AreaTbx.Text;
-                curso.HorarioFim = HorarioFimTbx.Text;
-                curso.HorarioInicio = HorarioInicioTbx.Text;
-                curso.Duracao = ((int)DuracaoNud.Value);
+                curso.Ativo=AtivoChk.Checked;
+                curso.Turno=TurnoTbx.Text;
+                curso.Sigla=SiglaTbx.Text;
                 return curso;
             }
         }
@@ -54,18 +53,14 @@ namespace Formulario
         private void SetFieldsValues(CursosEntidade curso)
         {
             NomeTbx.Text = curso.Nome;
-            AreaTbx.Text = curso.Area;
-            HorarioFimTbx.Text = curso.HorarioFim;
-            HorarioInicioTbx.Text = curso.HorarioInicio;
-            DuracaoNud.Value = curso.Duracao;
+            SiglaTbx.Text = curso.Sigla;
+            AtivoChk.Checked = curso.Ativo;
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             NomeTbx.Text = "";
-            AreaTbx.Text = "";
-            HorarioFimTbx.Text = "";
-            HorarioInicioTbx.Text = "";
-            DuracaoNud.Value = (int)DuracaoNud.Value+1;
+            SiglaTbx.Text = "";
+            AtivoChk.Checked = false;
         }
         private void UpdateSelectedCellsVar()
         {
@@ -83,10 +78,7 @@ namespace Formulario
             DeleteRowBtn.Text = $"Excluir linha {LinhaSelecionada + 1}";
             CursosEntidade curso = new CursosEntidade();
             curso.Nome = Cells[0].Value.ToString();
-            curso.Area = Cells[1].Value.ToString();
-            curso.HorarioInicio = Cells[2].Value.ToString();
-            curso.HorarioFim = Cells[3].Value.ToString();
-            curso.Duracao = Convert.ToInt32(Cells[4].Value);
+            curso.Sigla = Cells[1].Value.ToString();
             SetFieldsValues(curso);
 
         }
@@ -102,10 +94,7 @@ namespace Formulario
             UpdateSelectedCellsVar();
             EditBtn.Text = $"Editar Linha {LinhaSelecionada+1}";
             Cells[0].Value = NomeTbx.Text;
-            Cells[1].Value = AreaTbx.Text;
-            Cells[2].Value = HorarioInicioTbx.Text;
-            Cells[3].Value = HorarioFimTbx.Text;
-            Cells[4].Value = (int)DuracaoNud.Value;
+            Cells[1].Value = SiglaTbx.Text;
         }
 
         private void SearchTbx_TextChanged(object sender, EventArgs e)

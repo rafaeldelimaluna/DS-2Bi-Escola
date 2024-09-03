@@ -20,5 +20,9 @@ namespace Model.Entidades
             if (Linha().Contains(null)) { return false; }
             else { return true; }
         }
+        public override string ToString ()
+        {
+            return $"{Nome} | {Sigla}";
+        }
     }
 }

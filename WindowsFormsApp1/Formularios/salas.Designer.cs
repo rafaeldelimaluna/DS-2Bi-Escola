@@ -32,7 +32,7 @@ namespace Formulario
             this.NameEntry = new System.Windows.Forms.TextBox();
             this.PCsNumberEntry = new System.Windows.Forms.TextBox();
             this.ChairEntry = new System.Windows.Forms.TextBox();
-            this.BuildingEntry = new System.Windows.Forms.TextBox();
+            this.adsada = new System.Windows.Forms.TextBox();
             this.RegisterBtn = new System.Windows.Forms.Button();
             this.IsLabChk = new System.Windows.Forms.CheckBox();
             this.RegisterRoomHeaderLabel = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@ namespace Formulario
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.Table = new System.Windows.Forms.DataGridView();
             this.SearchTbx = new System.Windows.Forms.TextBox();
+            this.DisponivelChk = new System.Windows.Forms.CheckBox();
             this.RegisterRoomHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
@@ -78,19 +79,19 @@ namespace Formulario
             this.ChairEntry.Enter += new System.EventHandler(this.ChairEntry_Enter);
             this.ChairEntry.Leave += new System.EventHandler(this.ChairEntry_Enter);
             // 
-            // BuildingEntry
+            // adsada
             // 
-            this.BuildingEntry.Location = new System.Drawing.Point(60, 256);
-            this.BuildingEntry.Name = "BuildingEntry";
-            this.BuildingEntry.Size = new System.Drawing.Size(218, 20);
-            this.BuildingEntry.TabIndex = 3;
-            this.BuildingEntry.Text = "Prédio";
-            this.BuildingEntry.Enter += new System.EventHandler(this.BuildingEntry_Enter);
-            this.BuildingEntry.Leave += new System.EventHandler(this.BuildingEntry_Enter);
+            this.adsada.Location = new System.Drawing.Point(60, 256);
+            this.adsada.Name = "adsada";
+            this.adsada.Size = new System.Drawing.Size(218, 20);
+            this.adsada.TabIndex = 3;
+            this.adsada.Text = "Prédio";
+            this.adsada.Enter += new System.EventHandler(this.BuildingEntry_Enter);
+            this.adsada.Leave += new System.EventHandler(this.BuildingEntry_Enter);
             // 
             // RegisterBtn
             // 
-            this.RegisterBtn.Location = new System.Drawing.Point(104, 305);
+            this.RegisterBtn.Location = new System.Drawing.Point(104, 336);
             this.RegisterBtn.Name = "RegisterBtn";
             this.RegisterBtn.Size = new System.Drawing.Size(100, 50);
             this.RegisterBtn.TabIndex = 4;
@@ -121,7 +122,7 @@ namespace Formulario
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Location = new System.Drawing.Point(104, 361);
+            this.ClearBtn.Location = new System.Drawing.Point(104, 390);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(100, 25);
             this.ClearBtn.TabIndex = 7;
@@ -196,12 +197,23 @@ namespace Formulario
             this.SearchTbx.TabIndex = 16;
             this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
             // 
+            // DisponivelChk
+            // 
+            this.DisponivelChk.AutoSize = true;
+            this.DisponivelChk.Location = new System.Drawing.Point(60, 305);
+            this.DisponivelChk.Name = "DisponivelChk";
+            this.DisponivelChk.Size = new System.Drawing.Size(75, 17);
+            this.DisponivelChk.TabIndex = 17;
+            this.DisponivelChk.Text = "Disponivel";
+            this.DisponivelChk.UseVisualStyleBackColor = true;
+            // 
             // Salas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(997, 450);
+            this.Controls.Add(this.DisponivelChk);
             this.Controls.Add(this.SearchTbx);
             this.Controls.Add(this.Table);
             this.Controls.Add(this.DeleteRowBtn);
@@ -212,7 +224,7 @@ namespace Formulario
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.IsLabChk);
             this.Controls.Add(this.RegisterBtn);
-            this.Controls.Add(this.BuildingEntry);
+            this.Controls.Add(this.adsada);
             this.Controls.Add(this.ChairEntry);
             this.Controls.Add(this.PCsNumberEntry);
             this.Controls.Add(this.NameEntry);
@@ -231,7 +243,7 @@ namespace Formulario
         private System.Windows.Forms.TextBox NameEntry;
         private System.Windows.Forms.TextBox PCsNumberEntry;
         private System.Windows.Forms.TextBox ChairEntry;
-        private System.Windows.Forms.TextBox BuildingEntry;
+        private System.Windows.Forms.TextBox adsada;
         private System.Windows.Forms.Button RegisterBtn;
         private System.Windows.Forms.CheckBox IsLabChk;
         private System.Windows.Forms.Label RegisterRoomHeaderLabel;
@@ -243,5 +255,6 @@ namespace Formulario
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.DataGridView Table;
         private System.Windows.Forms.TextBox SearchTbx;
+        private System.Windows.Forms.CheckBox DisponivelChk;
     }
 }

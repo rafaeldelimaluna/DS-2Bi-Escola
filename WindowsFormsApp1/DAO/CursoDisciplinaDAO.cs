@@ -10,9 +10,12 @@ using Model.Entidades;
 
 namespace Formulario.DAO
 {
-    class CursoDisciplinaDAO:DAOAbstract<CursoDisciplinaEntidade>
+    public class CursoDisciplinaDAO:DAOAbstract<CursoDisciplinaEntidade>
     {
-        CursoDisciplinaDAO() : base(insertQuery:"INSERT INTO Curso_Disciplina (Curso_Id, Disciplina_Id, Periodo) VALUES(@curso_id,@disciplina_id,@periodo);",selectQuery:"",searchQuery:"") { }
+        public CursoDisciplinaDAO() : base(
+            insertQuery:"INSERT INTO Curso_Disciplina (Curso_Id, Disciplina_Id, Periodo) VALUES(@curso_id,@disciplina_id,@periodo);"
+            ,selectQuery:""
+            ,searchQuery:"") { }
 
         public override void Insert(CursoDisciplinaEntidade entidade)
         {

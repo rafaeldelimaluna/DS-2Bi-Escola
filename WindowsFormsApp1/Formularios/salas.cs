@@ -38,20 +38,6 @@ namespace Formulario
 
         private void AddSampleRows()
         {
-            SalasEntidade s1 = new SalasEntidade();
-            s1.Nome = "Olaf";
-            s1.NumeroComputadores = 20;
-            s1.NumeroCadeiras = 19;
-            s1.Predio = "1 andar";
-            s1.IsLab = true;
-            data.Rows.Add(s1.Linha());
-            SalasEntidade s2 = new SalasEntidade();
-            s2.Nome = "Rodlfo";
-            s2.NumeroComputadores = 45;
-            s2.NumeroCadeiras = 45;
-            s2.Predio = "Torres gemesas";
-            s2.IsLab = false;
-            data.Rows.Add(s2.Linha());
 
         }
         private void Placeholder(TextBox textBox,String placeholder_value)
@@ -87,7 +73,7 @@ namespace Formulario
 
         private void BuildingEntry_Enter(object sender, EventArgs e)
         {
-            Placeholder(BuildingEntry, BuildingEntry_Placeholder);
+            Placeholder(adsada, BuildingEntry_Placeholder);
         }
         
         private void SetWarning(String TextWarning)
@@ -127,7 +113,7 @@ namespace Formulario
                 SetWarning("[Número de cadeiras] deve conter números naturais");
                 return;
             }
-            if (BuildingEntry.Text==BuildingEntry_Placeholder) 
+            if (adsada.Text==BuildingEntry_Placeholder) 
             {
                 SetWarning("Campo Prédio vazio"); 
                 return; 
@@ -136,10 +122,9 @@ namespace Formulario
             sala.Nome = NameEntry.Text;
             sala.NumeroComputadores = NumberPCs;
             sala.NumeroCadeiras = NumberChairs;
-            sala.Predio = BuildingEntry.Text;
+            sala.Disponivel = DisponivelChk.Checked;
             sala.IsLab = IsLabChk.Checked;
             conn.InsertAndUpdateDataTable(sala, ref Table);
-            //data.Rows.Add(sala.Linha());
             ClearForm();
         }
         private void ClearForm()
@@ -150,8 +135,8 @@ namespace Formulario
             PCsNumberEntry.ForeColor = Color.Gray;
             ChairEntry.Text = ChairEntry_Placeholder;
             ChairEntry.ForeColor = Color.Gray;
-            BuildingEntry.Text = BuildingEntry_Placeholder;
-            BuildingEntry.ForeColor = Color.Gray;
+            adsada.Text = BuildingEntry_Placeholder;
+            adsada.ForeColor = Color.Gray;
         }
 
         private void Setfields(SalasEntidade sala)
@@ -159,7 +144,6 @@ namespace Formulario
             NameEntry.Text = sala.Nome;
             PCsNumberEntry.Text = sala.NumeroComputadores.ToString();
             ChairEntry.Text = sala.NumeroCadeiras.ToString();
-            BuildingEntry.Text = sala.Predio;
             IsLabChk.Checked = sala.IsLab;
         }
 
@@ -177,7 +161,7 @@ namespace Formulario
                 sala.IsLab = IsLabChk.Checked;
                 sala.NumeroCadeiras = Convert.ToInt32(ChairEntry.Text);
                 sala.NumeroComputadores = Convert.ToInt32(PCsNumberEntry.Text);
-                sala.Predio = BuildingEntry.Text;
+                sala.Disponivel = DisponivelChk.Checked;
                 return sala;
             }
         }
@@ -204,8 +188,8 @@ namespace Formulario
             sala.Nome = Cells[0].Value.ToString();
             sala.NumeroComputadores = Convert.ToInt32(Cells[1].Value);
             sala.NumeroCadeiras = Convert.ToInt32(Cells[2].Value);
-            sala.Predio = Cells[3].Value.ToString();
-            sala.IsLab = Convert.ToBoolean(Cells[4].Value);
+            sala.IsLab = Convert.ToBoolean(Cells[3].Value);
+            sala.Disponivel = Convert.ToBoolean(Cells[4].Value);
             return sala;
         }
 
@@ -216,8 +200,8 @@ namespace Formulario
             Cells[0].Value= sala.Nome;
             Cells[1].Value= sala.NumeroComputadores.ToString();
             Cells[2].Value= sala.NumeroCadeiras;
-            Cells[3].Value= sala.Predio.ToString();
-            Cells[4].Value= sala.IsLab;
+            Cells[3].Value= sala.IsLab;
+            Cells[4].Value= sala.Disponivel;
         }
         private void EditBtn_Click(object sender, EventArgs e)
         {
