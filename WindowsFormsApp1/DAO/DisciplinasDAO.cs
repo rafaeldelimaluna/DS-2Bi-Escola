@@ -13,7 +13,8 @@ namespace Formulario.DAO
     {
         public DisciplinasDAO():base(insertQuery:"INSERT INTO DISCIPLINAS (Nome,Sigla) VALUES (@Nome,@Sigla)",
             selectQuery:"SELECT * FROM DISCIPLINAS ORDER BY ID DESC",
-            searchQuery:"SELECT * FROM DISCIPLINAS ORDER BY ID DESC WHERE nome LIKE '%@Nome%'") { }
+            searchQuery:"SELECT * FROM DISCIPLINAS ORDER BY ID DESC WHERE nome LIKE '%'+@Nome+'%'",
+            tableName:"DISCIPLINAS") { }
         public override DataTable Search(string valueToSearch)
         {
             SqlParameter sp = new SqlParameter("@Nome",valueToSearch);

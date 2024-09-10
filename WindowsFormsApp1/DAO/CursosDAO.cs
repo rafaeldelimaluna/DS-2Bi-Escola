@@ -12,9 +12,10 @@ namespace Formulario.DAO
 {
     class CursosDAO:DAOAbstract<CursosEntidade>
     {
-        public CursosDAO() : base(insertQuery: "INSERT INTO CURSOS (Nome,Turno,Sigla,Ativo) VALUES (@Nome,@Turno,@Sigla,@Ativo)",
-            selectQuery:"SELECT * FROM CURSOS ORDER BY ID DESC",
-            searchQuery:"SELECT * FROM CURSOS ORDER BY ID DESC WHERE LIKE @Nome"
+        public CursosDAO() : base(insertQuery: "INSERT INTO CURSOS (Curso,Turno,Sigla,Ativo) VALUES (@Nome,@Turno,@Sigla,@Ativo)",
+            selectQuery:"SELECT Id,Nome,Sigla,Turno,Ativo FROM CURSOS ORDER BY ID DESC",
+            searchQuery: "SELECT Id,Nome,Sigla,Turno,Ativo FROM CURSOS WHERE Nome LIKE '%'+@Nome+'%'"
+            ,tableName:"CURSOS"
             )
         {
 

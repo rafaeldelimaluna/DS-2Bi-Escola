@@ -44,7 +44,10 @@ namespace Formulario
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AtivoChk = new System.Windows.Forms.CheckBox();
+            this.IdLbl = new System.Windows.Forms.Label();
+            this.IdNUD = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // Table
@@ -59,11 +62,10 @@ namespace Formulario
             // 
             // NomeTbx
             // 
-            this.NomeTbx.Location = new System.Drawing.Point(68, 8);
+            this.NomeTbx.Location = new System.Drawing.Point(68, 53);
             this.NomeTbx.Name = "NomeTbx";
             this.NomeTbx.Size = new System.Drawing.Size(109, 20);
             this.NomeTbx.TabIndex = 1;
-            this.NomeTbx.Text = "Nome";
             // 
             // RegisterBtn
             // 
@@ -121,14 +123,14 @@ namespace Formulario
             // 
             // SiglaTbx
             // 
-            this.SiglaTbx.Location = new System.Drawing.Point(68, 34);
+            this.SiglaTbx.Location = new System.Drawing.Point(68, 79);
             this.SiglaTbx.Name = "SiglaTbx";
             this.SiglaTbx.Size = new System.Drawing.Size(109, 20);
             this.SiglaTbx.TabIndex = 15;
             // 
             // TurnoTbx
             // 
-            this.TurnoTbx.Location = new System.Drawing.Point(68, 61);
+            this.TurnoTbx.Location = new System.Drawing.Point(68, 106);
             this.TurnoTbx.Name = "TurnoTbx";
             this.TurnoTbx.Size = new System.Drawing.Size(109, 20);
             this.TurnoTbx.TabIndex = 16;
@@ -136,7 +138,7 @@ namespace Formulario
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 17;
@@ -145,7 +147,7 @@ namespace Formulario
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 37);
+            this.label2.Location = new System.Drawing.Point(12, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 18;
@@ -154,7 +156,7 @@ namespace Formulario
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 64);
+            this.label3.Location = new System.Drawing.Point(12, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 19;
@@ -163,18 +165,38 @@ namespace Formulario
             // AtivoChk
             // 
             this.AtivoChk.AutoSize = true;
-            this.AtivoChk.Location = new System.Drawing.Point(15, 89);
+            this.AtivoChk.Location = new System.Drawing.Point(15, 134);
             this.AtivoChk.Name = "AtivoChk";
             this.AtivoChk.Size = new System.Drawing.Size(50, 17);
             this.AtivoChk.TabIndex = 20;
             this.AtivoChk.Text = "Ativo";
             this.AtivoChk.UseVisualStyleBackColor = true;
             // 
+            // IdLbl
+            // 
+            this.IdLbl.AutoSize = true;
+            this.IdLbl.Location = new System.Drawing.Point(12, 30);
+            this.IdLbl.Name = "IdLbl";
+            this.IdLbl.Size = new System.Drawing.Size(16, 13);
+            this.IdLbl.TabIndex = 22;
+            this.IdLbl.Text = "Id";
+            // 
+            // IdNUD
+            // 
+            this.IdNUD.InterceptArrowKeys = false;
+            this.IdNUD.Location = new System.Drawing.Point(68, 30);
+            this.IdNUD.Name = "IdNUD";
+            this.IdNUD.ReadOnly = true;
+            this.IdNUD.Size = new System.Drawing.Size(109, 20);
+            this.IdNUD.TabIndex = 23;
+            // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 513);
+            this.Controls.Add(this.IdNUD);
+            this.Controls.Add(this.IdLbl);
             this.Controls.Add(this.AtivoChk);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -191,6 +213,7 @@ namespace Formulario
             this.Name = "Cursos";
             this.Text = "Cursos";
             ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +235,7 @@ namespace Formulario
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox AtivoChk;
+        private System.Windows.Forms.Label IdLbl;
+        private System.Windows.Forms.NumericUpDown IdNUD;
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formulario", "WindowsFormsA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Model\Models.csproj", "{D4B0642F-A79D-4819-8812-3C2FAEED9C41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticTable", "AutomaticTable\AutomaticTable.csproj", "{8BD5198C-6136-42E9-AF71-A5C7E11F31F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D4B0642F-A79D-4819-8812-3C2FAEED9C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B0642F-A79D-4819-8812-3C2FAEED9C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B0642F-A79D-4819-8812-3C2FAEED9C41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD5198C-6136-42E9-AF71-A5C7E11F31F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD5198C-6136-42E9-AF71-A5C7E11F31F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD5198C-6136-42E9-AF71-A5C7E11F31F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD5198C-6136-42E9-AF71-A5C7E11F31F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,7 +30,7 @@ namespace Formulario
             get
             {
                 CursosEntidade curso = new CursosEntidade();
-
+                curso.Id = (int)IdNUD.Value;
                 curso.Nome = NomeTbx.Text;
                 curso.Ativo=AtivoChk.Checked;
                 curso.Turno=TurnoTbx.Text;
@@ -52,14 +52,17 @@ namespace Formulario
 
         private void SetFieldsValues(CursosEntidade curso)
         {
+            IdNUD.Value= curso.Id;
             NomeTbx.Text = curso.Nome;
             SiglaTbx.Text = curso.Sigla;
+            TurnoTbx.Text = curso.Turno;
             AtivoChk.Checked = curso.Ativo;
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             NomeTbx.Text = "";
             SiglaTbx.Text = "";
+            TurnoTbx.Text = "";
             AtivoChk.Checked = false;
         }
         private void UpdateSelectedCellsVar()
@@ -77,16 +80,15 @@ namespace Formulario
             UpdateSelectedCellsVar();
             DeleteRowBtn.Text = $"Excluir linha {LinhaSelecionada + 1}";
             CursosEntidade curso = new CursosEntidade();
-            curso.Nome = Cells[0].Value.ToString();
-            curso.Sigla = Cells[1].Value.ToString();
+            curso.Id = Convert.ToInt32(Cells[0].Value);
+            curso.Nome = Cells[1].Value.ToString();
+            curso.Sigla = Cells[2].Value.ToString();
+            curso.Turno = Cells[3].Value.ToString();
+            curso.Ativo = Convert.ToBoolean(Cells[4].Value);
             SetFieldsValues(curso);
 
         }
-        private void DeleteRowBtn_Click(object sender, EventArgs e)
-        {
-            UpdateSelectedRowVar();
-            data.Rows[LinhaSelecionada].Delete();
-        }
+        private void DeleteRowBtn_Click(object sender, EventArgs e) => conn.DeleteAndUpdateDataTable((int)IdNUD.Value, ref Table);
 
         private void EditBtn_Click(object sender, EventArgs e)
         {

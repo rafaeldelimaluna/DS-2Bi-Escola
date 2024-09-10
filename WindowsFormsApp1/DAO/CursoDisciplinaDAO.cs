@@ -14,8 +14,9 @@ namespace Formulario.DAO
     {
         public CursoDisciplinaDAO() : base(
             insertQuery:"INSERT INTO Curso_Disciplina (Curso_Id, Disciplina_Id, Periodo) VALUES(@curso_id,@disciplina_id,@periodo);"
-            ,selectQuery:""
-            ,searchQuery:"") { }
+            ,selectQuery: "SELECT Curso_Id, Disciplina_Id, Periodo FROM CURSO_DISCIPLINA"
+            , searchQuery: "SELECT Curso_Id, Disciplina_Id, Periodo FROM CURSO_DISCIPLINA WHERE Nome LIKE '%'+@Nome+'%'"
+            , tableName:"Curso_Disciplina") { }
 
         public override void Insert(CursoDisciplinaEntidade entidade)
         {
@@ -29,7 +30,7 @@ namespace Formulario.DAO
 
         public override DataTable Search(string valueToSearch)
         {
-            throw new NotImplementedException();
+            return executeSearch(new SqlParameter("@Nome", valueToSearch));
         }
     }
 }

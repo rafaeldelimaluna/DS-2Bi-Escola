@@ -11,15 +11,17 @@ namespace Formulario.DAO
 
         static private string LinhaConexao = "SERVER=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql";
         static private SqlConnection Conexao;
-        private string insertQuery, selectQuery,searchQuery;
+        private string insertQuery, selectQuery,searchQuery,deleteQuery,tableName;
         private bool connected=false;
-        public DAOAbstract(string insertQuery,string selectQuery,string searchQuery)
+        public DAOAbstract(string insertQuery,string selectQuery,string searchQuery,string tableName)
         {
             if (!connected){ Conexao = new SqlConnection(LinhaConexao); }
             
             this.insertQuery = insertQuery;
             this.selectQuery = selectQuery;
             this.searchQuery = searchQuery;
+            this.tableName = tableName;
+            deleteQuery = $"DELETE FROM {tableName} WHERE Id=@Id";
         }
         protected void executeInsertion(SqlParameter[] parameters)
         {
@@ -49,16 +51,33 @@ namespace Formulario.DAO
             
         }
 
+        public void DeleteAndUpdateDataTable(int rowIndex,ref DataGridView dt)
+        {
+            Delete(rowIndex);
+            dt.DataSource = Get();
+        }
 
+        public void Delete(int id)
+        {
+            Conexao.Open();
+            SqlCommand comando = new SqlCommand(deleteQuery, Conexao);
+            var idParameter = new SqlParameter("@Id", id);
+            comando.Parameters.Add(idParameter);
+            comando.ExecuteNonQuery();
+            Conexao.Close();
+            
+        }
         protected DataTable executeSearch(SqlParameter parameter)
         {
             Conexao.Open();
+            DataTable dt = new DataTable();
+
             SqlCommand comando = new SqlCommand(searchQuery, Conexao);
             comando.Parameters.Add(parameter);
-            SqlDataReader reader = comando.ExecuteReader();
 
-            DataTable dt = new DataTable();
+            SqlDataReader reader = comando.ExecuteReader();
             dt.Load(reader);
+
             reader.Close();
             Conexao.Close();
             return dt;

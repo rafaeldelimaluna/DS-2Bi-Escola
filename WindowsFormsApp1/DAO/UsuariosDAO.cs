@@ -13,7 +13,8 @@ namespace Formulario.DAO
     {
         public UsuariosDAO():base(insertQuery: "INSERT INTO USUARIOS (Login,Senha,Nome,Ativo) VALUES (@Login,@Senha,@Nome,@Ativo)",
             selectQuery:"SELECT * FROM USUARIOS ORDER BY ID DESC",
-            searchQuery:"SELECT * FROM USUARIOS ORDER BY ID DESC WHERE @Nome LIKE '%@Nome%'")
+            searchQuery:"SELECT * FROM USUARIOS ORDER BY ID DESC WHERE @Nome LIKE '%'+@Nome+'%'",
+            tableName:"USUARIOS")
         {
 
         }

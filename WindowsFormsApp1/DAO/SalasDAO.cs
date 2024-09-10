@@ -13,7 +13,8 @@ namespace Formulario.DAO
     {
         public SalasDAO() : base(insertQuery: "INSERT INTO SALAS (NOME,NUMERO_COMPUTADORES,NUMERO_CADEIRAS,PREDIO,ISLAB,DISPONIVEL) VALUES(@Nome,@NumeroComputadores,@NumeroCadeiras,@Predio,@IsLab,@Disponivel)",
             selectQuery:"SELECT * FROM SALAS ORDER BY ID DESC",
-            searchQuery:"SELECT * FROM AULAS ORDER BY ID DESC WHERE @Nome LIKE '%Nome%'")
+            searchQuery:"SELECT * FROM AULAS ORDER BY ID DESC WHERE @Nome LIKE '%'+Nome+'%'",
+            tableName:"SALAS")
         {
         }
 

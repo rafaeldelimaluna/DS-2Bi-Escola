@@ -2,11 +2,20 @@
 {
     public class CursoDisciplinaEntidade
     {
-        public string Id { get; set; }
-        public string DisciplinaId { get; set; }
+        public int Id { get; set; } = 0;
+        public int DisciplinaId { get; set; }
         public int CursoId { get; set; }
         public string Periodo { get; set; }
-        public string NomeDisciplina { get; set; }
-        public string Nome { get; set; }
+        SELECT
+        //CD.Id,
+        //C.Nome,
+        //C.Id,
+        //CD.Periodo
+        //FROM CURSO_DISCIPLINA AS CD
+        //INNER JOIN CURSOS AS C
+        //ON C.Id = CD.Curso_Id
+        //INNER JOIN DISCIPLINAS AS D
+        //ON
+        //D.Id = CD.Disciplina_Id;
     }
 }
