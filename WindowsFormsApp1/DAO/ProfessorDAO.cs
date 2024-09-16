@@ -14,6 +14,7 @@ namespace Formulario.DAO
             insertQuery:"Insert into professores (Nome,Apelido) VALUES (@nome, @apelido)",
             selectQuery: "SELECT * FROM PROFESSORES ORDER BY ID DESC",
             searchQuery:"SELECT * FROM PROFESSORES ORDER BY ID DESC WHERE NOME LIKE '%'+@nome+'%'",
+            updateQuery:"UPDATE PROFESSORES SET NOME=@Nome,APELIDO=@Apelido WHERE ID=@Id",
             tableName:"PROFESSORES")
         {
         }
@@ -22,6 +23,16 @@ namespace Formulario.DAO
         {
             SqlParameter sp = new SqlParameter("@nome", valueToSearch);
             return executeSearch(sp);
+        }
+
+        public override void Update(ProfessoresEntidade entidade)
+        {
+            SqlParameter[] parameters = new SqlParameter[] {
+            new SqlParameter("@nome", entidade.Nome),
+            new SqlParameter("@apelido", entidade.Apelido),
+            new SqlParameter("@Id",entidade.Id)
+            };
+            executeInsertion(parameters);
         }
 
         public override void Insert(ProfessoresEntidade professor)

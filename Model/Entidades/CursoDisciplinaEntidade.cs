@@ -6,7 +6,7 @@
         public int DisciplinaId { get; set; }
         public int CursoId { get; set; }
         public string Periodo { get; set; }
-        SELECT
+        //SELECT
         //CD.Id,
         //C.Nome,
         //C.Id,

@@ -11,9 +11,9 @@ namespace Formulario.DAO
 
         static private string LinhaConexao = "SERVER=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql";
         static private SqlConnection Conexao;
-        private string insertQuery, selectQuery,searchQuery,deleteQuery,tableName;
+        private string insertQuery, selectQuery,searchQuery,deleteQuery,updateQuery,tableName;
         private bool connected=false;
-        public DAOAbstract(string insertQuery,string selectQuery,string searchQuery,string tableName)
+        public DAOAbstract(string insertQuery,string selectQuery,string searchQuery,string updateQuery,string tableName)
         {
             if (!connected){ Conexao = new SqlConnection(LinhaConexao); }
             
@@ -21,6 +21,7 @@ namespace Formulario.DAO
             this.selectQuery = selectQuery;
             this.searchQuery = searchQuery;
             this.tableName = tableName;
+            this.updateQuery = updateQuery;
             deleteQuery = $"DELETE FROM {tableName} WHERE Id=@Id";
         }
         protected void executeInsertion(SqlParameter[] parameters)
@@ -36,6 +37,7 @@ namespace Formulario.DAO
         }
 
         public abstract void Insert(T entidade);
+        public abstract void Update(T entidade);
         public abstract DataTable Search(string valueToSearch);
 
 
@@ -48,7 +50,6 @@ namespace Formulario.DAO
         public void SearchAndUpdateDataTable(string ValueToSearch,ref DataGridView dt)
         {
             dt.DataSource = Search(ValueToSearch);
-            
         }
 
         public void DeleteAndUpdateDataTable(int rowIndex,ref DataGridView dt)
@@ -56,7 +57,11 @@ namespace Formulario.DAO
             Delete(rowIndex);
             dt.DataSource = Get();
         }
-
+        public void UpdateAndUpdateDataTable(T entidade,ref DataGridView dt)
+        {
+            Update(entidade);
+            dt.DataSource = Get();
+        }
         public void Delete(int id)
         {
             Conexao.Open();
@@ -83,6 +88,17 @@ namespace Formulario.DAO
             return dt;
         }
 
+        protected void executeUpdate(SqlParameter[] parameters)
+        {
+            Conexao.Open();
+            SqlCommand comando = new SqlCommand(updateQuery, Conexao);
+            foreach(SqlParameter param in parameters)
+            {
+                comando.Parameters.Add(param);
+            }
+            comando.ExecuteNonQuery();
+            Conexao.Close();
+        }
         public DataTable Get()
         {
             DataTable dt = new DataTable();

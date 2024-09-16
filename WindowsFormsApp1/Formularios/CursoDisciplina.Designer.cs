@@ -36,6 +36,8 @@
             this.PeriodoCbx = new System.Windows.Forms.ComboBox();
             this.TurnoLbl = new System.Windows.Forms.Label();
             this.RegisterBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.EditBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +85,7 @@
             this.Table.Name = "Table";
             this.Table.Size = new System.Drawing.Size(738, 426);
             this.Table.TabIndex = 4;
+            this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_CellClick);
             // 
             // PeriodoCbx
             // 
@@ -116,11 +119,33 @@
             this.RegisterBtn.UseVisualStyleBackColor = true;
             this.RegisterBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
             // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.Location = new System.Drawing.Point(255, 445);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(738, 23);
+            this.DeleteBtn.TabIndex = 8;
+            this.DeleteBtn.Text = "Excluir Registro {}";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // EditBtn
+            // 
+            this.EditBtn.Location = new System.Drawing.Point(15, 188);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Size = new System.Drawing.Size(222, 23);
+            this.EditBtn.TabIndex = 9;
+            this.EditBtn.Text = "Editar";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            // 
             // CursoDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1003, 450);
+            this.ClientSize = new System.Drawing.Size(1003, 471);
+            this.Controls.Add(this.EditBtn);
+            this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.RegisterBtn);
             this.Controls.Add(this.TurnoLbl);
             this.Controls.Add(this.PeriodoCbx);
@@ -147,5 +172,7 @@
         private System.Windows.Forms.ComboBox PeriodoCbx;
         private System.Windows.Forms.Label TurnoLbl;
         private System.Windows.Forms.Button RegisterBtn;
+        private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Button EditBtn;
     }
 }

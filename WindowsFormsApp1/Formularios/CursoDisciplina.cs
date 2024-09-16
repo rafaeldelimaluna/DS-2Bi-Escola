@@ -9,10 +9,8 @@ namespace WindowsFormsApp1.Formularios
 {
     public partial class CursoDisciplina : Form
     {
-        DataTable data;
         int LinhaSelecionada;
         DataGridViewCellCollection Cells;
-        DataGridViewRow SelectedRow;
         private CursoDisciplinaDAO cursoDisciplinaConn;
         private CursosDAO cursoConn;
         private DisciplinasDAO disciplinasConn;
@@ -58,7 +56,32 @@ namespace WindowsFormsApp1.Formularios
         }
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
+            cursoDisciplinaConn.InsertAndUpdateDataTable(Cadastro, ref Table);
+        }
 
+        private void Table_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            Cells = Table.Rows[LinhaSelecionada].Cells;
+            var cursoDisciplina = new CursoDisciplinaEntidade
+            {
+                Id = Convert.ToInt32(Cells[0].Value),
+                CursoId = Convert.ToInt32(Cells[1].Value),
+                DisciplinaId = Convert.ToInt32(Cells[2].Value),
+                Periodo = Cells[3].Value.ToString()
+            };
+            Cadastro = cursoDisciplina;
+            EditBtn.Text = $"Deletar registro Id:{cursoDisciplina.Id}";
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            cursoDisciplinaConn.DeleteAndUpdateDataTable(Cadastro.Id, ref Table);
         }
     }
 }
