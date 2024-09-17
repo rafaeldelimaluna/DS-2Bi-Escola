@@ -71,12 +71,12 @@ namespace WindowsFormsApp1.Formularios
                 Periodo = Cells[3].Value.ToString()
             };
             Cadastro = cursoDisciplina;
-            EditBtn.Text = $"Deletar registro Id:{cursoDisciplina.Id}";
+            DeleteBtn.Text = $"Deletar registro Id:{cursoDisciplina.Id}";
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-
+            cursoDisciplinaConn.UpdateAndUpdateDataTable(Cadastro, ref Table);
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)

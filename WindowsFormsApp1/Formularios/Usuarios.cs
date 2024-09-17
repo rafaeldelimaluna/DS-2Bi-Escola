@@ -42,6 +42,14 @@ namespace Formulario
 
                 return usuario;
             }
+            set
+            {
+                IdNud.Value = value.Id;
+                EmailTbx.Text = value.Login;
+                SenhaTbx.Text = value.Senha;
+                NomeCompletoTbx.Text = value.Nome;
+                IsAtivoChk.Checked = value.Ativo;
+            }
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
@@ -70,12 +78,14 @@ namespace Formulario
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
             data.Rows[LinhaSelecionada].Delete();
+            DeleteRowBtn.Text = $"Excluir registro Id:{Cadastro.Id}";
+            conn.DeleteAndUpdateDataTable(Cadastro.Id, ref Table);
         }
 
         private void EditRowBtn_Click(object sender, EventArgs e)
         {
-            UsuariosEntidade usuario=Cadastro;
-            SetValuesInCurrentRow(usuario);
+            
+            conn.UpdateAndUpdateDataTable(Cadastro,ref Table);
             ClearForm();
         }
 

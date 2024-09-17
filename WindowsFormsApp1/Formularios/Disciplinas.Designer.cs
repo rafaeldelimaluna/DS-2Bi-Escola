@@ -60,7 +60,6 @@ namespace Formulario
             this.NomeTbx.Size = new System.Drawing.Size(167, 20);
             this.NomeTbx.TabIndex = 1;
             this.NomeTbx.Text = "Nome";
-            this.NomeTbx.Enter += new System.EventHandler(this.NomeTbx_Enter);
             // 
             // SiglaTbx
             // 
@@ -69,7 +68,6 @@ namespace Formulario
             this.SiglaTbx.Size = new System.Drawing.Size(167, 20);
             this.SiglaTbx.TabIndex = 2;
             this.SiglaTbx.Text = "Sigla";
-            this.SiglaTbx.Enter += new System.EventHandler(this.SiglaTbx_Enter);
             // 
             // isAtivoChk
             // 

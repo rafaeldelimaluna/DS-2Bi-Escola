@@ -39,7 +39,6 @@ namespace Formulario
             this.ClearBtn = new System.Windows.Forms.Button();
             this.RegisterRoomHeaderPanel = new System.Windows.Forms.Panel();
             this.WarningLabel = new System.Windows.Forms.Label();
-            this.SaveRegisterButton = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.Table = new System.Windows.Forms.DataGridView();
@@ -150,16 +149,6 @@ namespace Formulario
             this.WarningLabel.Size = new System.Drawing.Size(0, 21);
             this.WarningLabel.TabIndex = 9;
             // 
-            // SaveRegisterButton
-            // 
-            this.SaveRegisterButton.Location = new System.Drawing.Point(424, 392);
-            this.SaveRegisterButton.Name = "SaveRegisterButton";
-            this.SaveRegisterButton.Size = new System.Drawing.Size(548, 23);
-            this.SaveRegisterButton.TabIndex = 12;
-            this.SaveRegisterButton.Text = "Salvar";
-            this.SaveRegisterButton.UseVisualStyleBackColor = true;
-            this.SaveRegisterButton.Click += new System.EventHandler(this.SaveRegisterButton_Click);
-            // 
             // EditBtn
             // 
             this.EditBtn.Location = new System.Drawing.Point(849, 415);
@@ -185,7 +174,7 @@ namespace Formulario
             this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Table.Location = new System.Drawing.Point(424, 149);
             this.Table.Name = "Table";
-            this.Table.Size = new System.Drawing.Size(548, 237);
+            this.Table.Size = new System.Drawing.Size(548, 260);
             this.Table.TabIndex = 15;
             this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_CellClick);
             // 
@@ -218,7 +207,6 @@ namespace Formulario
             this.Controls.Add(this.Table);
             this.Controls.Add(this.DeleteRowBtn);
             this.Controls.Add(this.EditBtn);
-            this.Controls.Add(this.SaveRegisterButton);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.RegisterRoomHeaderPanel);
             this.Controls.Add(this.ClearBtn);
@@ -250,7 +238,6 @@ namespace Formulario
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Panel RegisterRoomHeaderPanel;
         private System.Windows.Forms.Label WarningLabel;
-        private System.Windows.Forms.Button SaveRegisterButton;
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.DataGridView Table;

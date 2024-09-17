@@ -37,6 +37,14 @@ namespace Formulario
                 curso.Sigla=SiglaTbx.Text;
                 return curso;
             }
+            set
+            {
+                IdNUD.Value = value.Id;
+                NomeTbx.Text = value.Nome;
+                SiglaTbx.Text = value.Sigla;
+                TurnoTbx.Text = value.Turno;
+                AtivoChk.Checked = value.Ativo;
+            }
         }
 
         private void RegisterBtn_Click(object sender, EventArgs e)
@@ -48,15 +56,6 @@ namespace Formulario
             }
             conn.InsertAndUpdateDataTable(Cadastro, ref Table);
             //data.Rows.Add(curso.Linha());
-        }
-
-        private void SetFieldsValues(CursosEntidade curso)
-        {
-            IdNUD.Value= curso.Id;
-            NomeTbx.Text = curso.Nome;
-            SiglaTbx.Text = curso.Sigla;
-            TurnoTbx.Text = curso.Turno;
-            AtivoChk.Checked = curso.Ativo;
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
@@ -85,7 +84,7 @@ namespace Formulario
             curso.Sigla = Cells[2].Value.ToString();
             curso.Turno = Cells[3].Value.ToString();
             curso.Ativo = Convert.ToBoolean(Cells[4].Value);
-            SetFieldsValues(curso);
+            Cadastro = curso;
 
         }
         private void DeleteRowBtn_Click(object sender, EventArgs e) => conn.DeleteAndUpdateDataTable((int)IdNUD.Value, ref Table);
@@ -94,9 +93,9 @@ namespace Formulario
         {
             UpdateSelectedRowVar();
             UpdateSelectedCellsVar();
-            EditBtn.Text = $"Editar Linha {LinhaSelecionada+1}";
-            Cells[0].Value = NomeTbx.Text;
-            Cells[1].Value = SiglaTbx.Text;
+            var curso = Cadastro;
+            EditBtn.Text = $"Editar Linha Id:{curso.Id}";
+            conn.UpdateAndUpdateDataTable(curso, ref Table);
         }
 
         private void SearchTbx_TextChanged(object sender, EventArgs e)

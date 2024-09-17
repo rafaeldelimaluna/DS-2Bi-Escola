@@ -29,17 +29,12 @@ namespace Formulario
             {
                 data.Columns.Add(attributes.Name);
             }
-            //AddSampleRows();
         }
         private String NameEntry_PlaceHolder = "Nome da Sala";
         private String PCsNumber_PlaceHolder= "Número de PCs";
         private String ChairEntry_Placeholder= "Número de Cadeiras";
         private String BuildingEntry_Placeholder= "Prédio";
 
-        private void AddSampleRows()
-        {
-
-        }
         private void Placeholder(TextBox textBox,String placeholder_value)
         {
             String textBox_text = textBox.Text;
@@ -164,6 +159,13 @@ namespace Formulario
                 sala.Disponivel = DisponivelChk.Checked;
                 return sala;
             }
+            set
+            {
+                NameEntry.Text = value.Nome;
+                PCsNumberEntry.Text = value.NumeroComputadores.ToString();
+                ChairEntry.Text = value.NumeroCadeiras.ToString();
+                IsLabChk.Checked = value.IsLab;
+            }
         }
         private void SaveRegisterButton_Click(object sender, EventArgs e)
         {
@@ -180,6 +182,8 @@ namespace Formulario
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
             data.Rows[LinhaSelecionada].Delete();
+            DeleteRowBtn.Text = $"Excluir registro Id:{Cadastro.Id}";
+            conn.DeleteAndUpdateDataTable(Cadastro.Id, ref Table);
         }
         private SalasEntidade MakeObjLinhaSelecionada()
         {
@@ -211,6 +215,7 @@ namespace Formulario
                 return;
             }
             SetValuesInRow(sala);
+            conn.UpdateAndUpdateDataTable(Cadastro, ref Table);
 
         }
 

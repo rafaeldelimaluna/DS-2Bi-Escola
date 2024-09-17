@@ -14,9 +14,9 @@ namespace Formulario.DAO
     {
         public CursosDAO() : base(insertQuery: "INSERT INTO CURSOS (Curso,Turno,Sigla,Ativo) VALUES (@Nome,@Turno,@Sigla,@Ativo)",
             selectQuery:"SELECT Id,Nome,Sigla,Turno,Ativo FROM CURSOS ORDER BY ID DESC",
-            searchQuery: "SELECT Id,Nome,Sigla,Turno,Ativo FROM CURSOS WHERE Nome LIKE '%'+@Nome+'%'",
-            updateQuery:"UPDATE CURSOS SET Nome=@Nome,Sigla=@Sigla,Turno=@Turno,Ativo=@Ativo WHERE ID=@Id"
-            ,tableName:"CURSOS"
+            searchQuery: "SELECT Id,Nome,Sigla,Turno,Ativo FROM CURSOS WHERE Nome LIKE '%'+@Nome+'%' ORDER BY ID DESC",
+            updateQuery: "UPDATE CURSOS SET Nome=@Nome,Sigla=@Sigla,Turno=@Turno,Ativo=@Ativo WHERE ID=@Id"
+            , tableName:"CURSOS"
             )
         {
 

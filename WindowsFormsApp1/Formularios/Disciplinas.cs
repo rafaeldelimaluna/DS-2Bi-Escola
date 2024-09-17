@@ -32,26 +32,10 @@ namespace Formulario
             //InsertSampleRows();
             SetPlaceholders();
         }
-        private void InsertSampleRows()
-        {
-            data.Rows.Add(0, "Matemática", "Mat", true);
-            data.Rows.Add(1, "História", "Hist", false);
-            data.Rows.Add(2, "Biologia", "Bio", false);
-            data.Rows.Add(3, "Física", "Fis", true);
-        }
         private void SetPlaceholders()
         {
             NomePlaceholder = NomeTbx.Text;
             SiglaPlaceholder = SiglaTbx.Text;
-        }
-        private void NomeTbx_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SiglaTbx_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void ClearFields()
@@ -92,7 +76,6 @@ namespace Formulario
             DisciplinaEntidade disciplina = Cadastro;
             if (!disciplina.IsFull()) { return; }
             conn.InsertAndUpdateDataTable(disciplina, ref Table);
-            //data.Rows.Add(disciplina.Linha());
             ClearFields();
         }
         private void SetFieldsValues(DisciplinaEntidade disciplina){
@@ -123,6 +106,7 @@ namespace Formulario
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
             data.Rows[LinhaSelecionada].Delete();
+            conn.DeleteAndUpdateDataTable(Cadastro.Id, ref Table);
         }
 
         private void EditRowBtn_Click(object sender, EventArgs e)

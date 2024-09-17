@@ -10,7 +10,6 @@ namespace Formulario
 {
     public partial class Professores : Form
     {
-        DataTable data;
         private ProfessorDAO conn;
         int LinhaSelecionada;
 
@@ -64,6 +63,11 @@ namespace Formulario
             professor.Nome = NomeEbx.Text;
             professor.Apelido = ApelidoTbxx.Text;
             return professor;
+            }
+            set
+            {
+                NomeEbx.Text = value.Nome;
+                ApelidoTbxx.Text = value.Apelido;
             }
         }
         private void RegisterBtn_Click(object sender, EventArgs e)
@@ -125,14 +129,13 @@ namespace Formulario
         private void DeleteRowBtn_Click(object sender, EventArgs e)
         {
             Table.Rows.RemoveAt(LinhaSelecionada);
+            DeleteRowBtn.Text = $"Excluir registro id: {Cadastro.Id}";
+            conn.DeleteAndUpdateDataTable(Cadastro.Id, ref Table);
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            DataGridViewCellCollection cells = Table.Rows[LinhaSelecionada].Cells;
-            cells[1].Value=NomeEbx.Text;
-            cells[2].Value = ApelidoTbxx.Text;
-            return;
+            conn.UpdateAndUpdateDataTable(Cadastro, ref Table);
         }
 
         private void DtGridProfessores_CellClick(object sender, DataGridViewCellEventArgs e)
