@@ -24,7 +24,7 @@ namespace Formulario
             InitializeComponent();
             data = new DataTable();
             conn = new SalasDAO();
-            Table.DataSource = data;
+            Table.DataSource = conn.Get();
             foreach (var attributes in typeof(SalasEntidade).GetProperties())
             {
                 data.Columns.Add(attributes.Name);
@@ -68,7 +68,6 @@ namespace Formulario
 
         private void BuildingEntry_Enter(object sender, EventArgs e)
         {
-            Placeholder(adsada, BuildingEntry_Placeholder);
         }
         
         private void SetWarning(String TextWarning)
@@ -108,11 +107,6 @@ namespace Formulario
                 SetWarning("[Número de cadeiras] deve conter números naturais");
                 return;
             }
-            if (adsada.Text==BuildingEntry_Placeholder) 
-            {
-                SetWarning("Campo Prédio vazio"); 
-                return; 
-            }
             SalasEntidade sala = new SalasEntidade();
             sala.Nome = NameEntry.Text;
             sala.NumeroComputadores = NumberPCs;
@@ -130,8 +124,6 @@ namespace Formulario
             PCsNumberEntry.ForeColor = Color.Gray;
             ChairEntry.Text = ChairEntry_Placeholder;
             ChairEntry.ForeColor = Color.Gray;
-            adsada.Text = BuildingEntry_Placeholder;
-            adsada.ForeColor = Color.Gray;
         }
 
         private void Setfields(SalasEntidade sala)

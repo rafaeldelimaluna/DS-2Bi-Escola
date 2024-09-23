@@ -33,7 +33,6 @@ namespace Formulario.DAO
             new SqlParameter("@Turno", entidade.Turno),
             new SqlParameter("@Sigla", entidade.Sigla),
             new SqlParameter("@Ativo", entidade.Ativo),
-            new SqlParameter("@Id", entidade.Id),
             };
             executeUpdate(parameters);
         }

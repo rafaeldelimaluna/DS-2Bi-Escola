@@ -8,7 +8,7 @@ namespace Model.Entidades
 {
     public class DisciplinaEntidade
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
         public string Nome { get; set; }
         public string Sigla { get; set; }
         public object[] Linha()

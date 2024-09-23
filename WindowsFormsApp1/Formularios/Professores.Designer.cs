@@ -40,6 +40,8 @@ namespace Formulario
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.SearchTbx = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -112,10 +114,22 @@ namespace Formulario
             this.SearchTbx.Name = "SearchTbx";
             this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
             // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
             // Professores
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchTbx);
             this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.DeleteRowBtn);
@@ -148,5 +162,7 @@ namespace Formulario
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.TextBox SearchTbx;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

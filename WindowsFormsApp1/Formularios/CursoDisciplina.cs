@@ -20,6 +20,7 @@ namespace WindowsFormsApp1.Formularios
             cursoDisciplinaConn= new CursoDisciplinaDAO();
             cursoConn = new CursosDAO();
             disciplinasConn = new DisciplinasDAO();
+            Table.DataSource = cursoDisciplinaConn.Get();
             InitializeComboBoxes();
         }
         private void InitializeComboBoxes()
@@ -29,8 +30,8 @@ namespace WindowsFormsApp1.Formularios
             DisciplinaCbx.ValueMember = "Id";
 
             CursoCbx.DataSource = cursoConn.Get();
-            DisciplinaCbx.DisplayMember = "Nome";
-            DisciplinaCbx.ValueMember = "Id";
+            CursoCbx.DisplayMember = "Nome";
+            CursoCbx.ValueMember = "Id";
         }
         private void DisciplinaCbx_SelectedIndexChanged(object sender, EventArgs e)
         {

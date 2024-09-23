@@ -29,7 +29,6 @@ namespace Formulario
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.NomeCompletoTbx = new System.Windows.Forms.TextBox();
             this.SenhaTbx = new System.Windows.Forms.TextBox();
             this.CursoTbx = new System.Windows.Forms.TextBox();
@@ -45,15 +44,6 @@ namespace Formulario
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cadastro Usuarios";
             // 
             // NomeCompletoTbx
             // 
@@ -183,7 +173,6 @@ namespace Formulario
             this.Controls.Add(this.CursoTbx);
             this.Controls.Add(this.SenhaTbx);
             this.Controls.Add(this.NomeCompletoTbx);
-            this.Controls.Add(this.label1);
             this.Name = "Usuarios";
             this.Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
@@ -194,8 +183,6 @@ namespace Formulario
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NomeCompletoTbx;
         private System.Windows.Forms.TextBox SenhaTbx;
         private System.Windows.Forms.TextBox CursoTbx;

@@ -11,10 +11,10 @@ namespace Formulario.DAO
 {
     class SalasDAO : DAOAbstract<SalasEntidade>
     {
-        public SalasDAO() : base(insertQuery: "INSERT INTO SALAS (NOME,NUMERO_COMPUTADORES,NUMERO_CADEIRAS,PREDIO,ISLAB,DISPONIVEL) VALUES(@Nome,@NumeroComputadores,@NumeroCadeiras,@Predio,@IsLab,@Disponivel)",
+        public SalasDAO() : base(insertQuery: "INSERT INTO SALAS (NOME,NUMEROCOMPUTADORES,NUMEROCADEIRAS,ISLAB,DISPONIVEL) VALUES(@Nome,@NumeroComputadores,@NumeroCadeiras,@IsLab,@Disponivel)",
             selectQuery:"SELECT * FROM SALAS ORDER BY ID DESC",
             searchQuery:"SELECT * FROM AULAS ORDER BY ID DESC WHERE @Nome LIKE '%'+Nome+'%'",
-            updateQuery: "UPDATE SALAS SET NOME=@Nome,NUMERO_COMPUTADORES=@Numero_computadores,NUMERO_CADEIRAS=@Numero_cadeiras,PREDIO=@Predio,ISLAB=@Is_lab,DISPONIVEL=@Disponivel WHERE ID=@Id",
+            updateQuery: "UPDATE SALAS SET NOME=@Nome,NUMEROCOMPUTADORES=@Numero_computadores,NUMEROCADEIRAS=@Numero_cadeiras,ISLAB=@Is_lab,DISPONIVEL=@Disponivel WHERE ID=@Id",
             tableName:"SALAS")
         {
         }
@@ -34,6 +34,7 @@ namespace Formulario.DAO
             new SqlParameter("@IsLab", entidade.IsLab),
             new SqlParameter("@Disponivel", entidade.Disponivel),
             new SqlParameter("@Id", entidade.Id)
+
         };
             executeUpdate(parameters);
         }

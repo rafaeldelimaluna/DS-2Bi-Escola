@@ -56,7 +56,7 @@ namespace Formulario
             this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Table.Location = new System.Drawing.Point(230, 41);
             this.Table.Name = "Table";
-            this.Table.Size = new System.Drawing.Size(402, 327);
+            this.Table.Size = new System.Drawing.Size(739, 327);
             this.Table.TabIndex = 0;
             this.Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_CellClick);
             // 
@@ -194,7 +194,7 @@ namespace Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 513);
+            this.ClientSize = new System.Drawing.Size(973, 400);
             this.Controls.Add(this.IdNUD);
             this.Controls.Add(this.IdLbl);
             this.Controls.Add(this.AtivoChk);
