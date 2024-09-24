@@ -13,10 +13,10 @@ namespace Formulario.DAO
     public class CursoDisciplinaDAO:DAOAbstract<CursoDisciplinaEntidade>
     {
         public CursoDisciplinaDAO() : base(
-            insertQuery:"INSERT INTO Curso_Disciplina (Curso_Id, Disciplina_Id, Periodo) VALUES(@curso_id,@disciplina_id,@periodo);"
-            ,selectQuery: "SELECT Id,Curso_Id, Disciplina_Id, Periodo FROM CURSO_DISCIPLINA"
-            , searchQuery: "SELECT Id,Curso_Id, Disciplina_Id, Periodo FROM CURSO_DISCIPLINA WHERE Nome LIKE '%'+@Nome+'%'"
-            ,updateQuery:"UPDATE CURSO_DISCIPLINA SET CURSO_ID=@curso_id,DISCIPLINA_ID=@disciplina_id,PERIODO=@periodoWHERE ID=@id"
+            insertQuery:"INSERT INTO Curso_Disciplina (Curso_Id, Disciplina_Id, Periodo) VALUES(@curso_id,@disciplina_id,@periodo)"
+            ,selectQuery: "SELECT Id,Curso_Id, Disciplina_Id, Periodo FROM CURSO_DISCIPLINA ORDER BY ID DESC"
+            , searchQuery: "SELECT Id,Curso_Id, Disciplina_Id, Periodo FROM CURSO_DISCIPLINA WHERE Nome LIKE '%'+@Nome+'%' ORDER BY ID DESC"
+            ,updateQuery: "UPDATE CURSO_DISCIPLINA SET CURSO_ID=@curso_id,DISCIPLINA_ID=@disciplina_id,PERIODO=@periodo WHERE ID=@id ORDER BY ID DESC"
             , tableName:"Curso_Disciplina") { }
 
         public override void Insert(CursoDisciplinaEntidade entidade)

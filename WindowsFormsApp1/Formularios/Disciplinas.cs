@@ -17,7 +17,6 @@ namespace Formulario
         private DataTable data;
         private int LinhaSelecionada;
         private DataGridViewRow CurrentRow;
-        private string NomePlaceholder, SiglaPlaceholder;
         private DAOAbstract<DisciplinaEntidade> conn;
         public DisciplinasEntidade()
         {
@@ -30,45 +29,23 @@ namespace Formulario
                 data.Columns.Add(attributes.Name);
             }
             //InsertSampleRows();
-            SetPlaceholders();
-        }
-        private void SetPlaceholders()
-        {
-            NomePlaceholder = NomeTbx.Text;
-            SiglaPlaceholder = SiglaTbx.Text;
         }
 
-        private void ClearFields()
-        {
-            NomeTbx.Text = "Nome";
-            SiglaTbx.Text = "Sigla";
-            IdNud.Value = 0;
-        }
-
-        private void Placeholder(TextBox textBox, String placeholder_value)
-        {
-            String textBox_text = textBox.Text;
-
-            if (textBox_text == placeholder_value)
-            {
-                textBox.Text = "";
-                textBox.ForeColor = Color.Black;
-            }
-            else if (textBox_text == "")
-            {
-                textBox.Text = placeholder_value;
-                textBox.ForeColor = Color.Gray;
-            }
-        }
 
         private DisciplinaEntidade Cadastro{
             get{
-            DisciplinaEntidade disciplina;
-            disciplina = new DisciplinaEntidade();
-            disciplina.Id= Convert.ToInt32(IdNud.Value);
-            disciplina.Nome= NomeTbx.Text;
-            disciplina.Sigla= SiglaTbx.Text;
-            return disciplina;
+                DisciplinaEntidade disciplina;
+                disciplina = new DisciplinaEntidade();
+                disciplina.Id= Convert.ToInt32(IdNud.Value);
+                disciplina.Nome= NomeTbx.Text;
+                disciplina.Sigla= SiglaTbx.Text;
+                return disciplina;
+            }
+            set
+            {
+                IdNud.Value = (int)value.Id;
+                NomeTbx.Text = value.Nome;
+                SiglaTbx.Text = value.Sigla;
             }
         }
         private void RegisterBtn_Click(object sender, EventArgs e)
@@ -76,12 +53,7 @@ namespace Formulario
             DisciplinaEntidade disciplina = Cadastro;
             if (!disciplina.IsFull()) { return; }
             conn.InsertAndUpdateDataTable(disciplina, ref Table);
-            ClearFields();
-        }
-        private void SetFieldsValues(DisciplinaEntidade disciplina){
-            NomeTbx.Text=disciplina.Nome;
-            SiglaTbx.Text=disciplina.Sigla;
-            IdNud.Value=disciplina.Id;
+            Cadastro = new DisciplinaEntidade();
         }
         private DisciplinaEntidade MakeObjectDisciplinasEntidade(DataGridViewRow Rows){
             DataGridViewCellCollection Cells= Rows.Cells;
@@ -98,9 +70,9 @@ namespace Formulario
         {
             LinhaSelecionada = e.RowIndex;
             CurrentRow = Table.Rows[LinhaSelecionada];
-            DeleteRowBtn.Text = $"Excluir linha {LinhaSelecionada+1}";
+            DeleteRowBtn.Text = $"Excluir linha {Cadastro.Id}";
             DisciplinaEntidade disciplina = MakeObjectDisciplinasEntidade(CurrentRow);
-            SetFieldsValues(disciplina);
+            Cadastro = disciplina;
         }
 
         private void DeleteRowBtn_Click(object sender, EventArgs e)
@@ -128,7 +100,7 @@ namespace Formulario
 
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            ClearFields();
+            Cadastro = new DisciplinaEntidade();
 
         }
     }

@@ -12,9 +12,9 @@ namespace Formulario.DAO
     class SalasDAO : DAOAbstract<SalasEntidade>
     {
         public SalasDAO() : base(insertQuery: "INSERT INTO SALAS (NOME,NUMEROCOMPUTADORES,NUMEROCADEIRAS,ISLAB,DISPONIVEL) VALUES(@Nome,@NumeroComputadores,@NumeroCadeiras,@IsLab,@Disponivel)",
-            selectQuery:"SELECT * FROM SALAS ORDER BY ID DESC",
-            searchQuery:"SELECT * FROM AULAS ORDER BY ID DESC WHERE @Nome LIKE '%'+Nome+'%'",
-            updateQuery: "UPDATE SALAS SET NOME=@Nome,NUMEROCOMPUTADORES=@Numero_computadores,NUMEROCADEIRAS=@Numero_cadeiras,ISLAB=@Is_lab,DISPONIVEL=@Disponivel WHERE ID=@Id",
+            selectQuery:"SELECT Id,Nome,NUMEROCOMPUTADORES,NUMEROCADEIRAS,ISLAB,DISPONIVEL FROM SALAS ORDER BY ID DESC",
+            searchQuery: "SELECT Id,Nome,NUMEROCOMPUTADORES,NUMEROCADEIRAS,ISLAB,DISPONIVEL FROM SALAS WHERE Nome LIKE '%'+@Nome+'%' ORDER BY ID DESC ",
+            updateQuery: "UPDATE SALAS SET NOME=@Nome,NUMEROCOMPUTADORES=@NumeroComputadores,NUMEROCADEIRAS=@NumeroCadeiras,ISLAB=@isLab,DISPONIVEL=@Disponivel WHERE ID=@Id",
             tableName:"SALAS")
         {
         }

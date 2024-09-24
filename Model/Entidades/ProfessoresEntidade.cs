@@ -8,7 +8,7 @@ namespace Model.Entidades
 {
     public class ProfessoresEntidade
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
         public string Nome { get; set; }
         public string Apelido { get; set; }
 

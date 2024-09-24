@@ -13,7 +13,7 @@ namespace Formulario.DAO
         public ProfessorDAO():base(
             insertQuery:"Insert into professores (Nome,Apelido) VALUES (@nome, @apelido)",
             selectQuery: "SELECT * FROM PROFESSORES ORDER BY ID DESC",
-            searchQuery:"SELECT * FROM PROFESSORES ORDER BY ID DESC WHERE NOME LIKE '%'+@nome+'%'",
+            searchQuery: "SELECT * FROM PROFESSORES WHERE NOME LIKE '%'+@nome+'%' ORDER BY ID DESC",
             updateQuery:"UPDATE PROFESSORES SET NOME=@Nome,APELIDO=@Apelido WHERE ID=@Id",
             tableName:"PROFESSORES")
         {

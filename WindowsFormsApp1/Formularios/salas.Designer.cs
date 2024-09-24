@@ -30,8 +30,6 @@ namespace Formulario
         private void InitializeComponent()
         {
             this.NameEntry = new System.Windows.Forms.TextBox();
-            this.PCsNumberEntry = new System.Windows.Forms.TextBox();
-            this.ChairEntry = new System.Windows.Forms.TextBox();
             this.RegisterBtn = new System.Windows.Forms.Button();
             this.IsLabChk = new System.Windows.Forms.CheckBox();
             this.RegisterRoomHeaderLabel = new System.Windows.Forms.Label();
@@ -46,8 +44,15 @@ namespace Formulario
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.IdNud = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.NumeroPcsNud = new System.Windows.Forms.NumericUpDown();
+            this.NumeroCadeirasNud = new System.Windows.Forms.NumericUpDown();
             this.RegisterRoomHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumeroPcsNud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumeroCadeirasNud)).BeginInit();
             this.SuspendLayout();
             // 
             // NameEntry
@@ -56,26 +61,6 @@ namespace Formulario
             this.NameEntry.Name = "NameEntry";
             this.NameEntry.Size = new System.Drawing.Size(104, 20);
             this.NameEntry.TabIndex = 0;
-            this.NameEntry.Enter += new System.EventHandler(this.NameEntry_Enter);
-            this.NameEntry.Leave += new System.EventHandler(this.NameEntry_Enter);
-            // 
-            // PCsNumberEntry
-            // 
-            this.PCsNumberEntry.Location = new System.Drawing.Point(174, 204);
-            this.PCsNumberEntry.Name = "PCsNumberEntry";
-            this.PCsNumberEntry.Size = new System.Drawing.Size(104, 20);
-            this.PCsNumberEntry.TabIndex = 1;
-            this.PCsNumberEntry.Enter += new System.EventHandler(this.PCsNumber_Enter);
-            this.PCsNumberEntry.Leave += new System.EventHandler(this.PCsNumber_Enter);
-            // 
-            // ChairEntry
-            // 
-            this.ChairEntry.Location = new System.Drawing.Point(174, 230);
-            this.ChairEntry.Name = "ChairEntry";
-            this.ChairEntry.Size = new System.Drawing.Size(104, 20);
-            this.ChairEntry.TabIndex = 2;
-            this.ChairEntry.Enter += new System.EventHandler(this.ChairEntry_Enter);
-            this.ChairEntry.Leave += new System.EventHandler(this.ChairEntry_Enter);
             // 
             // RegisterBtn
             // 
@@ -212,12 +197,47 @@ namespace Formulario
             this.label3.TabIndex = 20;
             this.label3.Text = "Número de Cadeiras";
             // 
+            // IdNud
+            // 
+            this.IdNud.ImeMode = System.Windows.Forms.ImeMode.Katakana;
+            this.IdNud.Location = new System.Drawing.Point(174, 149);
+            this.IdNud.Name = "IdNud";
+            this.IdNud.Size = new System.Drawing.Size(104, 20);
+            this.IdNud.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(65, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Registro";
+            // 
+            // NumeroPcsNud
+            // 
+            this.NumeroPcsNud.Location = new System.Drawing.Point(174, 203);
+            this.NumeroPcsNud.Name = "NumeroPcsNud";
+            this.NumeroPcsNud.Size = new System.Drawing.Size(104, 20);
+            this.NumeroPcsNud.TabIndex = 23;
+            // 
+            // NumeroCadeirasNud
+            // 
+            this.NumeroCadeirasNud.Location = new System.Drawing.Point(174, 233);
+            this.NumeroCadeirasNud.Name = "NumeroCadeirasNud";
+            this.NumeroCadeirasNud.Size = new System.Drawing.Size(104, 20);
+            this.NumeroCadeirasNud.TabIndex = 24;
+            // 
             // Salas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(997, 450);
+            this.Controls.Add(this.NumeroCadeirasNud);
+            this.Controls.Add(this.NumeroPcsNud);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.IdNud);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -231,14 +251,15 @@ namespace Formulario
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.IsLabChk);
             this.Controls.Add(this.RegisterBtn);
-            this.Controls.Add(this.ChairEntry);
-            this.Controls.Add(this.PCsNumberEntry);
             this.Controls.Add(this.NameEntry);
             this.Name = "Salas";
             this.Text = "salas";
             this.RegisterRoomHeaderPanel.ResumeLayout(false);
             this.RegisterRoomHeaderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumeroPcsNud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumeroCadeirasNud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,8 +268,6 @@ namespace Formulario
         #endregion
 
         private System.Windows.Forms.TextBox NameEntry;
-        private System.Windows.Forms.TextBox PCsNumberEntry;
-        private System.Windows.Forms.TextBox ChairEntry;
         private System.Windows.Forms.Button RegisterBtn;
         private System.Windows.Forms.CheckBox IsLabChk;
         private System.Windows.Forms.Label RegisterRoomHeaderLabel;
@@ -263,5 +282,9 @@ namespace Formulario
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown IdNud;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown NumeroPcsNud;
+        private System.Windows.Forms.NumericUpDown NumeroCadeirasNud;
     }
 }

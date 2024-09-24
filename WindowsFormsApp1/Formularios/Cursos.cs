@@ -77,7 +77,7 @@ namespace Formulario
         {
             LinhaSelecionada = e.RowIndex;
             UpdateSelectedCellsVar();
-            DeleteRowBtn.Text = $"Excluir linha {LinhaSelecionada + 1}";
+            DeleteRowBtn.Text = $"Excluir registro:{Cadastro.Id}";
             CursosEntidade curso = new CursosEntidade();
             curso.Id = Convert.ToInt32(Cells[0].Value);
             curso.Nome = Cells[1].Value.ToString();
@@ -87,14 +87,14 @@ namespace Formulario
             Cadastro = curso;
 
         }
-        private void DeleteRowBtn_Click(object sender, EventArgs e) => conn.DeleteAndUpdateDataTable((int)IdNUD.Value, ref Table);
+        private void DeleteRowBtn_Click(object sender, EventArgs e) => conn.DeleteAndUpdateDataTable(Cadastro.Id, ref Table);
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
             UpdateSelectedRowVar();
             UpdateSelectedCellsVar();
             var curso = Cadastro;
-            EditBtn.Text = $"Editar Linha Id:{curso.Id}";
+            EditBtn.Text = $"Editar registro:{curso.Id}";
             conn.UpdateAndUpdateDataTable(curso, ref Table);
         }
 

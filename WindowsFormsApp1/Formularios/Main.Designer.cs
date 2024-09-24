@@ -37,7 +37,6 @@ namespace Formulario
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disciplinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.professoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relacionamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disciplinaEntidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -65,7 +64,6 @@ namespace Formulario
             this.cursosToolStripMenuItem,
             this.disciplinasToolStripMenuItem,
             this.professoresToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
             this.relacionamentosToolStripMenuItem});
             this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
             this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
@@ -98,13 +96,6 @@ namespace Formulario
             this.professoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.professoresToolStripMenuItem.Text = "Professores";
             this.professoresToolStripMenuItem.Click += new System.EventHandler(this.professoresToolStripMenuItem_Click);
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // relacionamentosToolStripMenuItem
             // 
@@ -145,7 +136,6 @@ namespace Formulario
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disciplinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem professoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relacionamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disciplinaEntidadeToolStripMenuItem;
     }

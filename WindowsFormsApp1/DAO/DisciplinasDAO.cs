@@ -34,9 +34,10 @@ namespace Formulario.DAO
 
         public override void Insert(DisciplinaEntidade entidade)
         {
-            SqlParameter[] parameters = new SqlParameter[3];
-            parameters[0] = new SqlParameter("@Nome", entidade.Nome);
-            parameters[1] = new SqlParameter("@Sigla", entidade.Sigla);
+            SqlParameter[] parameters = new SqlParameter[]{
+
+            new SqlParameter("@Nome", entidade.Nome),
+            new SqlParameter("@Sigla", entidade.Sigla) };
             executeInsertion(parameters);
         }
     }

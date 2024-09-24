@@ -29,6 +29,7 @@ namespace Formulario.DAO
         public override void Update(CursosEntidade entidade)
         {
             SqlParameter[] parameters = new SqlParameter[] {
+            new SqlParameter("@Id",entidade.Id),
             new SqlParameter("@Nome", entidade.Nome),
             new SqlParameter("@Turno", entidade.Turno),
             new SqlParameter("@Sigla", entidade.Sigla),

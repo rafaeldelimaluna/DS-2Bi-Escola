@@ -40,6 +40,9 @@ namespace Formulario
             this.DeleteRowBtn = new System.Windows.Forms.Button();
             this.EditRowBtn = new System.Windows.Forms.Button();
             this.SearchTbx = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNud)).BeginInit();
             this.SuspendLayout();
@@ -55,24 +58,22 @@ namespace Formulario
             // 
             // NomeTbx
             // 
-            this.NomeTbx.Location = new System.Drawing.Point(12, 82);
+            this.NomeTbx.Location = new System.Drawing.Point(70, 82);
             this.NomeTbx.Name = "NomeTbx";
-            this.NomeTbx.Size = new System.Drawing.Size(167, 20);
+            this.NomeTbx.Size = new System.Drawing.Size(109, 20);
             this.NomeTbx.TabIndex = 1;
-            this.NomeTbx.Text = "Nome";
             // 
             // SiglaTbx
             // 
-            this.SiglaTbx.Location = new System.Drawing.Point(12, 108);
+            this.SiglaTbx.Location = new System.Drawing.Point(70, 108);
             this.SiglaTbx.Name = "SiglaTbx";
-            this.SiglaTbx.Size = new System.Drawing.Size(167, 20);
+            this.SiglaTbx.Size = new System.Drawing.Size(109, 20);
             this.SiglaTbx.TabIndex = 2;
-            this.SiglaTbx.Text = "Sigla";
             // 
             // isAtivoChk
             // 
             this.isAtivoChk.AutoSize = true;
-            this.isAtivoChk.Location = new System.Drawing.Point(12, 134);
+            this.isAtivoChk.Location = new System.Drawing.Point(24, 134);
             this.isAtivoChk.Name = "isAtivoChk";
             this.isAtivoChk.Size = new System.Drawing.Size(50, 17);
             this.isAtivoChk.TabIndex = 3;
@@ -111,9 +112,10 @@ namespace Formulario
             // 
             // IdNud
             // 
-            this.IdNud.Location = new System.Drawing.Point(12, 56);
+            this.IdNud.Location = new System.Drawing.Point(70, 56);
             this.IdNud.Name = "IdNud";
-            this.IdNud.Size = new System.Drawing.Size(167, 20);
+            this.IdNud.ReadOnly = true;
+            this.IdNud.Size = new System.Drawing.Size(109, 20);
             this.IdNud.TabIndex = 7;
             // 
             // DeleteRowBtn
@@ -145,11 +147,41 @@ namespace Formulario
             this.SearchTbx.TabIndex = 10;
             this.SearchTbx.TextChanged += new System.EventHandler(this.SearchTbx_TextChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Registro";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(21, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Nome";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 114);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Sigla";
+            // 
             // DisciplinasEntidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 344);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchTbx);
             this.Controls.Add(this.EditRowBtn);
             this.Controls.Add(this.DeleteRowBtn);
@@ -183,5 +215,8 @@ namespace Formulario
         private System.Windows.Forms.Button DeleteRowBtn;
         private System.Windows.Forms.Button EditRowBtn;
         private System.Windows.Forms.TextBox SearchTbx;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

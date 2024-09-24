@@ -14,6 +14,7 @@ namespace WindowsFormsApp1.Formularios
         private CursoDisciplinaDAO cursoDisciplinaConn;
         private CursosDAO cursoConn;
         private DisciplinasDAO disciplinasConn;
+        private int currentId=0;
         public CursoDisciplina()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace WindowsFormsApp1.Formularios
             get
             {
                 var cadastro = new CursoDisciplinaEntidade();
+                cadastro.Id = currentId;
                 cadastro.CursoId = (int)CursoCbx.SelectedValue;
                 cadastro.DisciplinaId = (int)DisciplinaCbx.SelectedValue;
                 cadastro.Periodo = PeriodoCbx.Text;
@@ -50,7 +52,7 @@ namespace WindowsFormsApp1.Formularios
             }
             set
             {
-                CursoCbx.SelectedValue= value.CursoId;
+                currentId= value.Id;
                 DisciplinaCbx.SelectedValue= value.DisciplinaId;
                 PeriodoCbx.SelectedValue = value.Periodo;
             }
@@ -58,6 +60,7 @@ namespace WindowsFormsApp1.Formularios
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             cursoDisciplinaConn.InsertAndUpdateDataTable(Cadastro, ref Table);
+            Cadastro = new CursoDisciplinaEntidade();
         }
 
         private void Table_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -72,7 +75,7 @@ namespace WindowsFormsApp1.Formularios
                 Periodo = Cells[3].Value.ToString()
             };
             Cadastro = cursoDisciplina;
-            DeleteBtn.Text = $"Deletar registro Id:{cursoDisciplina.Id}";
+            DeleteBtn.Text = $"Deletar registro Id:{currentId}";
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -82,7 +85,7 @@ namespace WindowsFormsApp1.Formularios
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            cursoDisciplinaConn.DeleteAndUpdateDataTable(Cadastro.Id, ref Table);
+            cursoDisciplinaConn.DeleteAndUpdateDataTable(currentId, ref Table);
         }
     }
 }
