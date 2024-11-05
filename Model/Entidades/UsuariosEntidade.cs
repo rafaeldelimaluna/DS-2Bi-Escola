@@ -9,14 +9,13 @@ namespace Model.Entidades
     public class UsuariosEntidade
     {
         public int Id { get; set; } = 0;
-        public string Login { get; set; }
         public string Senha { get; set; }
         public string Nome { get; set; }
         public bool Ativo { get; set; }
 
         public object[] Linha()
         {
-            return new object[] { Id, Login, Senha, Nome, Ativo };
+            return new object[] { Id, Senha, Nome, Ativo };
         }
         public bool IsFull()
         {

@@ -21,12 +21,7 @@ namespace Formulario
             InitializeComponent();
             data = new DataTable();
             conn = new UsuariosDAO();
-            foreach(var attributes in typeof(UsuariosEntidade).GetProperties())
-            {
-                data.Columns.Add(attributes.Name);
-            }
-            Table.DataSource = data;
-            //data.Rows.Add(1, "rafaelluna@hotmail.com", "4984984","rafael luna", true);
+            Table.DataSource = conn.Get();
         }
 
         private UsuariosEntidade Cadastro
@@ -38,16 +33,14 @@ namespace Formulario
                 usuario.Ativo = IsAtivoChk.Checked;
                 usuario.Nome = NomeCompletoTbx.Text;
                 usuario.Senha = SenhaTbx.Text;
-                usuario.Login = EmailTbx.Text;
 
                 return usuario;
             }
             set
             {
                 IdNud.Value = value.Id;
-                EmailTbx.Text = value.Login;
+                EmailTbx.Text = value.Nome;
                 SenhaTbx.Text = value.Senha;
-                NomeCompletoTbx.Text = value.Nome;
                 IsAtivoChk.Checked = value.Ativo;
             }
         }
@@ -98,29 +91,26 @@ namespace Formulario
             DataGridViewCellCollection Cells =Table.Rows[LinhaSelecionada].Cells;
             UsuariosEntidade usuario = new UsuariosEntidade();
             usuario.Id=Convert.ToInt32(Cells[0].Value);
-            usuario.Login= Cells[1].Value.ToString();
+            usuario.Nome = Cells[1].Value.ToString();
             usuario.Senha = Cells[2].Value.ToString();
-            usuario.Nome = Cells[3].Value.ToString();
-            usuario.Ativo = Convert.ToBoolean(Cells[4].Value);
+            usuario.Ativo = Convert.ToBoolean(Cells[3].Value);
             return usuario;
         }
 
         private void SetFields(UsuariosEntidade usuario)
         {
             IdNud.Value= usuario.Id;
-            EmailTbx.Text = usuario.Login;
+            EmailTbx.Text = usuario.Nome;
             SenhaTbx.Text = usuario.Senha;
-            NomeCompletoTbx.Text = usuario.Nome;
             IsAtivoChk.Checked=usuario.Ativo;
         }
         private void SetValuesInCurrentRow(UsuariosEntidade usuario)
         {
             DataGridViewCellCollection Cells= Table.Rows[LinhaSelecionada].Cells;
             Cells[0].Value= usuario.Id;
-            Cells[1].Value= usuario.Login;
+            Cells[1].Value= usuario.Nome;
             Cells[2].Value= usuario.Senha;
-            Cells[3].Value= usuario.Nome;
-            Cells[4].Value= usuario.Ativo;
+            Cells[3].Value= usuario.Ativo;
         }
 
         private void Table_CellClick(object sender, DataGridViewCellEventArgs e)

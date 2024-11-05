@@ -65,6 +65,12 @@
     <Compile Include="Formularios\Disciplinas.Designer.cs">
       <DependentUpon>Disciplinas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Professores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Disciplinas.resx">
       <DependentUpon>Disciplinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

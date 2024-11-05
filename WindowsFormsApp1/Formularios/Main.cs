@@ -49,6 +49,17 @@ namespace Formulario
             }
         }
 
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            usuarios = new Usuarios();
+            usuarios.Show();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Login().Show();
+        }
+
         private void disciplinaEntidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (IsCursoDisciplinaInstancied)

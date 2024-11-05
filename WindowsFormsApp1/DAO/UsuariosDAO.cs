@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Model.Entidades;
 using System.Data;
+using WindowsFormsApp1.Formularios;
 
 namespace Formulario.DAO
 {
     class UsuariosDAO:DAOAbstract<UsuariosEntidade>
     {
-        public UsuariosDAO():base(insertQuery: "INSERT INTO USUARIOS (Login,Senha,Nome,Ativo) VALUES (@Login,@Senha,@Nome,@Ativo)",
-            selectQuery:"SELECT * FROM USUARIOS ORDER BY ID DESC",
-            searchQuery:"SELECT * FROM USUARIOS ORDER BY ID DESC WHERE @Nome LIKE '%'+@Nome+'%'",
-            updateQuery: "UPDATE USUARIOS SET Login=@Login,Senha=@Senha,Nome=@Nome,Ativo=@Ativo",
+        public UsuariosDAO():base(insertQuery: "INSERT INTO USUARIOS (Login,Senha,Ativo) VALUES (@Nome,@Senha,@Ativo)",
+            selectQuery:"SELECT Id,Login as Nome,Senha,Ativo FROM USUARIOS ORDER BY ID DESC",
+            searchQuery:"SELECT Id,Login as Nome,Senha,Ativo FROM USUARIOS ORDER BY ID DESC WHERE @Nome LIKE '%'+@Nome+'%'",
+            updateQuery: "UPDATE USUARIOS SET Login=@Login,Senha=@Senha,Nome=@Nome,Ativo=@Ativo WHERE ID=@Id",
             tableName:"USUARIOS")
         {
 
@@ -27,22 +28,53 @@ namespace Formulario.DAO
         }
         public override void Update(UsuariosEntidade entidade)
         {
-            SqlParameter[] parameters = new SqlParameter[5];
-            parameters[0] = new SqlParameter("@Login", entidade.Login);
-            parameters[1] = new SqlParameter("@Senha", entidade.Senha);
-            parameters[2] = new SqlParameter("@Nome", entidade.Nome);
-            parameters[3] = new SqlParameter("@Ativo", entidade.Ativo);
-            parameters[4] = new SqlParameter("@Id", entidade.Id);
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Nome", entidade.Nome),
+                new SqlParameter("@Senha", entidade.Senha),
+                new SqlParameter("@Ativo", entidade.Ativo),
+                new SqlParameter("@Id", entidade.Id),
+
+            };
             executeUpdate(parameters);
         }
         public override void Insert(UsuariosEntidade entidade)
         {
-            SqlParameter[] parameters = new SqlParameter[4];
-            parameters[0] = new SqlParameter("@Login",entidade.Login);
-            parameters[1] = new SqlParameter("@Senha", entidade.Senha);
-            parameters[2] = new SqlParameter("@Nome", entidade.Nome);
-            parameters[3] = new SqlParameter("@Ativo", entidade.Ativo);
+            SqlParameter[] parameters = new SqlParameter[]
+             {
+                new SqlParameter("@Nome", entidade.Nome),
+                new SqlParameter("@Senha", entidade.Senha),
+                new SqlParameter("@Ativo", entidade.Ativo),
+
+             };
             executeInsertion(parameters);
+        }
+
+        public UsuariosEntidade Login(UsuariosEntidade entidade)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Nome",entidade.Nome),
+                new SqlParameter("@Senha",entidade.Senha)
+            };
+
+            var query = "SELECT TOP 1 * from USUARIOS WHERE SENHA=@Senha, Nome=@Nome";
+
+            var reader = GetFirst(query,parameters);
+
+            var entidadeObj = new UsuariosEntidade()
+            {
+                Id=reader.GetInt32(0),
+                Nome=reader.GetString(1),
+                Senha=reader.GetString(2)
+            };
+
+
+
+            reader.Close();
+            CloseConexao();
+
+            return entidadeObj;
         }
     }
 }
